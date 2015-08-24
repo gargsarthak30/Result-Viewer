@@ -2,39 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical" >
-	
-    
+
     <TextView
         android:id="@+id/tvCollegeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Your College's Id Number :" />
+        android:text="Enter Your College&apos;s Id Number :"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etCollegeId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    >
-</EditText>
+        android:layout_height="wrap_content" >
+    </EditText>
 
     <TextView
         android:id="@+id/tvRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Your Registration Number : " />
+        android:text="Enter Your Registration Number : "
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etRegistration"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-         />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Password : " />
+        android:text="Enter Password : "
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -43,11 +47,10 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id = "@+id/bCreate"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:text = "Create Account" 
-        android:layout_gravity = "center"
-    />
+        android:id="@+id/bCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Create Account" />
 
 </LinearLayout>

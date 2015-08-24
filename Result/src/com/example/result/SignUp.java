@@ -78,7 +78,7 @@ public class SignUp extends Activity implements OnClickListener {
 			// Note that create product url accepts POST method
 			JSONObject json = jsonParser.makeHttpRequest(url_create_account,
 					"POST", params);
-			
+
 			// check log cat for response
 			Log.d("Create Response", json.toString());
 
@@ -87,23 +87,22 @@ public class SignUp extends Activity implements OnClickListener {
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-//					Intent i = new Intent("android.intent.action.SIGNIN");
-	//				startActivity(i);
-		//			finish();
-					
+					// Intent i = new Intent("android.intent.action.SIGNIN");
+					// startActivity(i);
+					// finish();
+
 					Toast toast = Toast.makeText(getApplicationContext(),
-							"success",
-							Toast.LENGTH_SHORT);
+							"success", Toast.LENGTH_SHORT);
 					toast.show();
-					
+
 				} else {
 					// failed to create account
 					Toast toast = Toast.makeText(getApplicationContext(),
 							"Some Error Occured.Please try again.",
 							Toast.LENGTH_SHORT);
 					toast.show();
-					//Intent j = new Intent("android.intent.action.SIGNUP");
-					//startActivity(j);
+					// Intent j = new Intent("android.intent.action.SIGNUP");
+					// startActivity(j);
 
 				}
 			} catch (JSONException e) {
