@@ -72,8 +72,8 @@ public class ReadResult extends ListActivity {
             	}
                     else
                     {
-                    	Toast toast = Toast.makeText(getApplicationContext(), "No Result Found", Toast.LENGTH_SHORT);
-                    	toast.show();
+                    //	Toast toast = Toast.makeText(getApplicationContext(), "No Result Found", Toast.LENGTH_SHORT);
+                    	//toast.show();
                     }
                     }
 			catch (JSONException e) {

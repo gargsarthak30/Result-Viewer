@@ -1,20 +1,17 @@
 <?php
 $response = array();
-
-require_once __DIR__ . '/db_connect.php';
-$db = new DB_CONNECT();
-
-if(isset($_GET["cid"])) && isset(($_GET["rno"])) && isset(($_GET["pass"]))
+if(!empty($_GET["cid"]) && !empty(($_GET["rno"])) && !empty($_GET["pass"]))
 {
 $cid = $_GET["cid"];
 $rno = $_GET["rno"];
 $pass = $_GET["pass"];
 
-$result = mysql_query("Select * from users where (RegistrationNumber = '$rno' && Password = '$pass' && College_Id = '$cid')");
-if(!empty($result))
+	$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
+	$q=$conn->query("Select * from users where (RegistrationNumber = '$rno' && Password = '$pass' && College_Id = '$cid')");
+	
+if($q->rowcount()>0)
 {
-if(mysql_fetch_array($result) > 0)
-{
+
 $response["success"] = 1;
 echo json_encode($response);
 session_start();
@@ -32,8 +29,4 @@ else {
 $response["success"] = 0;
 echo json_encode($response);
 }
-}
-else{
-$response["success"] = 0;
-echo json_encode($response);
-}
+
