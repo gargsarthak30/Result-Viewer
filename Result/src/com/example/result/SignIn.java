@@ -81,6 +81,7 @@ public class SignIn extends Activity implements OnClickListener {
 	 
 	                if (success == 1) {
 	                	Intent k = new Intent("android.intent.action.READRESULT");
+	                	
 						startActivity(k);
 						finish();
 	                }
