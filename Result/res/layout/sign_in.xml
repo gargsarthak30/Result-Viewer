@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:gravity = "bottom">
 
     <TextView
         android:id="@+id/tvCollegeId"
@@ -17,9 +18,10 @@
         android:id="@+id/etCollegeId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
+        android:ems="10" 
+        android:hint="College Id">
 
-        <requestFocus />
+       
     </EditText>
 
     <TextView
@@ -34,7 +36,8 @@
         android:id="@+id/etRegistration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" />
+        android:ems="10" 
+        android:hint = "Registration Number"/>
 
     <TextView
         android:id="@+id/tvPassword"
@@ -49,7 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword" 
+        android:hint = "Password"/>
 
     <Button
         android:id="@+id/bLogin"

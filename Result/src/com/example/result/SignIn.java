@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.http.HttpRequest;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.cookie.Cookie;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +25,7 @@ import android.widget.Toast;
 
 public class SignIn extends Activity implements OnClickListener {
 	EditText CollegeId, RegistrationNumber, Password;
-	Button Login;
+	 Button Login;
 
 	private ProgressDialog pDialog;
 	JSONParser jParser = new JSONParser();
@@ -65,7 +68,7 @@ public class SignIn extends Activity implements OnClickListener {
 		}
 
 		protected String doInBackground(String... args) {
-        	String cid = CollegeId.getText().toString();
+        	 String cid = CollegeId.getText().toString();
 			String pass = Password.getText().toString();
 			String rno = RegistrationNumber.getText().toString();
         
@@ -78,11 +81,14 @@ public class SignIn extends Activity implements OnClickListener {
 			 try {
 	                // Checking for SUCCESS TAG
 	                int success = json.getInt("success");
-	 
-	                if (success == 1) {
-	                	Intent k = new Intent("android.intent.action.READRESULT");
 	                	
-						startActivity(k);
+	                if (success == 1) {	
+	                	Bundle data = new Bundle();
+	                	data.putString("rollNo", rno);
+	                	data.putString("collgId", cid);
+	                	Intent k = new Intent("android.intent.action.READRESULT");	
+	                	k.putExtras(data);
+	                	startActivity(k);
 						finish();
 	                }
 	                else

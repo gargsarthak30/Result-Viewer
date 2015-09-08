@@ -14,10 +14,6 @@ if($q->rowcount()>0)
 
 $response["success"] = 1;
 echo json_encode($response);
-session_start();
-$_SESSION["cid"] = $cid;
-$_SESSION["rno"] = $rno;
-
 }
 else
 {

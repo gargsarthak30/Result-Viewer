@@ -48,6 +48,15 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity> 
+        <activity
+            android:name=".readdata"
+            android:label="Here's your Result" >
+            <intent-filter>
+                <action android:name="android.intent.action.READDATA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
