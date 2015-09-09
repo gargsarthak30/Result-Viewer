@@ -11,7 +11,9 @@
         android:layout_height="80dp"
         android:layout_alignLeft="@+id/bSignUp"
         android:layout_centerVertical="true"
-        android:text="LOGIN" />
+        android:text="LOGIN"
+        android:textSize="30sp"
+        android:background="@drawable/round_button" />
 
     <Button
         android:id="@+id/bSignUp"
@@ -20,6 +22,8 @@
         android:layout_above="@+id/bLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="14dp"
-        android:text="SIGN-UP" />
+        android:text="SIGN-UP"
+        android:textSize="30sp"
+        android:background="@drawable/round_button" />
 
 </RelativeLayout>

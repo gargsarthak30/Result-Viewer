@@ -87,21 +87,18 @@ public class SignUp extends Activity implements OnClickListener {
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					 Intent i = new Intent("android.intent.action.SIGNIN");
-					 startActivity(i);
-					 finish();
-
-					
-
+					Intent i = new Intent("android.intent.action.SIGNIN");
+					startActivity(i);
+					finish();
 				} else {
 					// failed to create account
-					Toast toast = Toast.makeText(getApplicationContext(),
-							"Some Error Occured.Please try again.",
-							Toast.LENGTH_SHORT);
+					Toast toast = Toast.makeText(SignUp.this,
+									"Some Error Occured.Make sure you have filled all entries.",
+									Toast.LENGTH_LONG);
 					toast.show();
-					// Intent j = new Intent("android.intent.action.SIGNUP");
-					// startActivity(j);
-
+					Intent j = new Intent("android.intent.action.SIGNUP");
+					startActivity(j);
+					finish();
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();

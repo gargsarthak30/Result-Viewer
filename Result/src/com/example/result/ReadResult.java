@@ -30,7 +30,8 @@ public class ReadResult extends Activity {
 	JSONParser jParser = new JSONParser();
 	String Semester;
 	String Score;
-
+	TextView displaycid;
+	TextView displayrno;
 	ArrayList<HashMap<String, String>> ResultFetch;
 	private static String url_readResult = "http://10.0.2.2/Result-Viewer/php/ReadData.php";
 
@@ -48,6 +49,8 @@ public class ReadResult extends Activity {
 		Bundle gotData = getIntent().getExtras();
 		cid = gotData.getString("collgId");
 		rno = gotData.getString("rollNo");
+		displaycid = (TextView) findViewById(R.id.tvcllgid);
+		displayrno = (TextView) findViewById(R.id.tvrollno);
 		list = (ListView) findViewById(android.R.id.list);
 		ResultFetch = new ArrayList<HashMap<String, String>>();
 		new LoadResult().execute();
@@ -78,6 +81,7 @@ public class ReadResult extends Activity {
 			try {
 				int success = json.getInt(TAG_SUCCESS);
 				if (success == 1) {
+					
 					JSONArray products = json.getJSONArray(TAG_PRODUCTS);
 					for (int i = 0; i < products.length(); i++) {
 						JSONObject c = products.getJSONObject(i);
@@ -87,6 +91,7 @@ public class ReadResult extends Activity {
 						map.put(TAG_SEMESTER, Semester);
 						map.put(TAG_SCORE, Score);
 						ResultFetch.add(map);
+						
 					}
 				} else {
 					// Toast toast = Toast.makeText(getApplicationContext(),
@@ -104,10 +109,9 @@ public class ReadResult extends Activity {
 			pDialog.dismiss();
 			runOnUiThread(new Runnable() {
 				public void run() {
-					ArrayAdapter<String> arrayAdapter = new ArrayAdapter(
-							ReadResult.this,
-							android.R.layout.simple_list_item_1, ResultFetch);
-
+					displaycid.setText("College Id : "+cid);
+					displayrno.setText("Registration Number : " + rno);
+					ArrayAdapter<String> arrayAdapter = new ArrayAdapter(ReadResult.this,android.R.layout.simple_list_item_1, ResultFetch);
 					list.setAdapter(arrayAdapter);
 
 				}

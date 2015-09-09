@@ -93,7 +93,7 @@ public class SignIn extends Activity implements OnClickListener {
 	                }
 	                else
 	                {
-	                	Toast toast = Toast.makeText(getApplicationContext(), "Some Error Occured, Please Enter your details again.", Toast.LENGTH_LONG);
+	                	Toast toast = Toast.makeText(SignIn.this, "Some Error Occured, Please Enter your details again.", Toast.LENGTH_LONG);
                     	toast.show();
                     	Intent l = new Intent("android.intent.action.SIGNIN");
 						startActivity(l);

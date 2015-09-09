@@ -3,58 +3,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical"
-    android:gravity="bottom" >
+    android:gravity="bottom"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="176dp"
+        android:layout_weight="0.53"
+        android:adjustViewBounds="true"
+        android:src="@drawable/main" />
 
     <TextView
         android:id="@+id/tvCollegeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Your College&apos;s Id Number :"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+        android:layout_gravity="center"
+        android:fontFamily=""
+        android:text="College&apos;s Id Number :"
+        android:textColor="#FFFFFF" 
+        />
 
     <EditText
         android:id="@+id/etCollegeId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="College Id" >
+        android:gravity="center"
+        android:hint="College Id" 
+         android:textColor="#FFFFFF">
     </EditText>
 
     <TextView
         android:id="@+id/tvRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Your Registration Number : "
+        android:layout_gravity="center"
+        android:text="Registration Number : "
         android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+       />
 
     <EditText
         android:id="@+id/etRegistration"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:hint="Registration Number"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Registration Number"
+         android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Password : "
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+        android:layout_gravity="center"
+        android:text="Password : "
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Password"
         android:inputType="textPassword"
-        android:hint="Password" />
+         android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/bCreate"
+        android:background="@drawable/round_button" 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Create Account" />
+        android:text="  Create Account  ">
+        
+        </Button>
 
 </LinearLayout>

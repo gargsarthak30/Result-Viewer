@@ -6,11 +6,25 @@
     android:orientation="vertical" 
     android:gravity="center">
 
+    <TextView
+        android:id="@+id/tvcllgid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvrollno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+         android:textColor="#FFFFFF" />
   
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="328dp" >
+        android:layout_height="328dp"
+        >
     </ListView>
 
 </LinearLayout>

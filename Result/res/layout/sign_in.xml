@@ -5,9 +5,19 @@
     android:background="@drawable/background"
     android:orientation="vertical" 
     android:gravity = "bottom">
+    
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="176dp"
+        android:layout_weight="0.53"
+        android:adjustViewBounds="true"
+        android:src="@drawable/main" />
+    
 
     <TextView
         android:id="@+id/tvCollegeId"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter Your College&apos;s Id Number :"
@@ -19,6 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" 
+        android:gravity="center"
+        android:textColor="#FFFFFF"
         android:hint="College Id">
 
        
@@ -30,6 +42,7 @@
         android:layout_height="wrap_content"
         android:text="Enter Your Registration Number : "
         android:textColor="#FFFFFF"
+        android:layout_gravity="center"
         android:textStyle="bold" />
 
     <EditText
@@ -37,6 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" 
+        android:gravity="center"
+         android:textColor="#FFFFFF"
         android:hint = "Registration Number"/>
 
     <TextView
@@ -44,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter Password : "
+        android:layout_gravity="center"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
@@ -52,14 +68,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
         android:inputType="textPassword" 
         android:hint = "Password"/>
 
     <Button
         android:id="@+id/bLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="91dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Login" />
+        android:background="@drawable/round_button"
+        android:text="  Login  " />
 
 </LinearLayout>
