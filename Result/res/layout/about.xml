@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="367dp"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:src="@drawable/main" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/about_app_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Result"
+            android:textSize="20sp" 
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/about_version_info"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Version 1.0"
+            android:textSize="15sp" 
+            android:textColor="#FFFFFF"/>
+        
+        <TextView
+            android:id="@+id/about_app_description"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:text="Unofficial Android client for the students of GBU" />
+
+        <TextView
+            android:id="@+id/about_email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="email"
+            android:gravity="center_horizontal"
+            android:text="For any questions and comments : garg_sarthak@yahoo.com"
+            android:textAppearance="?android:attr/textAppearanceSmall" 
+			android:textColor="#FFFFFF"/>
+         <TextView
+            android:id="@+id/about_github"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:text="Github Link : " />
+        
+        <!-- link unclickable: click is handled programmatically -->
+       
+        <TextView
+            android:gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="#FFFFFF"
+            android:text="Developed By : Sarthak Garg"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="App Icon By : Bhawesh Chandola"/>
+        <TextView
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Released Under Open Source" />
+    </LinearLayout>
+
+</ScrollView>
