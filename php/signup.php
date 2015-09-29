@@ -5,19 +5,22 @@
 $response = array();
  
 // check for required fields
-if (isset($_POST['cid']) && isset($_POST['rno']) && isset($_POST['pass'])) {
+if (isset($_GET['cid']) && isset($_GET['rno']) && isset($_GET['pass']) && $_GET['cid']!="" && $_GET['rno']!="" && $_GET['pass']!="") {
  
-    $cid = $_POST['cid'];
-    $rno = $_POST['rno'];
-    $pass = $_POST['pass'];
+    $cid = $_GET['cid'];
+    $rno = $_GET['rno'];
+    $pass = $_GET['pass'];
+	//encrypted password
+	
+	$password = password_hash($_GET['pass'],PASSWORD_DEFAULT);
 	
 	$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
-	$q=$conn->query("INSERT INTO users (College_Id,RegistrationNumber,Password)VALUES('$cid','$rno','$pass');");
+	$q=$conn->query("INSERT INTO users (College_Id,RegistrationNumber,Password)VALUES('$cid','$rno','$password');");
  
-    
     // check if row inserted or not
     if ($q->rowcount()>0) {
         // successfully inserted into database
+		
         $response["success"] = 1;
         $response["message"] = "Product successfully created.";
  
@@ -33,6 +36,7 @@ if (isset($_POST['cid']) && isset($_POST['rno']) && isset($_POST['pass'])) {
     }
 } else {
     // required field is missing
+	
     $response["success"] = 0;
     $response["message"] = "Required field(s) is missing";
  
