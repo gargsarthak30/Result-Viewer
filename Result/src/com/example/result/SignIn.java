@@ -114,9 +114,7 @@ public class SignIn extends Activity implements OnClickListener {
 	                }
 	                else
 	                {
-	                	Toast toast = Toast.makeText(SignIn.this, "Some Error Occured, Please Enter your details again.", Toast.LENGTH_LONG);
-                    	toast.show();
-                    	Intent l = new Intent("android.intent.action.SIGNIN");
+	                	Intent l = new Intent("android.intent.action.SIGNIN");
 						startActivity(l);
 						finish();
 	                }
@@ -127,5 +125,9 @@ public class SignIn extends Activity implements OnClickListener {
 			 return null;
 
         }
+		protected void onPostExecute(String file_url) {
+			// dismiss the dialog once done
+			pDialog.dismiss();
+		}
 	}
 }

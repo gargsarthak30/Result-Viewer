@@ -39,7 +39,6 @@ public class SignUp extends Activity implements OnClickListener {
 		CreateAccount.setOnClickListener(this);
 	}
 
-	
 	private void InitialiseVariables() {
 		// TODO Auto-generated method stub
 		CollegeId = (EditText) findViewById(R.id.etCollegeId);
@@ -47,26 +46,29 @@ public class SignUp extends Activity implements OnClickListener {
 		Password = (EditText) findViewById(R.id.etPassword);
 		CreateAccount = (Button) findViewById(R.id.bCreate);
 	}
-	@Override  
-    public boolean onCreateOptionsMenu(Menu menu) {  
-        // Inflate the menu; this adds items to the action bar if it is present.  
-        getMenuInflater().inflate(R.menu.main, menu);//Menu Resource, Menu  
-        return true;  
-    }  
- @Override  
-    public boolean onOptionsItemSelected(MenuItem item) {  
-        switch (item.getItemId()) {  
-            case R.id.item1:  
-              setContentView(R.layout.about);  
-            return true;     
-           case R.id.item2:  
-        	   setContentView(R.layout.help); 
-              return true;     
-                
-              default:  
-                return super.onOptionsItemSelected(item);  
-        }  
-    }  
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);// Menu Resource, Menu
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item1:
+			setContentView(R.layout.about);
+			return true;
+		case R.id.item2:
+			setContentView(R.layout.help);
+			return true;
+
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
@@ -99,7 +101,7 @@ public class SignUp extends Activity implements OnClickListener {
 			// getting JSON Object
 			// Note that create product url accepts POST method
 			JSONObject json = jsonParser.makeHttpRequest(url_create_account,
-					"POST", params);
+					"GET", params);
 
 			// check log cat for response
 			Log.d("Create Response", json.toString());
@@ -113,11 +115,8 @@ public class SignUp extends Activity implements OnClickListener {
 					startActivity(i);
 					finish();
 				} else {
+
 					// failed to create account
-					Toast toast = Toast.makeText(SignUp.this,
-									"Some Error Occured.Make sure you have filled all entries.",
-									Toast.LENGTH_LONG);
-					toast.show();
 					Intent j = new Intent("android.intent.action.SIGNUP");
 					startActivity(j);
 					finish();
