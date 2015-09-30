@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:autoLink="email"
             android:gravity="center_horizontal"
-            android:text="For any questions and comments : garg_sarthak@yahoo.com"
+            android:text="For any questions and comments : gburesult@gmail.com"
             android:textAppearance="?android:attr/textAppearanceSmall" 
 			android:textColor="#FFFFFF"/>
          <TextView
@@ -61,7 +61,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:textColor="#FFFFFF"
-            android:text="Github Link : " />
+            android:text="Github Link : https://github.com/gargsarthak30/Result-Viewer" />
         
         <!-- link unclickable: click is handled programmatically -->
        
