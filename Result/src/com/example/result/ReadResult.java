@@ -30,6 +30,7 @@ public class ReadResult extends Activity {
 	JSONParser jParser = new JSONParser();
 	String Semester;
 	String Score;
+	String Subject;
 	TextView displaycid;
 	TextView displayrno;
 	ArrayList<HashMap<String, String>> ResultFetch;
@@ -38,7 +39,9 @@ public class ReadResult extends Activity {
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_SCORE = "Score";
 	private static final String TAG_SEMESTER = "Semester";
+	private static final String TAG_SUBJECT = "Subject";
 	private static final String TAG_PRODUCTS = "products";
+	
 	ListView list;
 
 	@Override
@@ -87,9 +90,11 @@ public class ReadResult extends Activity {
 						JSONObject c = products.getJSONObject(i);
 						Semester = c.getString(TAG_SEMESTER);
 						Score = c.getString(TAG_SCORE);
+						Subject = c.getString(TAG_SUBJECT);
 						HashMap<String, String> map = new HashMap<String, String>();
 						map.put(TAG_SEMESTER, Semester);
 						map.put(TAG_SCORE, Score);
+						map.put(TAG_SUBJECT, Subject);
 						ResultFetch.add(map);
 						
 					}

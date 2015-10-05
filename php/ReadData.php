@@ -14,6 +14,7 @@ foreach($result as $row)
 {
 $product["Semester"] = $row["Semester"];
 $product["Score"] = $row["Score"];
+$product["Subject"] = $row["Subject"];
 $response["success"] = 1;
 
 array_push($response["products"], $product);
