@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 public class SignIn extends Activity implements OnClickListener {
 	EditText CollegeId, RegistrationNumber, Password;
-	 Button Login;
+	Button Login;
 
 	private ProgressDialog pDialog;
 	JSONParser jParser = new JSONParser();
@@ -50,26 +50,29 @@ public class SignIn extends Activity implements OnClickListener {
 		Password = (EditText) findViewById(R.id.etPassword);
 		Login = (Button) findViewById(R.id.bLogin);
 	}
-	@Override  
-    public boolean onCreateOptionsMenu(Menu menu) {  
-        // Inflate the menu; this adds items to the action bar if it is present.  
-        getMenuInflater().inflate(R.menu.main, menu);//Menu Resource, Menu  
-        return true;  
-    }  
- @Override  
-    public boolean onOptionsItemSelected(MenuItem item) {  
-        switch (item.getItemId()) {  
-            case R.id.item1:  
-              setContentView(R.layout.about);  
-            return true;     
-           case R.id.item2:  
-        	   setContentView(R.layout.help); 
-              return true;     
-                
-              default:  
-                return super.onOptionsItemSelected(item);  
-        }  
-    }  
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);// Menu Resource, Menu
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item1:
+			setContentView(R.layout.about);
+			return true;
+		case R.id.item2:
+			setContentView(R.layout.help);
+			return true;
+
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
@@ -89,42 +92,48 @@ public class SignIn extends Activity implements OnClickListener {
 		}
 
 		protected String doInBackground(String... args) {
-        	 String cid = CollegeId.getText().toString();
+			String cid = CollegeId.getText().toString();
 			String pass = Password.getText().toString();
 			String rno = RegistrationNumber.getText().toString();
-        
-            // Building Parameters
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("rno", rno));
+
+			// Building Parameters
+			List<NameValuePair> params = new ArrayList<NameValuePair>();
+			params.add(new BasicNameValuePair("rno", rno));
 			params.add(new BasicNameValuePair("cid", cid));
 			params.add(new BasicNameValuePair("pass", pass));
 			JSONObject json = jParser.makeHttpRequest(url_login, "GET", params);
-			 try {
-	                // Checking for SUCCESS TAG
-	                int success = json.getInt("success");
-	                	
-	                if (success == 1) {	
-	                	Bundle data = new Bundle();
-	                	data.putString("rollNo", rno);
-	                	data.putString("collgId", cid);
-	                	Intent k = new Intent("android.intent.action.READRESULT");	
-	                	k.putExtras(data);
-	                	startActivity(k);
-						finish();
-	                }
-	                else
-	                {
-	                	Intent l = new Intent("android.intent.action.SIGNIN");
-						startActivity(l);
-						finish();
-	                }
-	             }
-			 catch (JSONException e) {
-	                e.printStackTrace();
-	            }
-			 return null;
+			try {
+				// Checking for SUCCESS TAG
+				int success = json.getInt("success");
 
-        }
+				if (success == 1) {
+					Bundle data = new Bundle();
+					data.putString("rollNo", rno);
+					data.putString("collgId", cid);
+					Intent k = new Intent("android.intent.action.READRESULT");
+					k.putExtras(data);
+					startActivity(k);
+					finish();
+				} else if (success == 0) {
+					SignIn.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							Toast.makeText(getApplicationContext(),
+									"Some error occured, Please try again",
+									Toast.LENGTH_LONG).show();
+						}
+					});
+					Intent l = new Intent("android.intent.action.SIGNIN");
+					startActivity(l);
+					finish();
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			return null;
+
+		}
+
 		protected void onPostExecute(String file_url) {
 			// dismiss the dialog once done
 			pDialog.dismiss();

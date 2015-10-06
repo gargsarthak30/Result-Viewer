@@ -91,7 +91,6 @@ public class SignUp extends Activity implements OnClickListener {
 			String cid = CollegeId.getText().toString();
 			String pass = Password.getText().toString();
 			String rno = RegistrationNumber.getText().toString();
-
 			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("rno", rno));
@@ -114,17 +113,25 @@ public class SignUp extends Activity implements OnClickListener {
 					Intent i = new Intent("android.intent.action.SIGNIN");
 					startActivity(i);
 					finish();
-				} else {
+				} else if (success == 0) {
 
-					// failed to create account
+					SignUp.this.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							Toast.makeText(getApplicationContext(),
+									"Some error occured, Please try again",
+									Toast.LENGTH_LONG).show();
+						}
+					});
+					// failed to create account1.show();
 					Intent j = new Intent("android.intent.action.SIGNUP");
 					startActivity(j);
 					finish();
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();
-			}
 
+			}
 			return null;
 		}
 
