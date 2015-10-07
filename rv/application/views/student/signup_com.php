@@ -17,7 +17,7 @@ else
 
 $password = password_hash($pass,PASSWORD_DEFAULT);
 $q=$this->db->query("INSERT INTO users (College_Id,RegistrationNumber,Password)VALUES('$coll_id','$reg_no','$password');");
-echo $this->db->affected_rows();
+
 if($this->db->affected_rows()>0)
 {
 	echo "Succesfully registered.";
