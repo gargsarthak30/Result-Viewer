@@ -22,5 +22,11 @@ class Student extends CI_Controller {
 		$this->load->view('student/result_view');
 		$this->load->view('footer_view');
 	}
+	public function signup_complete()
+	{
+		$this->load->view('link_view');
+		$this->load->view('student/signup_com');
+		$this->load->view('footer_view');
+	}
 }
 

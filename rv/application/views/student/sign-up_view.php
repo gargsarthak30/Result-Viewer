@@ -3,12 +3,12 @@
 	<div style="background-color:white; border: 5px solid orange; ">
 		<h2>Sign-Up</h2>
 		<br/>
-		<form action = "" method="POST">
-			College Id: <input type="text" name="">
+		<form action = "<?=base_url('index.php/student/signup_complete')?>" method="POST">
+			College Id: <input type="text" name="college_id">
 			<br/><br/>
-			Registration No.: <input type="text" name="">
+			Registration No.: <input type="text" name="reg_no">
 			<br/><br/>
-			Password: <input type="text" name="">
+			Password: <input type="text" name="pass">
 			<br/><br/><br/>
 			<input type="submit" value="Sign-Up">
 		</form>
