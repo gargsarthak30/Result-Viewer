@@ -16,7 +16,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import android.widget.ListView;
@@ -41,7 +43,7 @@ public class ReadResult extends Activity {
 	private static final String TAG_SEMESTER = "Semester";
 	private static final String TAG_SUBJECT = "Subject";
 	private static final String TAG_PRODUCTS = "products";
-	
+
 	ListView list;
 
 	@Override
@@ -84,19 +86,21 @@ public class ReadResult extends Activity {
 			try {
 				int success = json.getInt(TAG_SUCCESS);
 				if (success == 1) {
-					
+
 					JSONArray products = json.getJSONArray(TAG_PRODUCTS);
 					for (int i = 0; i < products.length(); i++) {
 						JSONObject c = products.getJSONObject(i);
 						Semester = c.getString(TAG_SEMESTER);
-						Score = c.getString(TAG_SCORE);
 						Subject = c.getString(TAG_SUBJECT);
+						Score = c.getString(TAG_SCORE);
+
 						HashMap<String, String> map = new HashMap<String, String>();
 						map.put(TAG_SEMESTER, Semester);
-						map.put(TAG_SCORE, Score);
 						map.put(TAG_SUBJECT, Subject);
+						map.put(TAG_SCORE, Score);
+
 						ResultFetch.add(map);
-						
+
 					}
 				} else {
 					// Toast toast = Toast.makeText(getApplicationContext(),
@@ -114,10 +118,18 @@ public class ReadResult extends Activity {
 			pDialog.dismiss();
 			runOnUiThread(new Runnable() {
 				public void run() {
-					displaycid.setText("College Id : "+cid);
+					displaycid.setText("College Id : " + cid);
 					displayrno.setText("Registration Number : " + rno);
-					ArrayAdapter<String> arrayAdapter = new ArrayAdapter(ReadResult.this,android.R.layout.simple_list_item_1, ResultFetch);
-					list.setAdapter(arrayAdapter);
+					ListAdapter adapter = new SimpleAdapter(ReadResult.this,
+							ResultFetch, R.layout.list_item, new String[] {
+									TAG_SEMESTER, TAG_SUBJECT, TAG_SCORE },
+							new int[] { R.id.sem, R.id.sub, R.id.score });
+					list.setAdapter(adapter);
+
+					// ArrayAdapter<String> arrayAdapter = new
+					// ArrayAdapter(ReadResult.this,android.R.layout.simple_list_item_1,
+					// ResultFetch);
+					// list.setAdapter(arrayAdapter);
 
 				}
 			});
