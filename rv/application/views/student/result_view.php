@@ -4,7 +4,7 @@ $coll_id=$_POST["college_id"];
 $reg_no=$_POST["reg_no"];
 $pass=$_POST["pass"];
 
-$q=$this->db->query("select * from users where College_Id='$coll_id' and RegistrationNumber='$reg_no'");
+$q=$this->db->query("select * from users where College_Id='$coll_id' and Roll_No='$reg_no'");
 $results=$q->result();
 foreach($results as $row)
 		{
@@ -14,7 +14,7 @@ foreach($results as $row)
 				<div class="container">
 				<div class="row">
 				<div class="col-md-9">
-				<h3>Registration No. : <?php echo $row->RegistrationNumber; ?></h3>
+				<h3>Registration No. : <?php echo $row->Roll_No; ?></h3>
 				<h3>College Id : <?php echo $row->College_Id; ?></h3>
 				</div>
 				<div class="col-md-3">
@@ -29,17 +29,21 @@ foreach($results as $row)
 						  <tr>
 							
 							<th>Semester</th>
-							<th>Subject</th>
-							<th>Score</th>
+							<th>Course code</th>
+							<th>S-M</th>
+							<th>M-T</th>
+							<th>E-T</th>
 						  </tr>
 						</thead>
 						<tbody>
 						<?php
 						  
 					
-						$q=$this->db->query("Select * from $coll_id where RegistrationNumber = '$reg_no'");
+						$q=$this->db->query("Select * from $coll_id where Roll_No = '$reg_no'");
                         $results=$q->result();
-									
+							$y="S-M";
+							$y1="M-T";
+							$y2="E-T";
 						foreach($results as $rows)
 						{
 							
@@ -48,8 +52,11 @@ foreach($results as $row)
 						  <tr>
 							
 							<td><?php echo $rows->Semester;  ?></td>
-							<td><?php echo $rows->Subject;  ?></td>
-							<td><?php echo $rows->Score; ?></td>
+							<td><?php echo $rows->Course_Code;  ?></td>
+							<td><?php echo $rows->$y; ?></td>
+							<td><?php echo $rows->$y1; ?></td>
+							<td><?php echo $rows->$y2; ?></td>
+							
 						  </tr>
 						</tbody>
 						<?php } ?>
