@@ -15,5 +15,11 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/admin_main');
 		$this->load->view('footer_view');
 	}
+	public function excel_submit()
+	{
+		$this->load->view('link_view');
+		$this->load->view('admin/excel_submit');
+		$this->load->view('footer_view');
+	}
 }
 
