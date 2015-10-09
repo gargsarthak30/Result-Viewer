@@ -15,7 +15,7 @@ if (isset($_GET['cid']) && isset($_GET['rno']) && isset($_GET['pass']) && $_GET[
 	$password = password_hash($_GET['pass'],PASSWORD_DEFAULT);
 	
 	$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
-	$q=$conn->query("INSERT INTO users (College_Id,RegistrationNumber,Password)VALUES('$cid','$rno','$password');");
+	$q=$conn->query("INSERT INTO users (College_Id,Roll_No,Password)VALUES('$cid','$rno','$password');");
  
     // check if row inserted or not
     if ($q->rowcount()>0) {

@@ -7,7 +7,7 @@ if(isset($_GET['cid']) && isset($_GET['rno']) && isset($_GET['pass']) && $_GET['
 		$pass = $_GET["pass"];
 
 		$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
-		$q=$conn->query("Select * from users where (RegistrationNumber = '$rno' && College_Id = '$cid')");
+		$q=$conn->query("Select * from users where (Roll_No = '$rno' && College_Id = '$cid')");
 		
 		foreach($q as $row)
 		{

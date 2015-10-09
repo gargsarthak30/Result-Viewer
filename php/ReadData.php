@@ -4,7 +4,7 @@ $cid = $_GET["cid"];
 $rno = $_GET["rno"];
 $response = array();
 	$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
-	$result=$conn->query("Select * from $cid where RegistrationNumber = '$rno'");
+	$result=$conn->query("Select * from $cid where Roll_No = '$rno'");
 	
 if($result->rowcount()>0)
 {
@@ -13,10 +13,12 @@ $response["products"] = array();
 foreach($result as $row)
 {
 $product["Semester"] = $row["Semester"];
-$product["Score"] = $row["Score"];
-$product["Subject"] = $row["Subject"];
+$product["Total"] = $row["Total"];
+$product["Course_Code"] = $row["Course_Code"];
+$product["S-M"] = $row["S-M"];
+$product["M-T"] = $row["M-T"];
+$product["E-T"] = $row["E-T"];
 $response["success"] = 1;
-
 array_push($response["products"], $product);
 }
 echo json_encode($response);

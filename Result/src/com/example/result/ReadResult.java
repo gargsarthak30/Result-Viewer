@@ -31,17 +31,23 @@ public class ReadResult extends Activity {
 	String cid;
 	JSONParser jParser = new JSONParser();
 	String Semester;
-	String Score;
-	String Subject;
+	String Total;
+	String Course;
+	String Sm;
+	String Mt;
+	String Et;
 	TextView displaycid;
 	TextView displayrno;
 	ArrayList<HashMap<String, String>> ResultFetch;
 	private static String url_readResult = "http://10.0.2.2/Result-Viewer/php/ReadData.php";
 
 	private static final String TAG_SUCCESS = "success";
-	private static final String TAG_SCORE = "Score";
+	private static final String TAG_TOTAL = "Total";
 	private static final String TAG_SEMESTER = "Semester";
-	private static final String TAG_SUBJECT = "Subject";
+	private static final String TAG_COURSE = "Course_Code";
+	private static final String TAG_SM = "S-M";
+	private static final String TAG_MT = "M-T";
+	private static final String TAG_ET = "E-T";
 	private static final String TAG_PRODUCTS = "products";
 
 	ListView list;
@@ -91,14 +97,19 @@ public class ReadResult extends Activity {
 					for (int i = 0; i < products.length(); i++) {
 						JSONObject c = products.getJSONObject(i);
 						Semester = c.getString(TAG_SEMESTER);
-						Subject = c.getString(TAG_SUBJECT);
-						Score = c.getString(TAG_SCORE);
+						Course = c.getString(TAG_COURSE);
+						Total = c.getString(TAG_TOTAL);
+						Sm = c.getString(TAG_SM);
+						Mt = c.getString(TAG_MT);
+						Et = c.getString(TAG_ET);
 
 						HashMap<String, String> map = new HashMap<String, String>();
 						map.put(TAG_SEMESTER, Semester);
-						map.put(TAG_SUBJECT, Subject);
-						map.put(TAG_SCORE, Score);
-
+						map.put(TAG_COURSE, Course);
+						map.put(TAG_TOTAL, Total);
+						map.put(TAG_SM, Sm);
+						map.put(TAG_MT, Mt);
+						map.put(TAG_ET, Et);
 						ResultFetch.add(map);
 
 					}
@@ -122,8 +133,8 @@ public class ReadResult extends Activity {
 					displayrno.setText("Registration Number : " + rno);
 					ListAdapter adapter = new SimpleAdapter(ReadResult.this,
 							ResultFetch, R.layout.list_item, new String[] {
-									TAG_SEMESTER, TAG_SUBJECT, TAG_SCORE },
-							new int[] { R.id.sem, R.id.sub, R.id.score });
+									TAG_SEMESTER, TAG_COURSE, TAG_SM, TAG_MT, TAG_ET, TAG_TOTAL},
+							new int[] { R.id.sem, R.id.sub, R.id.sm, R.id.mt, R.id.et,R.id.total});
 					list.setAdapter(adapter);
 
 					// ArrayAdapter<String> arrayAdapter = new

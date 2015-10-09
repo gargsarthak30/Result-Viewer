@@ -20,15 +20,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
+        android:paddingBottom="2dip"
         android:text="Subject : "
-        android:textStyle="bold" 
-        android:paddingBottom="2dip"/>
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/score"
+        android:id="@+id/sm"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Score : "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/mt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="MidTerm Score : "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/et"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="EndTerm Score : "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Score : "
         android:textStyle="bold" />
 
 </LinearLayout>
