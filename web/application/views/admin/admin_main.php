@@ -2,6 +2,9 @@
     	<input type="file" name="file" /><br />
         <input type="submit" name="submit" value="Submit" />
 </form>
+<form action="#" method="POST">
+	<input type="submit" name="publish" value="Publish"/>
+</form>
 
 <?php
 
@@ -13,17 +16,22 @@ if(isset($_POST["submit"]))
     while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
     {
         $c = $c + 1;
-        if ($c == 1)
-              continue;
+        if ($c > 12)
+		{     
 		
 		$s = $filesop[0];
         $r = $filesop[1];
 		$m = $filesop[2];
 		$mw =$filesop[3];
+		$mw1 =$filesop[4];
+		$mw2 =$filesop[5];
+		$mw3 =$filesop[6];
+		$mw4 =$filesop[7];
 		
 		
-        $sql = mysql_query("INSERT INTO data VALUES ('$s','$r','$m','$mw')");
-        
+		
+        $sql = mysql_query("INSERT INTO newexcel VALUES ('$s','$r','$m','$mw','$mw1','$mw2','$mw3','$mw4')");
+        }
     }
 
         if($sql){
@@ -33,5 +41,25 @@ if(isset($_POST["submit"]))
         }
 
 }
+
+?>
+<?php
+
+if(isset($_POST["publish"]))
+{
+	
+	$sql1=$this->db->query("update data set publish=1");
+	if($this->db->affected_rows()>0)
+{
+	echo "Succesfully published.";
+	
+	
+}
+	
+	
+	
+	
+}
+
 
 ?>
