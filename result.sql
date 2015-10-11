@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2015 at 05:35 PM
+-- Generation Time: Oct 11, 2015 at 07:49 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -27,10 +27,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `admin` (
+  `Admin_ID` int(5) NOT NULL AUTO_INCREMENT,
   `Name` varchar(50) NOT NULL,
   `Username` varchar(50) NOT NULL,
   `Password` varchar(60) NOT NULL,
-  `Email` varchar(60) NOT NULL
+  `Email` varchar(60) NOT NULL,
+  PRIMARY KEY (`Admin_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `excel_details`
+--
+
+CREATE TABLE IF NOT EXISTS `excel_details` (
+  `Admin_ID` int(5) NOT NULL,
+  `College_Id` varchar(10) NOT NULL,
+  `Semester` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -144,7 +158,8 @@ CREATE TABLE IF NOT EXISTS `soict` (
 --
 
 INSERT INTO `soict` (`Roll_No`, `Total`, `Semester`, `Course_Code`, `S-M`, `M-T`, `E-T`) VALUES
-('13ics047', 90, '2', 'MA-102', 20, 25, 45);
+('13ics047', 90, '2', 'MA-102', 20, 25, 45),
+('13ics047', 80, '3', 'CS-203', 20, 20, 40);
 
 -- --------------------------------------------------------
 
