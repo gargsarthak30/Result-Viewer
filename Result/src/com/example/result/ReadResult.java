@@ -15,6 +15,8 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -67,7 +69,33 @@ public class ReadResult extends Activity {
 		new LoadResult().execute();
 
 	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);// Menu Resource, Menu
+		return true;
+	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item1:
+			setContentView(R.layout.about);
+			return true;
+		case R.id.item2:
+			setContentView(R.layout.help);
+			return true;
+		 case R.id.item3:  
+      	   setContentView(R.layout.result_format); 
+            return true;
+
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	
+	
 	class LoadResult extends AsyncTask<String, String, String> {
 		protected void onPreExecute() {
 			super.onPreExecute();

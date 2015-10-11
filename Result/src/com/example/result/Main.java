@@ -42,7 +42,10 @@ public class Main extends Activity implements OnClickListener {
 	            return true;     
 	           case R.id.item2:  
 	        	   setContentView(R.layout.help); 
-	              return true;     
+	              return true;
+	           case R.id.item3:  
+	        	   setContentView(R.layout.result_format); 
+	              return true;
 	                
 	              default:  
 	                return super.onOptionsItemSelected(item);  

@@ -43,7 +43,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:textColor="#FFFFFF"
-            android:text="Unofficial Android client for the students of GBU" />
+            android:text="Official Android client for the students of GBU" />
 
         <TextView
             android:id="@+id/about_email"

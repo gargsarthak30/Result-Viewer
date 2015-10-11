@@ -6,5 +6,8 @@
     <item
         android:id="@+id/item2"
         android:title="Help"/>
+     <item
+        android:id="@+id/item3"
+        android:title="Result Format"/>
 
 </menu>
