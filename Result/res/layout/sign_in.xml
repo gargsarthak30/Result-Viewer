@@ -20,7 +20,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Your College&apos;s Id Number :"
+        android:text="College&apos;s Id :"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
         android:ems="10" 
         android:gravity="center"
          android:textColor="#FFFFFF"
-        android:hint = "Registration Number"/>
+        android:hint = "Registration Number (with slashes)"/>
 
     <TextView
         android:id="@+id/tvPassword"

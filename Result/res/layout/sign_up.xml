@@ -20,17 +20,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily=""
-        android:text="College&apos;s Id Number :"
-        android:textColor="#FFFFFF" 
-        />
+        android:text="College&apos;s Id:"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/etCollegeId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="College Id" 
-         android:textColor="#FFFFFF">
+        android:hint="College Id"
+        android:textColor="#FFFFFF" >
     </EditText>
 
     <TextView
@@ -39,16 +38,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Registration Number : "
-        android:textColor="#FFFFFF"
-       />
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/etRegistration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Registration Number"
-         android:textColor="#FFFFFF" />
+        android:hint="Registration Number (with slashes)"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/tvPassword"
@@ -65,16 +63,15 @@
         android:gravity="center"
         android:hint="Password"
         android:inputType="textPassword"
-         android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/bCreate"
-        android:background="@drawable/round_button" 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="  Create Account  ">
-        
-        </Button>
+        android:background="@drawable/round_button"
+        android:text=" Create Account " >
+    </Button>
 
 </LinearLayout>

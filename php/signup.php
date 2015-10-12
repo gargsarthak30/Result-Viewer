@@ -10,11 +10,23 @@ if (isset($_GET['cid']) && isset($_GET['rno']) && isset($_GET['pass']) && $_GET[
     $cid = $_GET['cid'];
     $rno = $_GET['rno'];
     $pass = $_GET['pass'];
+	
+	$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
+	$p=$conn->query("select * from users where Roll_No='$rno';");
+	
+	if($p->rowcount()>0)
+	{
+		 $response["success"] = 0;
+         $response["message"] = "User Already Exists!";
+		 echo json_encode($response);
+	}
+	else
+	{
 	//encrypted password
 	
 	$password = password_hash($_GET['pass'],PASSWORD_DEFAULT);
 	
-	$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
+	//$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
 	$q=$conn->query("INSERT INTO users (College_Id,Roll_No,Password)VALUES('$cid','$rno','$password');");
  
     // check if row inserted or not
@@ -34,7 +46,7 @@ if (isset($_GET['cid']) && isset($_GET['rno']) && isset($_GET['pass']) && $_GET[
         // echoing JSON response
         echo json_encode($response);
     }
-} else {
+}} else {
     // required field is missing
 	
     $response["success"] = 0;
@@ -43,4 +55,5 @@ if (isset($_GET['cid']) && isset($_GET['rno']) && isset($_GET['pass']) && $_GET[
     // echoing JSON response
     echo json_encode($response);
 }
+
 ?>
