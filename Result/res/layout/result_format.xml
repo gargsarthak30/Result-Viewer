@@ -33,7 +33,8 @@
             -SESSIONAL MARKS\n
             -MIDTERM SCORE\n
             -ENDTERM SCORE\n
-            -TOTAL SCORE"
+            -TOTAL SCORE\n
+            -GRADES"
         android:textColor="#FFFFFF" />
 
 </LinearLayout>

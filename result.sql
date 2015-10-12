@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2015 at 07:49 AM
+-- Generation Time: Oct 12, 2015 at 01:29 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -80,13 +80,15 @@ INSERT INTO `master` (`College_Id`, `College_Name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `sobsc` (
+  `S_No` int(5) NOT NULL,
   `Roll_No` varchar(12) NOT NULL,
-  `Total` int(5) NOT NULL,
-  `Semester` varchar(5) NOT NULL,
-  `Course_Code` varchar(10) NOT NULL,
   `S-M` int(5) NOT NULL,
   `M-T` int(5) NOT NULL,
-  `E-T` int(5) NOT NULL
+  `E-T` int(5) NOT NULL,
+  `Total` int(5) NOT NULL,
+  `Grades` varchar(5) NOT NULL,
+  `Semester` varchar(5) NOT NULL,
+  `Course_Code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -96,13 +98,15 @@ CREATE TABLE IF NOT EXISTS `sobsc` (
 --
 
 CREATE TABLE IF NOT EXISTS `sobt` (
+  `S_No` int(11) NOT NULL,
   `Roll_No` varchar(12) NOT NULL,
-  `Total` int(5) NOT NULL,
-  `Semester` varchar(5) NOT NULL,
-  `Course_Code` varchar(12) NOT NULL,
   `S-M` int(5) NOT NULL,
   `M-T` int(5) NOT NULL,
-  `E-T` int(5) NOT NULL
+  `E-T` int(5) NOT NULL,
+  `Total` int(5) NOT NULL,
+  `Grades` varchar(5) NOT NULL,
+  `Semester` varchar(5) NOT NULL,
+  `Course_Code` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -112,13 +116,15 @@ CREATE TABLE IF NOT EXISTS `sobt` (
 --
 
 CREATE TABLE IF NOT EXISTS `soe` (
+  `S_No` int(5) NOT NULL,
   `Roll_No` varchar(12) NOT NULL,
-  `Total` int(5) NOT NULL,
-  `Semester` varchar(5) NOT NULL,
-  `Course_Code` varchar(10) NOT NULL,
   `S-M` int(5) NOT NULL,
   `M-T` int(5) NOT NULL,
-  `E-T` int(5) NOT NULL
+  `E-T` int(5) NOT NULL,
+  `Total` int(5) NOT NULL,
+  `Grades` varchar(5) NOT NULL,
+  `Semester` varchar(5) NOT NULL,
+  `Course_Code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -128,13 +134,15 @@ CREATE TABLE IF NOT EXISTS `soe` (
 --
 
 CREATE TABLE IF NOT EXISTS `sohss` (
+  `S_No` int(5) NOT NULL,
   `Roll_No` varchar(12) NOT NULL,
-  `Total` int(5) NOT NULL,
-  `Semester` varchar(5) NOT NULL,
-  `Couse_Code` varchar(10) NOT NULL,
   `S-M` int(5) NOT NULL,
   `M-T` int(5) NOT NULL,
-  `E-T` int(5) NOT NULL
+  `E-T` int(5) NOT NULL,
+  `Total` int(5) NOT NULL,
+  `Grades` varchar(5) NOT NULL,
+  `Semester` varchar(5) NOT NULL,
+  `Couse_Code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -144,22 +152,24 @@ CREATE TABLE IF NOT EXISTS `sohss` (
 --
 
 CREATE TABLE IF NOT EXISTS `soict` (
+  `S_No` int(5) NOT NULL,
   `Roll_No` varchar(12) NOT NULL,
-  `Total` int(5) NOT NULL,
-  `Semester` varchar(5) NOT NULL,
-  `Course_Code` varchar(10) NOT NULL,
   `S-M` int(5) NOT NULL,
   `M-T` int(5) NOT NULL,
-  `E-T` int(5) NOT NULL
+  `E-T` int(5) NOT NULL,
+  `Total` int(5) NOT NULL,
+  `Grades` varchar(5) NOT NULL,
+  `Semester` varchar(5) NOT NULL,
+  `Course_Code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `soict`
 --
 
-INSERT INTO `soict` (`Roll_No`, `Total`, `Semester`, `Course_Code`, `S-M`, `M-T`, `E-T`) VALUES
-('13ics047', 90, '2', 'MA-102', 20, 25, 45),
-('13ics047', 80, '3', 'CS-203', 20, 20, 40);
+INSERT INTO `soict` (`S_No`, `Roll_No`, `S-M`, `M-T`, `E-T`, `Total`, `Grades`, `Semester`, `Course_Code`) VALUES
+(0, '13ics047', 20, 25, 45, 90, '', '2', 'MA-102'),
+(0, '13ics047', 20, 20, 40, 80, '', '3', 'CS-203');
 
 -- --------------------------------------------------------
 
@@ -168,13 +178,15 @@ INSERT INTO `soict` (`Roll_No`, `Total`, `Semester`, `Course_Code`, `S-M`, `M-T`
 --
 
 CREATE TABLE IF NOT EXISTS `soljg` (
+  `S_No` int(5) NOT NULL,
   `Roll_No` varchar(12) NOT NULL,
-  `Total` int(5) NOT NULL,
-  `Semester` varchar(5) NOT NULL,
-  `Course_Code` varchar(10) NOT NULL,
   `S-M` int(5) NOT NULL,
   `M-T` int(5) NOT NULL,
-  `E-T` int(5) NOT NULL
+  `E-T` int(5) NOT NULL,
+  `Total` int(5) NOT NULL,
+  `Grades` varchar(5) NOT NULL,
+  `Semester` varchar(5) NOT NULL,
+  `Course_Code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -184,13 +196,15 @@ CREATE TABLE IF NOT EXISTS `soljg` (
 --
 
 CREATE TABLE IF NOT EXISTS `som` (
+  `S_No` int(5) NOT NULL,
   `Roll_No` varchar(12) NOT NULL,
-  `Total` int(5) NOT NULL,
-  `Semester` varchar(5) NOT NULL,
-  `Course_Code` varchar(10) NOT NULL,
   `S-M` int(5) NOT NULL,
   `M-T` int(5) NOT NULL,
-  `E-T` int(5) NOT NULL
+  `E-T` int(5) NOT NULL,
+  `Total` int(5) NOT NULL,
+  `Grades` varchar(5) NOT NULL,
+  `Semester` varchar(5) NOT NULL,
+  `Course_Code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -200,13 +214,15 @@ CREATE TABLE IF NOT EXISTS `som` (
 --
 
 CREATE TABLE IF NOT EXISTS `sovsas` (
+  `S_No` int(5) NOT NULL,
   `Roll_No` varchar(12) NOT NULL,
-  `Total` int(5) NOT NULL,
-  `Semester` varchar(5) NOT NULL,
-  `Course_Code` varchar(10) NOT NULL,
   `S-M` int(5) NOT NULL,
   `M-T` int(5) NOT NULL,
-  `E-T` int(5) NOT NULL
+  `E-T` int(5) NOT NULL,
+  `Total` int(5) NOT NULL,
+  `Grades` varchar(5) NOT NULL,
+  `Semester` varchar(5) NOT NULL,
+  `Course_Code` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

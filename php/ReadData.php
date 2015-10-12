@@ -18,6 +18,7 @@ $product["Course_Code"] = $row["Course_Code"];
 $product["S-M"] = $row["S-M"];
 $product["M-T"] = $row["M-T"];
 $product["E-T"] = $row["E-T"];
+$product["Grades"] = $row["Grades"];
 $response["success"] = 1;
 array_push($response["products"], $product);
 }

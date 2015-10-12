@@ -57,5 +57,13 @@
         android:text="Total Score : "
         android:textStyle="bold" 
         android:textColor="#FFFFFF"/>
+    
+     <TextView
+        android:id="@+id/grade"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Grade : "
+        android:textStyle="bold" 
+        android:textColor="#FFFFFF"/>
 
 </LinearLayout>

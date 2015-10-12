@@ -38,6 +38,7 @@ public class ReadResult extends Activity {
 	String Sm;
 	String Mt;
 	String Et;
+	String grade;
 	TextView displaycid;
 	TextView displayrno;
 	ArrayList<HashMap<String, String>> ResultFetch;
@@ -51,6 +52,7 @@ public class ReadResult extends Activity {
 	private static final String TAG_MT = "M-T";
 	private static final String TAG_ET = "E-T";
 	private static final String TAG_PRODUCTS = "products";
+	private static final String TAG_GRADES = "grades";
 
 	ListView list;
 
@@ -130,6 +132,7 @@ public class ReadResult extends Activity {
 						Sm = c.getString(TAG_SM);
 						Mt = c.getString(TAG_MT);
 						Et = c.getString(TAG_ET);
+						grade = c.getString(TAG_GRADES);
 
 						HashMap<String, String> map = new HashMap<String, String>();
 						map.put(TAG_SEMESTER, Semester);
@@ -138,6 +141,7 @@ public class ReadResult extends Activity {
 						map.put(TAG_SM, Sm);
 						map.put(TAG_MT, Mt);
 						map.put(TAG_ET, Et);
+						map.put(TAG_GRADES, grade);
 						ResultFetch.add(map);
 
 					}
@@ -161,8 +165,8 @@ public class ReadResult extends Activity {
 					displayrno.setText("Registration Number : " + rno);
 					ListAdapter adapter = new SimpleAdapter(ReadResult.this,
 							ResultFetch, R.layout.list_item, new String[] {
-									TAG_SEMESTER, TAG_COURSE, TAG_SM, TAG_MT, TAG_ET, TAG_TOTAL},
-							new int[] { R.id.sem, R.id.sub, R.id.sm, R.id.mt, R.id.et,R.id.total});
+									TAG_SEMESTER, TAG_COURSE, TAG_SM, TAG_MT, TAG_ET, TAG_TOTAL,TAG_GRADES},
+							new int[] { R.id.sem, R.id.sub, R.id.sm, R.id.mt, R.id.et,R.id.total, R.id.grade});
 					list.setAdapter(adapter);
 
 					// ArrayAdapter<String> arrayAdapter = new
