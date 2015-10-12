@@ -52,7 +52,7 @@ public class ReadResult extends Activity {
 	private static final String TAG_MT = "M-T";
 	private static final String TAG_ET = "E-T";
 	private static final String TAG_PRODUCTS = "products";
-	private static final String TAG_GRADES = "grades";
+	private static final String TAG_GRADES = "Grades";
 
 	ListView list;
 

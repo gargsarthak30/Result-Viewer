@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:autoLink="email"
             android:gravity="center_horizontal"
-            android:text="garg_sarthak@yahoo.com"
+            android:text="gburesult@gmail.com"
             android:textAppearance="?android:attr/textAppearanceSmall" 
 			android:textColor="#FFFFFF"/>
         
@@ -42,7 +42,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Did'nt liked the app. Use webservice for the same. \n Visit - 'www.gbuonline.in/result'"
+            android:text="Did'nt liked the app. Use webservice for the same."
             android:textSize="12sp" 
             android:textColor="#FFFFFF"/>
         </LinearLayout>

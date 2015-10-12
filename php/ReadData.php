@@ -4,7 +4,7 @@ $cid = $_GET["cid"];
 $rno = $_GET["rno"];
 $response = array();
 	$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
-	$result=$conn->query("Select * from $cid where Roll_No = '$rno'");
+	$result=$conn->query("Select * from $cid where Roll_No = '$rno' order by Semester DESC");
 	
 if($result->rowcount()>0)
 {

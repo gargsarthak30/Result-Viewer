@@ -71,13 +71,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="#FFFFFF"
-            android:text="Developed By : Sarthak Garg"/>
+            android:text="Android App By : Sarthak Garg"/>
         <TextView
             android:gravity="center"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="App Icon By : Bhawesh Chandola"/>
+            android:text="Web Service By: Bhawesh Chandola,Rajat Saxena"/>
         <TextView
             android:gravity="center"
             android:layout_marginTop="20dp"

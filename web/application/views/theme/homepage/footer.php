@@ -67,10 +67,7 @@
     <script src="<?=base_url('assets/theme/js/classie.js');?>"></script>
     <script src="<?=base_url('assets/theme/js/cbpAnimatedHeader.js');?>"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script src="<?=base_url('assets/theme/js/jqBootstrapValidation.js');?>"></script>
-    <script src="<?=base_url('assets/theme/js/contact_me.js');?>"></script>
-
+    
     <!-- Custom Theme JavaScript -->
     <script src="<?=base_url('assets/theme/js/freelancer.js');?>"></script>
 

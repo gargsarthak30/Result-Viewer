@@ -25,20 +25,20 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
+								<form id="login-form" action = "<?=site_url('student/result');?>" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="" id="" tabindex="1" class="form-control" placeholder="College Id" value="">
+										<input type="text" name="college_id" tabindex="1" class="form-control" placeholder="College Id" >
 									</div>
 									<div class="form-group">
-										<input type="text" name="" id="" tabindex="1" class="form-control" placeholder="Registration No." value="">
+										<input type="text" name="reg_no" tabindex="2" class="form-control" placeholder="Registration No.">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Password">
 									</div>
-									<div class="form-group text-center">
-										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+									<!--<div class="form-group text-center">
+										<input type="checkbox" tabindex="4" name="remember" id="remember">
 										<label for="remember"> Remember Me</label>
-									</div>
+									</div>-->
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
@@ -46,7 +46,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="form-group">
+<!--									<div class="form-group">
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
@@ -54,7 +54,7 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div>         -->
 								</form>
 								<form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
 									<div class="form-group">
