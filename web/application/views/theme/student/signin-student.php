@@ -56,23 +56,24 @@
 										</div>
 									</div>         -->
 								</form>
-								<form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+								
+								<form id="register-form" action="<?=site_url('student/signup_complete');?>" method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" name="" id="" tabindex="1" class="form-control" placeholder="College Id" value="">
+										<input type="text" name="college_id" tabindex="5" class="form-control" placeholder="College Id">
 									</div>
 									<div class="form-group">
-										<input type="text" name="" id="" tabindex="1" class="form-control" placeholder="Registration Id" value="">
+										<input type="text" name="reg_no" tabindex="6" class="form-control" placeholder="Registration Id">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="pass" tabindex="7" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group">
-										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+										<input type="password" name="confpass" tabindex="8" class="form-control" placeholder="Confirm Password">
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="9" class="form-control btn btn-register" value="Register Now">
 											</div>
 										</div>
 									</div>
