@@ -1,6 +1,9 @@
 <form name="import" action="#"  method="POST" enctype="multipart/form-data">
     	<input type="file" name="file" /><br />
         <input type="submit" name="submit" value="Submit" />
+		Enter semester:<input type="text" name="semester"/>
+		Enter course_code:<input type="text" name="course_code" />
+		Enter school:<input type="text" name="school"/>
 </form>
 <form action="#" method="POST">
 	<input type="submit" name="publish" value="Publish"/>
@@ -13,6 +16,10 @@ if(isset($_POST["submit"]))
     $file = $_FILES['file']['tmp_name'];
     $handle = fopen($file, "r");
     $c = 0;
+	$sem=$_POST["semester"];
+	$course=$_POST["course_code"];
+	$school=$_POST["school"];
+	//echo $school;
     while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
     {
         $c = $c + 1;
@@ -26,16 +33,27 @@ if(isset($_POST["submit"]))
 		$mw1 =$filesop[4];
 		$mw2 =$filesop[5];
 		$mw3 =$filesop[6];
-		$mw4 =$filesop[7];
+		//$mw4 =$filesop[7];
 		
 		
+		//echo $s.$r.$m.$mw.$mw1.$mw2.$mw3.$mw4;
+		//echo "semester is".$sem;
 		
-        $sql = mysql_query("INSERT INTO newexcel VALUES ('$s','$r','$m','$mw','$mw1','$mw2','$mw3','$mw4')");
+		$sno="S_No";
+		$roll="Roll_No";
+		$sm="S-M";
+		$mt="M-T";
+		$et="E-T";
+		$total="Total";
+		$grade="Grades";
+		
+        $sql = $this->db->query("INSERT INTO $school VALUES ('$s','$r','$m','$mw','$mw1','$mw2','$mw3','$sem','$course')");
+		
         }
     }
 
-        if($sql){
-            echo "You database has imported successfully. You have inserted ". $c ." records";
+        if($this->db->affected_rows()>0){
+            echo "You database has imported successfully.";
         }else{
             echo "Sorry! There is some problem.";
         }
