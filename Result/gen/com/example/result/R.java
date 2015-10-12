@@ -32,7 +32,7 @@ public final class R {
         public static final int about_email=0x7f080003;
         public static final int about_github=0x7f080004;
         public static final int about_version_info=0x7f080001;
-        public static final int bCreate=0x7f08001a;
+        public static final int bCreate=0x7f08001b;
         public static final int bLogin=0x7f08000f;
         public static final int bSignUp=0x7f08000e;
         public static final int et=0x7f08000b;
@@ -44,12 +44,13 @@ public final class R {
         public static final int help2=0x7f080006;
         public static final int imageView1=0x7f080013;
         public static final int info=0x7f080012;
-        public static final int item1=0x7f08001b;
-        public static final int item2=0x7f08001c;
-        public static final int item3=0x7f08001d;
+        public static final int item1=0x7f08001c;
+        public static final int item2=0x7f08001d;
+        public static final int item3=0x7f08001e;
         public static final int mt=0x7f08000a;
         public static final int sem=0x7f080007;
         public static final int sm=0x7f080009;
+        public static final int spinner=0x7f08001a;
         public static final int sub=0x7f080008;
         public static final int total=0x7f08000c;
         public static final int tvCollegeId=0x7f080014;

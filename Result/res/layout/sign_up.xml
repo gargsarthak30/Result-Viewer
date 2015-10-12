@@ -9,12 +9,12 @@
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
-        android:layout_height="176dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0.53"
         android:adjustViewBounds="true"
         android:src="@drawable/main" />
 
-    <TextView
+   <!--   <TextView
         android:id="@+id/tvCollegeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,6 +31,22 @@
         android:hint="College Id"
         android:textColor="#FFFFFF" >
     </EditText>
+-->
+	<TextView
+        android:id="@+id/tvCollegeId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily=""
+        android:text="College&apos;s Id:"
+        android:textColor="#FFFFFF" />
+ 	<Spinner
+ 	    android:id="@+id/spinner"
+ 	    android:layout_width="fill_parent"
+ 	    android:layout_height="wrap_content"
+ 	    android:layout_gravity="center" 
+ 	    android:textColor="#FFFFFF"
+ 	    android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/tvRegistration"

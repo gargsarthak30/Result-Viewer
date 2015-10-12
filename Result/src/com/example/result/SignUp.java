@@ -18,13 +18,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class SignUp extends Activity implements OnClickListener {
-	EditText CollegeId, RegistrationNumber, Password;
+	EditText RegistrationNumber, Password;
 	Button CreateAccount;
+	private Spinner spinner;
+	private static final String[] paths = { "soe", "som", "sobt", "soict",
+			"soljg", "sobsc", "sohss", "sovsas" };
 	private ProgressDialog pDialog;
 	JSONParser jsonParser = new JSONParser();
 	private static String url_create_account = "http://10.0.2.2/Result-Viewer/php/signup.php";
@@ -35,16 +42,19 @@ public class SignUp extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sign_up);
-		InitialiseVariables();
-		CreateAccount.setOnClickListener(this);
-	}
 
-	private void InitialiseVariables() {
-		// TODO Auto-generated method stub
-		CollegeId = (EditText) findViewById(R.id.etCollegeId);
+		// CollegeId = (EditText) findViewById(R.id.etCollegeId);
 		RegistrationNumber = (EditText) findViewById(R.id.etRegistration);
 		Password = (EditText) findViewById(R.id.etPassword);
 		CreateAccount = (Button) findViewById(R.id.bCreate);
+
+		CreateAccount.setOnClickListener(this);
+
+		spinner = (Spinner) findViewById(R.id.spinner);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(SignUp.this,
+				android.R.layout.simple_spinner_item, paths);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner.setAdapter(adapter);
 	}
 
 	@Override
@@ -63,9 +73,9 @@ public class SignUp extends Activity implements OnClickListener {
 		case R.id.item2:
 			setContentView(R.layout.help);
 			return true;
-		 case R.id.item3:  
-      	   setContentView(R.layout.result_format); 
-            return true;
+		case R.id.item3:
+			setContentView(R.layout.result_format);
+			return true;
 
 		default:
 			return super.onOptionsItemSelected(item);
@@ -91,7 +101,7 @@ public class SignUp extends Activity implements OnClickListener {
 		@Override
 		protected String doInBackground(String... arg0) {
 			// TODO Auto-generated method stub
-			String cid = CollegeId.getText().toString();
+			String cid = spinner.getSelectedItem().toString();
 			String pass = Password.getText().toString();
 			String rno = RegistrationNumber.getText().toString();
 			// Building Parameters
