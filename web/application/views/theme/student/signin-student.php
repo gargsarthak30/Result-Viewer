@@ -1,5 +1,7 @@
-<link href = "<?=base_url('assets/signin/signin.css')?>" rel="stylesheet">
-<script src="<?=base_url('assets/signin/signin.js')?>"></script>
+<!--signin&register-->
+	<link href = "<?=base_url('assets/signin/signin.css')?>" rel="stylesheet">
+	<script src="<?=base_url('assets/jquery-2.1.4.min.js')?>" type="text/javascript"></script>
+	<script src="<?=base_url('assets/signin/signin.js')?>" type="text/javascript"></script>
 
 <div class="container">
     	<div class="row">
@@ -25,7 +27,10 @@
 							<div class="col-lg-12">
 								<form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="" id="" tabindex="1" class="form-control" placeholder="College Id" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="" id="" tabindex="1" class="form-control" placeholder="Registration No." value="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
@@ -53,10 +58,10 @@
 								</form>
 								<form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="" id="" tabindex="1" class="form-control" placeholder="College Id" value="">
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+										<input type="text" name="" id="" tabindex="1" class="form-control" placeholder="Registration Id" value="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
