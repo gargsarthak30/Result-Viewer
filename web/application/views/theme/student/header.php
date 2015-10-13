@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Gautam Buddha University</a>
+                <a class="navbar-brand" href="#page-top">Result Viewer</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,20 +20,20 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#student">Student</a>
-                    </li>
 					<li class="page-scroll">
-                        <a href="#admin">Admin</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#result">Results: 5</a>
                     </li>
 					<li class="page-scroll">
                         <a href="#app">Android App</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
+                    </li>
+					<li class="page-scroll">
+                        <a href="#setting">Settings</a>
+                    </li>
+					<li class="page-scroll">
+                        <a href="">Logout</a>
                     </li>
                 </ul>
             </div>

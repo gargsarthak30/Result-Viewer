@@ -4,6 +4,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('theme/homepage/link');
 		$this->load->view('theme/homepage/header');
 		$this->load->view('theme/homepage/home');
 		$this->load->view('theme/homepage/student');

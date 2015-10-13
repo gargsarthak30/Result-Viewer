@@ -9,20 +9,13 @@ $results=$q->result();
 foreach($results as $row)
 		{
 			if(password_verify($pass, $row->Password))
-			{?>
-				
-				<div class="container">
+			{?>	
+				<div class="container don" style="margin-top:130px;" id="result">
 				<div class="row">
-				<div class="col-md-9">
-				<h3>Registration No. : <?php echo $row->Roll_No; ?></h3>
-				<h3>College Id : <?php echo $row->College_Id; ?></h3>
-				</div>
-				<div class="col-md-3">
-				<a style="margin-top:10px;" type="button" class="btn btn-sm btn-primary" href="<?=site_url('');?>">Log-Out</a>
-				</div>
-
-				<hr/>
 				
+				<h4>College Id : <?php echo $row->College_Id; ?></h4>
+				<h4>Registration No. : <?php echo $row->Roll_No; ?></h4>
+				<br/><br/>
 				
 				<table class="table">
 						<thead>
@@ -39,7 +32,7 @@ foreach($results as $row)
 						<?php
 						  
 					
-						$q=$this->db->query("Select * from $coll_id where Roll_No = '$reg_no'");
+						$q=$this->db->query("Select * from $coll_id where Roll_No = '$reg_no' ORDER BY Semester DESC");
                         $results=$q->result();
 							$y="S-M";
 							$y1="M-T";
@@ -61,7 +54,7 @@ foreach($results as $row)
 						</tbody>
 						<?php } ?>
 				</table>
-
+				</div>
 				</div>
 				<?php
 							}

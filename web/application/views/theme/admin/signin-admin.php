@@ -1,5 +1,3 @@
-<link href = "<?=base_url('assets/signin/signin.css')?>">
-<script src="<?=base_url('assets/signin/signin.js')?>"></script>
 
 <div class="container">
     	<div class="row">
@@ -18,7 +16,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="" method="post" role="form" style="display: block;">
+								<form id="login-form" action="<?=site_url('admin/main');?>" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="10" class="form-control" placeholder="Username" value="">
 									</div>

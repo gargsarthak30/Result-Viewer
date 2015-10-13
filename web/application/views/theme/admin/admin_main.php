@@ -1,3 +1,14 @@
+<!--admin_main-->
+    <section id="new">
+	<br/>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>New Upload</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+			<br/><br/>
 <form name="import" action="#"  method="POST" enctype="multipart/form-data">
     	<input type="file" name="file" /><br />
         <input type="submit" name="submit" value="Submit" />
@@ -81,3 +92,6 @@ if(isset($_POST["publish"]))
 
 
 ?>
+</div>
+<br/><br/><br/><br/>
+</section>
