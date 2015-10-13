@@ -52,7 +52,7 @@ public class SignUp extends Activity implements OnClickListener {
 
 		spinner = (Spinner) findViewById(R.id.spinner);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(SignUp.this,
-				android.R.layout.simple_spinner_item, paths);
+				R.layout.spinner_item, paths);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 	}

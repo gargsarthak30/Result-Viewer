@@ -21,14 +21,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class SignIn extends Activity implements OnClickListener {
-	EditText CollegeId, RegistrationNumber, Password;
+	EditText RegistrationNumber, Password;
 	Button Login;
-
+	private Spinner spinner;
+	private static final String[] paths = { "soe", "som", "sobt", "soict",
+			"soljg", "sobsc", "sohss", "sovsas" };
 	private ProgressDialog pDialog;
 	JSONParser jParser = new JSONParser();
 	private static String url_login = "http://10.0.2.2/Result-Viewer/php/signin.php";
@@ -41,11 +45,16 @@ public class SignIn extends Activity implements OnClickListener {
 		setContentView(R.layout.sign_in);
 		InitialiseVariables();
 		Login.setOnClickListener(this);
+		spinner = (Spinner) findViewById(R.id.spinner);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(SignIn.this,
+				R.layout.spinner_item, paths);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner.setAdapter(adapter);
 	}
 
 	private void InitialiseVariables() {
 		// TODO Auto-generated method stub
-		CollegeId = (EditText) findViewById(R.id.etCollegeId);
+		// CollegeId = (EditText) findViewById(R.id.etCollegeId);
 		RegistrationNumber = (EditText) findViewById(R.id.etRegistration);
 		Password = (EditText) findViewById(R.id.etPassword);
 		Login = (Button) findViewById(R.id.bLogin);
@@ -67,9 +76,9 @@ public class SignIn extends Activity implements OnClickListener {
 		case R.id.item2:
 			setContentView(R.layout.help);
 			return true;
-		 case R.id.item3:  
-      	   setContentView(R.layout.result_format); 
-            return true;
+		case R.id.item3:
+			setContentView(R.layout.result_format);
+			return true;
 
 		default:
 			return super.onOptionsItemSelected(item);
@@ -95,7 +104,7 @@ public class SignIn extends Activity implements OnClickListener {
 		}
 
 		protected String doInBackground(String... args) {
-			String cid = CollegeId.getText().toString();
+			String cid = spinner.getSelectedItem().toString();
 			String pass = Password.getText().toString();
 			String rno = RegistrationNumber.getText().toString();
 
