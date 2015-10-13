@@ -4,15 +4,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical" 
-    android:gravity = "bottom">
+    android:gravity = "center">
     
     <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="176dp"
-        android:layout_weight="0.53"
-        android:adjustViewBounds="true"
-        android:src="@drawable/main" />
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:src="@drawable/main" >
+        </ImageView>
     
 <!--  
     <TextView
@@ -40,7 +40,8 @@
         android:layout_gravity="center"
         android:fontFamily=""
         android:text="College&apos;s Id:"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF" 
+        android:layout_marginTop="20sp"/>
  	<Spinner
  	    android:id="@+id/spinner"
  	    android:layout_width="fill_parent"
@@ -86,6 +87,7 @@
         android:hint = "Password"/>
 
     <Button
+        android:layout_marginTop="15sp"
         android:id="@+id/bLogin"
         android:layout_width="91dp"
         android:layout_height="wrap_content"

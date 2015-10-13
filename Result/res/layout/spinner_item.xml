@@ -4,4 +4,5 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:singleLine="true"
+    android:textSize="20sp"
     android:textColor="#ffffff" />
