@@ -22,15 +22,37 @@ foreach($results as $row)
                 </div>
             </div>
 			<br/><br/>
+			<center>
 <form name="import" action="#"  method="POST" enctype="multipart/form-data">
-    	<input type="file" name="file" /><br />
-        <input type="submit" name="submit" value="Submit" />
-		Enter semester:<input type="text" name="semester"/>
-		Enter course_code:<input type="text" name="course_code" />
-		Enter school:<input type="text" name="school"/>
-</form>
-<form action="#" method="POST">
-	<input type="submit" name="publish" value="Publish"/>
+ 
+		<input type="file" name="file" />
+		
+		<br/>
+		
+		<div class="col-md-5 input-group">
+			<span class="input-group-addon" id="sizing-addon1">Enter course_code</span>
+			<input type="text" name="course_code" class="form-control"/>
+		</div>
+		
+		<br/>
+		
+		<div class="col-md-5 input-group">
+			<span class="input-group-addon">Enter semester</span>
+			<input type="text" name="semester" class="form-control"/>
+		</div>
+		
+		<br/>
+		
+		<div class="col-md-5 input-group">
+			<span class="input-group-addon">Enter school</span>
+			<input type="text" name="school" class="form-control"/>
+		</div>
+		
+		<br/>
+		
+		<button class="btn btn-primary" type="submit" name="submit">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn btn-danger" type="submit" name="publish">Publish</button>
+		
 </form>
 
 <?php
@@ -94,7 +116,13 @@ if(isset($_POST["publish"]))
 	if($this->db->affected_rows()>0)
 {
 	echo "Succesfully published.";
+	
+	
 }
+	
+	
+	
+	
 }
 
 
