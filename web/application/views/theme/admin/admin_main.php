@@ -25,27 +25,27 @@ foreach($results as $row)
 			<center>
 <form name="import" action="#"  method="POST" enctype="multipart/form-data">
  
-		<input type="file" name="file" />
+		<input type="file" name="file" required/>
 		
 		<br/>
 		
 		<div class="col-md-5 input-group">
 			<span class="input-group-addon" id="sizing-addon1">Enter course_code</span>
-			<input type="text" name="course_code" class="form-control"/>
+			<input type="text" name="course_code" class="form-control" required/>
 		</div>
 		
 		<br/>
 		
 		<div class="col-md-5 input-group">
 			<span class="input-group-addon">Enter semester</span>
-			<input type="text" name="semester" class="form-control"/>
+			<input type="text" name="semester" class="form-control" required/>
 		</div>
 		
 		<br/>
 		
 		<div class="col-md-5 input-group">
 			<span class="input-group-addon">Enter school</span>
-			<input type="text" name="school" class="form-control"/>
+			<input type="text" name="school" class="form-control" required/>
 		</div>
 		
 		<br/>
@@ -116,13 +116,7 @@ if(isset($_POST["publish"]))
 	if($this->db->affected_rows()>0)
 {
 	echo "Succesfully published.";
-	
-	
 }
-	
-	
-	
-	
 }
 
 

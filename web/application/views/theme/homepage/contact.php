@@ -45,8 +45,10 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
-                            </div>
+							<center>
+                                <button type="submit" class="btn btn-primary btn-lg">Send</button>
+                            </center>
+							</div>
                         </div>
                     </form>
                 </div>

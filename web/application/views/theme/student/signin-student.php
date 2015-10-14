@@ -23,22 +23,20 @@
 						<hr>
 					</div>
 					<div class="panel-body">
+						<?php echo validation_errors(); ?>
 						<div class="row">
 							<div class="col-lg-12">
 								<form id="login-form" action = "<?=site_url('student/result');?>" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="college_id" tabindex="1" class="form-control" placeholder="College Id" >
+										<input type="text" name="college_id" tabindex="1" class="form-control" placeholder="College Id" required>
 									</div>
 									<div class="form-group">
-										<input type="text" name="reg_no" tabindex="2" class="form-control" placeholder="Registration No.">
+										<input type="text" name="reg_no" tabindex="2" class="form-control" placeholder="Registration No." required>
 									</div>
 									<div class="form-group">
-										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Password">
-									</div>
-									<!--<div class="form-group text-center">
-										<input type="checkbox" tabindex="4" name="remember" id="remember">
-										<label for="remember"> Remember Me</label>
-									</div>-->
+										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Password" required>
+										<br/>
+									</div>									
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
@@ -46,29 +44,21 @@
 											</div>
 										</div>
 									</div>
-<!--									<div class="form-group">
-										<div class="row">
-											<div class="col-lg-12">
-												<div class="text-center">
-													<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
-												</div>
-											</div>
-										</div>
-									</div>         -->
 								</form>
 								
 								<form id="register-form" action="<?=site_url('student/signup_complete');?>" method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" name="college_id" tabindex="5" class="form-control" placeholder="College Id">
+										<input type="text" name="college_id" tabindex="5" class="form-control" placeholder="College Id" required>
 									</div>
 									<div class="form-group">
-										<input type="text" name="reg_no" tabindex="6" class="form-control" placeholder="Registration Id">
+										<input type="text" name="reg_no" tabindex="6" class="form-control" placeholder="Registration Id" required>
 									</div>
 									<div class="form-group">
-										<input type="password" name="pass" tabindex="7" class="form-control" placeholder="Password">
+										<input type="password" name="pass" tabindex="7" class="form-control" placeholder="Password" required>
 									</div>
 									<div class="form-group">
-										<input type="password" name="confpass" tabindex="8" class="form-control" placeholder="Confirm Password">
+										<input type="password" name="confpass" tabindex="8" class="form-control" placeholder="Confirm Password" required>
+										<br/>
 									</div>
 									<div class="form-group">
 										<div class="row">
