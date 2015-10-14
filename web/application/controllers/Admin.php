@@ -16,5 +16,29 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('theme/admin/excel_submit');
 	}
+	public function admin_register()
+	{
+		
+		$this->load->view('theme/admin/signup_fac');
+		
+		
+		
+	}
+	public function admin_signin()
+	{
+		
+		$this->load->view('theme/admin/admin-signin');
+		
+		
+		
+	}
+	public function faculty_signup()
+	{
+		
+		$this->load->view('theme/admin/faculty');
+		
+		
+		
+	}
 }
 
