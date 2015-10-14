@@ -94,13 +94,7 @@ if(isset($_POST["publish"]))
 	if($this->db->affected_rows()>0)
 {
 	echo "Succesfully published.";
-	
-	
 }
-	
-	
-	
-	
 }
 
 

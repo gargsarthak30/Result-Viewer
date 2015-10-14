@@ -21,7 +21,7 @@
                         <a href="#page-top"></a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#result">Results: 5</a>
+                        <a href="#result">Results:</a>
                     </li>
 					<li class="page-scroll">
                         <a href="#app">Android App</a>

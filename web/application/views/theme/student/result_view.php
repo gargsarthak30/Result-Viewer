@@ -26,6 +26,8 @@ foreach($results as $row)
 							<th>S-M</th>
 							<th>M-T</th>
 							<th>E-T</th>
+							<th>Total</th>
+							<th>Grades</th>
 						  </tr>
 						</thead>
 						<tbody>
@@ -37,6 +39,8 @@ foreach($results as $row)
 							$y="S-M";
 							$y1="M-T";
 							$y2="E-T";
+							$y3= "Total";
+							$y4= "Grades";
 						foreach($results as $rows)
 						{
 							
@@ -49,6 +53,8 @@ foreach($results as $row)
 							<td><?php echo $rows->$y; ?></td>
 							<td><?php echo $rows->$y1; ?></td>
 							<td><?php echo $rows->$y2; ?></td>
+							<td><?php echo $rows->$y3; ?></td>
+							<td><?php echo $rows->$y4; ?></td>
 							
 						  </tr>
 						</tbody>
