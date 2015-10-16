@@ -16,7 +16,7 @@
                     <br/><br/>
 					</center>
 					<div class="col-sm-12 text-center">
-						<a href="#" class="btn btn-lg btn-outline">
+						<a href="<?=base_url('assets/rvapk/Result.apk')?>" class="btn btn-lg btn-outline">
 							<i class="fa fa-download"></i> Download App
 						</a>
 					</div>

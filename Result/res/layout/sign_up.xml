@@ -77,7 +77,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Password"
+        android:hint="Password(min 6 characters)"
         android:inputType="textPassword"
         android:textColor="#FFFFFF" />
 
