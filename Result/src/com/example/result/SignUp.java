@@ -27,6 +27,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class SignUp extends Activity implements OnClickListener {
+	ConnectionDetector cd;
+	Boolean isInternetPresent;
 	EditText RegistrationNumber, Password;
 	Button CreateAccount;
 	private Spinner spinner;
@@ -55,6 +57,10 @@ public class SignUp extends Activity implements OnClickListener {
 				R.layout.spinner_item, paths);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
+		cd = new ConnectionDetector(getApplicationContext());
+
+		isInternetPresent = cd.isConnectingToInternet();
+
 	}
 
 	@Override
@@ -84,8 +90,14 @@ public class SignUp extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
-		new CreateNewAccount().execute();
+		if (isInternetPresent == true) {
+			// TODO Auto-generated method stub
+			new CreateNewAccount().execute();
+		} else {
+			Toast.makeText(getApplicationContext(),
+					"No Internet Connection Found!", Toast.LENGTH_LONG).show();
+
+		}
 	}
 
 	class CreateNewAccount extends AsyncTask<String, String, String> {
