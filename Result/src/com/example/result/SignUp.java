@@ -92,8 +92,15 @@ public class SignUp extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		if (isInternetPresent == true) {
 			// TODO Auto-generated method stub
+			if (Password.getText().toString().length() < 6)
+				{
+				Password.setError("Password must be atleast 6 characters in length.");
+				}
+			else
+			{
 			new CreateNewAccount().execute();
-		} else {
+			}
+			} else {
 			Toast.makeText(getApplicationContext(),
 					"No Internet Connection Found!", Toast.LENGTH_LONG).show();
 
@@ -113,9 +120,9 @@ public class SignUp extends Activity implements OnClickListener {
 		@Override
 		protected String doInBackground(String... arg0) {
 			// TODO Auto-generated method stub
-			String cid = spinner.getSelectedItem().toString();
+			String cid  = spinner.getSelectedItem().toString();
 			String pass = Password.getText().toString();
-			String rno = RegistrationNumber.getText().toString();
+			String rno  = RegistrationNumber.getText().toString();
 			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("rno", rno));

@@ -53,7 +53,6 @@ public class SignIn extends Activity implements OnClickListener {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 		cd = new ConnectionDetector(getApplicationContext());
-
 		isInternetPresent = cd.isConnectingToInternet();
 	}
 
@@ -94,7 +93,12 @@ public class SignIn extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		if (isInternetPresent == true) {
-			new LoadAllProducts().execute();
+			if (Password.getText().toString().length() < 6) {
+				Password.setError("Password cannot be less than 6 characters.");
+			} else {
+				new LoadAllProducts().execute();
+			}
+
 		} else {
 			Toast.makeText(getApplicationContext(),
 					"No Internet Connection Found!", Toast.LENGTH_LONG).show();
