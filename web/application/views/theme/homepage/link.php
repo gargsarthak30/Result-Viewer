@@ -32,8 +32,8 @@
 	<style>
 	.don
 	{
-		 min-height: calc(100vh - 201px);
-         /* 120px header + 75px footer = 120px  */
+		 min-height: calc(100vh - 161px);
+         /* 100px header + 75px footer = 175px  */
 	}
 	</style>
 	

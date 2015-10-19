@@ -1,15 +1,15 @@
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Gautam Buddha University</a>
+                <a class="navbar-brand" href="<?=site_url('');?>">Gautam Buddha University</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,19 +19,19 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#student">Student</a>
+                        <a href="<?=site_url('student/signin');?>">Student</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#admin">Admin</a>
+                        <a href="<?=site_url('admin/signin');?>">Admin</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="<?=site_url('');?>#about">About</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#app">Android App</a>
+                        <a href="<?=site_url('');?>#app">Android App</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                        <a href="<?=site_url('');?>#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -39,3 +39,4 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+<div class="don"><!--closes before footer-->

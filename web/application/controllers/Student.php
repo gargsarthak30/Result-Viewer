@@ -2,17 +2,56 @@
 
 class Student extends CI_Controller {
 	
-	public function validate_sigin()
+	public function signin()
+	{
+		$this->load->library('form_validation');
+		$this->load->view('theme/homepage/link');
+		$this->load->view('theme/homepage/header');
+		$this->load->view('theme/student/signin');
+		$this->load->view('theme/homepage/footer');
+	}
+	
+	public function register()
+	{
+		$this->load->library('form_validation');
+		$this->load->view('theme/homepage/link');
+		$this->load->view('theme/homepage/header');
+		$this->load->view('theme/student/register');
+		$this->load->view('theme/homepage/footer');
+	}
+	
+	
+	public function validate_signin()
 	{
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('college_id', 'Username', 'required');
+		$this->form_validation->set_rules('college_id', 'College Id', 'required');
 		$this->form_validation->set_rules('reg_no', 'Registeration Number', 'required');
 		$this->form_validation->set_rules('pass', 'Password', 'required|min_length[6]');
+		$this->form_validation->set_message('min_length', '* Details incorrect !!');
 		
 		if ($this->form_validation->run() == FALSE)
 		{
-			 redirect(''.'#student', 'location');
+			$this->signin();
+		}
+		else
+		{
+			$this->result();
+		}
+	}
+	
+	public function validate_register()
+	{
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('college_id', 'College Id', 'required');
+		$this->form_validation->set_rules('reg_no', 'Registeration Number', 'required');
+		$this->form_validation->set_rules('pass', 'Password', 'required|min_length[6]');
+		$this->form_validation->set_rules('confpass', 'Confirm Password', 'required|matches[pass]');
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->register();
 		}
 		else
 		{

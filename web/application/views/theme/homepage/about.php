@@ -16,8 +16,8 @@
                 <div class="col-lg-4 col-lg-offset-2" >
 					<p>
 					<b>Android App By:</b><br/>Sarthak Garg<br/>
-					<b>Web Service By:</b><br/>Bhawesh Chandola & Rajat Saxena<br/>
-					<b>Mentors:</b><br/>Arun Solanki & Amit k. Awasthi
+					<b>Web Service By:</b><br/>Bhawesh Chandola &nbsp; | &nbsp; Rajat Saxena<br/>
+					<b>Mentors:</b><br/>Sir Arun Solanki &nbsp; | &nbsp; Sir Amit K. Awasthi
 				</p>
 				</div>
 				<br/>

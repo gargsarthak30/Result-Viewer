@@ -1,4 +1,4 @@
-
+</div><!--opened after header-->
 
     <!-- Footer -->
     <footer class="text-center">
@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Gautam Buddha University
+                        Copyright &copy; 2015-2016 &nbsp;&nbsp;Gautam Buddha University
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="<?=base_url('assets/theme/js/classie.js');?>"></script>
-    <script src="<?=base_url('assets/theme/js/cbpAnimatedHeader.js');?>"></script>
+    <!--script src="<?=base_url('assets/theme/js/cbpAnimatedHeader.js');?>"></script-->
 
     
     <!-- Custom Theme JavaScript -->

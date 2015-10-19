@@ -2,6 +2,15 @@
 
 class Admin extends CI_Controller {
 	
+	public function signin()
+	{
+		$this->load->library('form_validation');
+		$this->load->view('theme/homepage/link');
+		$this->load->view('theme/homepage/header');
+		$this->load->view('theme/admin/signin');
+		$this->load->view('theme/homepage/footer');
+	}
+	
 	public function main()
 	{
 		$this->load->view('theme/homepage/link');

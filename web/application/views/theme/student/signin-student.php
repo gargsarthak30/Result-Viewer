@@ -23,10 +23,11 @@
 						<hr>
 					</div>
 					<div class="panel-body">
-						<?php echo validation_errors(); ?>
+						
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action = "<?=site_url('student/result');?>" method="post" role="form" style="display: block;">
+								<form id="login-form" action = "<?=site_url('student/validate_signin');?>" method="post" role="form" style="display: block;">
+									<?php echo validation_errors(); ?>
 									<div class="form-group">
 										<input type="text" name="college_id" tabindex="1" class="form-control" placeholder="College Id" required>
 									</div>
