@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -55,7 +56,13 @@ public class ReadResult extends Activity {
 	private static final String TAG_GRADES = "Grades";
 
 	ListView list;
-
+	public void onBackPressed()
+	{
+		Intent i = new Intent("android.intent.action.SIGNIN");
+		startActivity(i);
+		finish();
+  
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -90,10 +97,10 @@ public class ReadResult extends Activity {
 		 case R.id.item3:  
       	   setContentView(R.layout.result_format); 
             return true;
-
-		default:
+		 default:
 			return super.onOptionsItemSelected(item);
 		}
+		
 	}
 
 	

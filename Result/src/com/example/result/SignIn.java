@@ -40,6 +40,12 @@ public class SignIn extends Activity implements OnClickListener {
 	private static String url_login = "http://10.0.2.2/Result-Viewer/php/signin.php";
 	private static final String TAG_SUCCESS = "success";
 
+	public void onBackPressed()
+	{
+		Intent i = new Intent("android.intent.action.MAIN");
+		startActivity(i);
+		finish();
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

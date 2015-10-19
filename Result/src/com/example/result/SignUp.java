@@ -39,6 +39,13 @@ public class SignUp extends Activity implements OnClickListener {
 	private static String url_create_account = "http://10.0.2.2/Result-Viewer/php/signup.php";
 	private static final String TAG_SUCCESS = "success";
 
+	public void onBackPressed()
+	{
+		Intent i = new Intent("android.intent.action.MAIN");
+		startActivity(i);
+		finish();
+
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
