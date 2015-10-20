@@ -25,13 +25,13 @@
                         <a href="<?=site_url('admin/signin');?>">Admin</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('');?>#about">About</a>
+                        <a href="<?=site_url('common/about/homepage');?>">About</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('');?>#app">Android App</a>
+                        <a href="<?=site_url('common/app/homepage');?>">Android App</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('');?>#contact">Contact</a>
+                        <a href="<?=site_url('common/contact/homepage');?>">Contact</a>
                     </li>
                 </ul>
             </div>

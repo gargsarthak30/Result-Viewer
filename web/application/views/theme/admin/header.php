@@ -1,17 +1,17 @@
 
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Result Viewer</a>
+                <a class="navbar-brand">Result Viewer</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,19 +21,19 @@
                         <a href="#page-top"></a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#new">New Upload</a>
+                        <a href="<?=site_url('admin/main');?>">New Upload</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#sheets">Existing Sheets</a>
+                        <a href="<?=site_url('admin/sheets');?>">Existing Sheets</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                        <a href="<?=site_url('common/contact/admin');?>">Contact</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#setting">Settings</a>
+                        <a href="<?=site_url('admin/settings');?>">Settings</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="">Logout</a>
+                        <a href="<?=site_url('admin/logout');?>">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -41,5 +41,4 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
-	<div id="hidd" style="margin-top:50px;"></div>
+<div class="don">

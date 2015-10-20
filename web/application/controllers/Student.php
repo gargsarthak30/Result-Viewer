@@ -5,19 +5,19 @@ class Student extends CI_Controller {
 	public function signin()
 	{
 		$this->load->library('form_validation');
-		$this->load->view('theme/homepage/link');
+		$this->load->view('theme/common/link');
 		$this->load->view('theme/homepage/header');
 		$this->load->view('theme/student/signin');
-		$this->load->view('theme/homepage/footer');
+		$this->load->view('theme/common/footer');
 	}
 	
 	public function register()
 	{
 		$this->load->library('form_validation');
-		$this->load->view('theme/homepage/link');
+		$this->load->view('theme/common/link');
 		$this->load->view('theme/homepage/header');
 		$this->load->view('theme/student/register');
-		$this->load->view('theme/homepage/footer');
+		$this->load->view('theme/common/footer');
 	}
 	
 	
@@ -55,20 +55,19 @@ class Student extends CI_Controller {
 		}
 		else
 		{
-			$this->result();
+			$this->signup_complete();
 		}
 	}
 	
 	public function result()
 	{
 		
-		$this->load->view('theme/homepage/link');
+		$this->load->view('theme/common/link');
 		$this->load->view('theme/student/header');
 		$this->load->view('theme/student/result_view');
-		$this->load->view('theme/homepage/app');
-		$this->load->view('theme/homepage/contact');
-		$this->load->view('theme/homepage/footer');
+		$this->load->view('theme/common/footer');
 	}
+	
 	public function signup_complete()
 	{
 		$this->load->view('theme/student/signup_com');

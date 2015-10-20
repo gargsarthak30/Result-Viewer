@@ -20,15 +20,10 @@ $q=$this->db->query("INSERT INTO users (College_Id,Roll_No,Password)VALUES('$col
 
 if($this->db->affected_rows()>0)
 {
-	echo "Succesfully registered.";
-	
+	echo "Successfully registered.<script>location.href='".site_url('student/result')."';</script>";
 	
 }
 }
-	
-
-
-
 
 
 ?>

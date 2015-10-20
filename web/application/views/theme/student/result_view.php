@@ -10,8 +10,9 @@ foreach($results as $row)
 		{
 			if(password_verify($pass, $row->Password))
 			{?>	
-				<div class="container don" style="margin-top:130px;" id="result">
-				<div class="row">
+				<div class="container" id="result">
+				<div class="row" style="padding-bottom:205px;">
+				<br/><br/><br/><br/><br/>
 				
 				<h4>College Id : <?php echo $row->College_Id; ?></h4>
 				<h4>Registration No. : <?php echo $row->Roll_No; ?></h4>
@@ -58,6 +59,7 @@ foreach($results as $row)
 							
 						  </tr>
 						</tbody>
+						
 						<?php } ?>
 				</table>
 				</div>
