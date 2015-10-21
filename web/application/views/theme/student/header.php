@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand">Result Viewer</a>
+                <a class="navbar-brand" href="<?=site_url('home');?>">Result Viewer</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

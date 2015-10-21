@@ -4,22 +4,23 @@ class Student extends CI_Controller {
 	
 	public function signin()
 	{
-		$this->load->library('form_validation');
-		$this->load->view('theme/common/link');
-		$this->load->view('theme/homepage/header');
-		$this->load->view('theme/student/signin');
-		$this->load->view('theme/common/footer');
+		if($this->session->userdata('logged')=='stu')
+		{
+			redirect('student/result');
+		}
+		else
+		{
+			if($this->session->userdata('logged')=='fac' || $this->session->userdata('logged')=='admin')
+			{
+				$this->session->sess_destroy();
+			}
+			$this->load->library('form_validation');
+			$this->load->view('theme/common/link');
+			$this->load->view('theme/homepage/header');
+			$this->load->view('theme/student/signin');
+			$this->load->view('theme/common/footer');
+		}
 	}
-	
-	public function register()
-	{
-		$this->load->library('form_validation');
-		$this->load->view('theme/common/link');
-		$this->load->view('theme/homepage/header');
-		$this->load->view('theme/student/register');
-		$this->load->view('theme/common/footer');
-	}
-	
 	
 	public function validate_signin()
 	{
@@ -36,8 +37,44 @@ class Student extends CI_Controller {
 		}
 		else
 		{
-			$this->result();
+			$this->verify_signin();
 		}
+	}
+	
+    public function verify_signin()
+	{
+		$coll_id=$_POST["college_id"];
+		$reg_no=$_POST["reg_no"];
+		$pass=$_POST["pass"];
+		$q=$this->db->query("select * from users where College_Id='$coll_id' and Roll_No='$reg_no'");
+		$results=$q->result();
+		foreach($results as $row)
+		{
+			if(password_verify($pass, $row->Password))
+			{
+					$stu_data = array(
+                   'roll'  => $reg_no,
+                   'coll'  => $coll_id,
+				   'logged' => 'stu'
+					);
+
+				$this->session->set_userdata($stu_data);
+				redirect('student/result');
+			}
+			else
+			{
+				echo "wrong credentials try again";
+			}
+		}
+	}
+	
+	public function register()
+	{
+		$this->load->library('form_validation');
+		$this->load->view('theme/common/link');
+		$this->load->view('theme/homepage/header');
+		$this->load->view('theme/student/register');
+		$this->load->view('theme/common/footer');
 	}
 	
 	public function validate_register()
@@ -64,13 +101,19 @@ class Student extends CI_Controller {
 		
 		$this->load->view('theme/common/link');
 		$this->load->view('theme/student/header');
-		$this->load->view('theme/student/result_view');
+		$this->load->view('theme/student/result');
 		$this->load->view('theme/common/footer');
 	}
 	
 	public function signup_complete()
 	{
 		$this->load->view('theme/student/signup_com');
+	}
+	
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('home');
 	}
 }
 

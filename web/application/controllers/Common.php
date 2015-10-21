@@ -2,14 +2,6 @@
 
 class Common extends CI_Controller {
 
-	public function about($check)
-	{
-		$this->load->view('theme/common/link');
-		$this->load->view('theme/'.$check.'/header');
-		$this->load->view('theme/common/about');
-		$this->load->view('theme/common/footer');
-	}
-	
 	public function app($check)
 	{
 		$this->load->view('theme/common/link');

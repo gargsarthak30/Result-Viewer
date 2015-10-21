@@ -31,7 +31,7 @@
 										<input type="text" name="reg_no" tabindex="2" class="form-control" placeholder="Registration No." value="<?=set_value('reg_no');?>" required>
 									</div>
 									<div class="form-group">
-										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Password" required>
+										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Password" value="<?=set_value('pass');?>" required>
 										<br/>
 									</div>									
 									<div class="form-group">

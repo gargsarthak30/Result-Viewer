@@ -1,5 +1,5 @@
  <!-- About Section -->
-    <section class="" id="about" style="margin-bottom:51px;">
+    <section class="" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

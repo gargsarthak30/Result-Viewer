@@ -1,14 +1,5 @@
 <?php
-$user=$_POST["username"];
-$pass=$_POST["password"];
-$q=$this->db->query("select * from admin where Username='$user'");
-$results=$q->result();
-foreach($results as $row)
-		{
-			if(password_verify($pass, $row->Password))
-			{
-
-
+$fac_username = $this->session->userdata('un');
 ?>
 
 <!--admin_main-->
@@ -124,13 +115,3 @@ if(isset($_POST["publish"]))
 </div>
 <br/><br/><br/><br/>
 </section>
-<?php
-
-			}
-			else
-			{
-				echo "wrong credentials try again";
-				
-			}
-		}
-?>

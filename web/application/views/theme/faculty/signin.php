@@ -10,7 +10,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<center>
-								<p class="active">Admin Login</p>
+								<p class="active">Faculty Login</p>
 								</center>
 							</div>
 						</div>
@@ -20,7 +20,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="<?=site_url('admin/main');?>" method="post" role="form" style="display: block;">
+								<form id="login-form" action="<?=site_url('faculty/validate_signin');?>" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="10" class="form-control" placeholder="Username" value="<?=set_value('username');?>" required autofocus>
 									</div>

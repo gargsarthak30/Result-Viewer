@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand">Result Viewer</a>
+                <a class="navbar-brand" href="<?=site_url('home');?>">Result Viewer</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,19 +21,19 @@
                         <a href="#page-top"></a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('admin/main');?>">New Upload</a>
+                        <a href="<?=site_url('faculty/upload');?>">New Upload</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('admin/sheets');?>">Existing Sheets</a>
+                        <a href="<?=site_url('faculty/sheets');?>">Existing Sheets</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('common/contact/admin');?>">Contact</a>
+                        <a href="<?=site_url('common/contact/faculty');?>">Contact</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('admin/settings');?>">Settings</a>
+                        <a href="<?=site_url('faculty/settings');?>">Settings</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('admin/logout');?>">Logout</a>
+                        <a href="<?=site_url('faculty/logout');?>">Logout</a>
                     </li>
                 </ul>
             </div>

@@ -1,21 +1,13 @@
-
 <?php
-$coll_id=$_POST["college_id"];
-$reg_no=$_POST["reg_no"];
-$pass=$_POST["pass"];
-
-$q=$this->db->query("select * from users where College_Id='$coll_id' and Roll_No='$reg_no'");
-$results=$q->result();
-foreach($results as $row)
-		{
-			if(password_verify($pass, $row->Password))
-			{?>	
+$reg_no = $this->session->userdata('roll');
+$coll_id = $this->session->userdata('coll');
+?>
 				<div class="container" id="result">
 				<div class="row" style="padding-bottom:205px;">
 				<br/><br/><br/><br/><br/>
 				
-				<h4>College Id : <?php echo $row->College_Id; ?></h4>
-				<h4>Registration No. : <?php echo $row->Roll_No; ?></h4>
+				<h4>College Id : <?=$coll_id;?></h4>
+				<h4>Registration No. : <?=$reg_no;?></h4>
 				<br/><br/>
 				
 				<table class="table">
@@ -64,17 +56,5 @@ foreach($results as $row)
 				</table>
 				</div>
 				</div>
-				<?php
-							}
-			else
-			{
-				echo "nothing";
-			}
-		}
-
-
-
-
-
-?>
+				
 				

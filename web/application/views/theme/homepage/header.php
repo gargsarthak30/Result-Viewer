@@ -22,10 +22,10 @@
                         <a href="<?=site_url('student/signin');?>">Student</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('admin/signin');?>">Admin</a>
+                        <a href="<?=site_url('faculty/signin');?>">Faculty</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('common/about/homepage');?>">About</a>
+                        <a href="<?=site_url('common/about/homepage');?>">Admin</a>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('common/app/homepage');?>">Android App</a>
