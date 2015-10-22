@@ -1,5 +1,5 @@
 <?php
-$fac_username = $this->session->userdata('un');
+$fac_username = $this->session->userdata('user_name');
 ?>
 
 <!--admin_main-->

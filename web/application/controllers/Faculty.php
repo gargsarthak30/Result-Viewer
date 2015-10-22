@@ -4,13 +4,13 @@ class Faculty extends CI_Controller {
 	
 	public function signin()
 	{
-		if($this->session->userdata('logged')=='fac')
+		if($this->session->userdata('logged')=='faculty')
 		{
 			redirect('faculty/upload');
 		}
 		else
 		{
-			if($this->session->userdata('logged')=='stu' || $this->session->userdata('logged')=='admin')
+			if($this->session->userdata('logged')=='student' || $this->session->userdata('logged')=='admin')
 			{
 				$this->session->sess_destroy();
 			}
@@ -45,24 +45,33 @@ class Faculty extends CI_Controller {
 		$user=$_POST["username"];
 		$pass=$_POST["password"];
 		$q=$this->db->query("select * from admin where Username='$user'");
-		$results=$q->result();
-		foreach($results as $row)
+		if( $q->num_rows() == 0 )
 		{
+			$this->session->set_flashdata('no_rec', '* Details incorrect !!');
+			redirect('faculty/signin');
+		}
+		else if( $q->num_rows() > 1 )
+		{
+			echo "Error : Multiple students found !!";
+		}
+		else
+		{
+			$row=$q->row();
 			if(password_verify($pass, $row->Password))
 			{
 					$fac_data = array(
-                   'un'  => $user,
-				   'logged' => 'fac'
+                   'user_name'  => $user,
+				   'logged' => 'faculty'
 					);
 
-				$this->session->set_userdata($fac_data);
-				redirect('faculty/upload');
+					$this->session->set_userdata($fac_data);
+					redirect('faculty/upload');
 			}
 			else
 			{
-				echo "wrong credentials try again";
+					$this->session->set_flashdata('no_rec', '* Details incorrect !!');
+					redirect('faculty/signin');
 			}
-
 		}
 	}
 
@@ -92,14 +101,14 @@ class Faculty extends CI_Controller {
 	public function admin_register()
 	{
 		
-		$this->load->view('theme/admin/signup_fac');
+		$this->load->view('theme/faculty/signup_fac');
 		
 	}
 	
 	public function faculty_signup()
 	{
 		
-		$this->load->view('theme/admin/faculty');
+		$this->load->view('theme/faculty/faculty');
 		
 	}
 	

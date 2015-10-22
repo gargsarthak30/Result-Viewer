@@ -10,6 +10,22 @@ $coll_id = $this->session->userdata('coll');
 				<h4>Registration No. : <?=$reg_no;?></h4>
 				<br/><br/>
 				
+				<?php
+				$q=$this->db->query("Select * from $coll_id where Roll_No = '$reg_no' ORDER BY Semester DESC");
+					if($q->num_rows() == 0)
+					{
+						echo "<center>No Results Found !!</center>";
+					}
+					else
+					{
+						$results=$q->result();
+							$y="S-M";
+							$y1="M-T";
+							$y2="E-T";
+							$y3= "Total";
+							$y4= "Grades";
+				?>
+				
 				<table class="table">
 						<thead>
 						  <tr>
@@ -24,21 +40,11 @@ $coll_id = $this->session->userdata('coll');
 						  </tr>
 						</thead>
 						<tbody>
-						<?php
-						  
-					
-						$q=$this->db->query("Select * from $coll_id where Roll_No = '$reg_no' ORDER BY Semester DESC");
-                        $results=$q->result();
-							$y="S-M";
-							$y1="M-T";
-							$y2="E-T";
-							$y3= "Total";
-							$y4= "Grades";
-						foreach($results as $rows)
-						{
-							
-				
-				?>
+						
+					<?php
+							foreach($results as $rows)
+							{	
+					?>
 						  <tr>
 							
 							<td><?php echo $rows->Semester;  ?></td>
@@ -52,7 +58,10 @@ $coll_id = $this->session->userdata('coll');
 						  </tr>
 						</tbody>
 						
-						<?php } ?>
+					<?php
+							} 
+						}
+					?>
 				</table>
 				</div>
 				</div>

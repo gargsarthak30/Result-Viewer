@@ -18,6 +18,7 @@
 						<hr>
 					</div>
 					<?php echo '<span style="font-size:10px; color:red; text-align:center">'.validation_errors().'</span>'; ?>
+					<?php echo '<center>'.$this->session->flashdata('alrdy_reg').'</center>'; ?>
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">

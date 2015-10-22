@@ -4,13 +4,13 @@ class Student extends CI_Controller {
 	
 	public function signin()
 	{
-		if($this->session->userdata('logged')=='stu')
+		if($this->session->userdata('logged')=='student')
 		{
 			redirect('student/result');
 		}
 		else
 		{
-			if($this->session->userdata('logged')=='fac' || $this->session->userdata('logged')=='admin')
+			if($this->session->userdata('logged')=='faculty' || $this->session->userdata('logged')=='admin')
 			{
 				$this->session->sess_destroy();
 			}
@@ -47,24 +47,34 @@ class Student extends CI_Controller {
 		$reg_no=$_POST["reg_no"];
 		$pass=$_POST["pass"];
 		$q=$this->db->query("select * from users where College_Id='$coll_id' and Roll_No='$reg_no'");
-		$results=$q->result();
-		foreach($results as $row)
+		if( $q->num_rows() == 0 )
 		{
+			$this->session->set_flashdata('no_rec', '* Details incorrect !!');
+			redirect('student/signin');
+		}
+		else if( $q->num_rows() > 1 )
+		{
+			echo "Error : Multiple students found !!";
+		}
+		else
+		{
+			$row=$q->row();
 			if(password_verify($pass, $row->Password))
-			{
+				{
 					$stu_data = array(
                    'roll'  => $reg_no,
                    'coll'  => $coll_id,
-				   'logged' => 'stu'
+				   'logged' => 'student'
 					);
 
-				$this->session->set_userdata($stu_data);
-				redirect('student/result');
-			}
-			else
-			{
-				echo "wrong credentials try again";
-			}
+					$this->session->set_userdata($stu_data);
+					redirect('student/result');
+				}
+				else
+				{
+					$this->session->set_flashdata('no_rec', '* Details incorrect !!');
+					redirect('student/signin');
+				}
 		}
 	}
 	
@@ -92,7 +102,33 @@ class Student extends CI_Controller {
 		}
 		else
 		{
-			$this->signup_complete();
+			$this->verify_register();
+		}
+	}
+	
+	public function verify_register()
+	{
+		$coll_id=$_POST["college_id"];
+		$reg_no=$_POST["reg_no"];
+		$pass=$_POST["pass"];
+
+		$query=$this->db->query("select * from users where Roll_No='$reg_no'");
+		$res=$query->result();
+		if($this->db->affected_rows()>0)
+		{
+			$this->session->set_flashdata('alrdy_reg', '* Student already registered !!');
+			redirect('student/register');
+		}
+		else
+		{
+			$password = password_hash($pass,PASSWORD_DEFAULT);
+			$q=$this->db->query("INSERT INTO users (College_Id,Roll_No,Password)VALUES('$coll_id','$reg_no','$password');");
+			if($this->db->affected_rows()==1)
+			{
+				$this->session->set_flashdata('conf_reg', '* You are successfully registered.<br> Please login here.');
+				redirect('student/signin');
+
+			}
 		}
 	}
 	
@@ -103,11 +139,6 @@ class Student extends CI_Controller {
 		$this->load->view('theme/student/header');
 		$this->load->view('theme/student/result');
 		$this->load->view('theme/common/footer');
-	}
-	
-	public function signup_complete()
-	{
-		$this->load->view('theme/student/signup_com');
 	}
 	
 	public function logout()

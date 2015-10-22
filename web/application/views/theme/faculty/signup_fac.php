@@ -14,7 +14,7 @@ foreach($results as $row)
 				<div style="background-color:white; border: 5px solid orange; ">
 				<h2>Faculty sign-up</h2>
 				<br/>
-				<form action = "<?=base_url('index.php/admin/faculty_signup')?>" method="POST">
+				<form action = "<?=base_url('index.php/faculty/faculty_signup')?>" method="POST">
 				Name: <input type="text" name="name">
 				<br/><br/>
 				Username: <input type="text" name="username">
