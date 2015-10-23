@@ -3,6 +3,8 @@ package com.example.result;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.http.HttpRequest;
 import org.apache.http.NameValuePair;
@@ -30,6 +32,7 @@ import android.widget.Toast;
 public class SignIn extends Activity implements OnClickListener {
 	ConnectionDetector cd;
 	Boolean isInternetPresent;
+	String regex,input,result;
 	EditText RegistrationNumber, Password;
 	Button Login;
 	private Spinner spinner;
@@ -97,9 +100,17 @@ public class SignIn extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View arg0) {
+		input = RegistrationNumber.getText().toString();
+		regex = "[1-9]{2}\\/[A-Za-z]{3,4}\\/[0-9]{3}";
+		Matcher matcher = Pattern.compile( regex ).matcher(input);
 		// TODO Auto-generated method stub
 		if (isInternetPresent == true) {
-			if (Password.getText().toString().length() < 6) {
+			if (!(matcher.find( )))
+	        {
+	        RegistrationNumber.setError("Wrong Format");
+	        }
+			
+			else if (Password.getText().toString().length() < 6) {
 				Password.setError("Password cannot be less than 6 characters.");
 			} else {
 				new LoadAllProducts().execute();
