@@ -44,7 +44,7 @@ class Faculty extends CI_Controller {
 	{
 		$user=$_POST["username"];
 		$pass=$_POST["password"];
-		$q=$this->db->query("select * from admin where Username='$user'");
+		$q=$this->db->query("select * from faculty where Username='$user'");
 		if( $q->num_rows() == 0 )
 		{
 			$this->session->set_flashdata('no_rec', '* Details incorrect !!');

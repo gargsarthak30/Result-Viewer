@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=site_url('');?>">Gautam Buddha University</a>
+                <a class="navbar-brand" href="<?=site_url('home');?>">Gautam Buddha University</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -25,7 +25,7 @@
                         <a href="<?=site_url('faculty/signin');?>">Faculty</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('common/about/homepage');?>">Admin</a>
+                        <a href="<?=site_url('admin/signin');?>">Admin</a>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('common/app/homepage');?>">Android App</a>
@@ -39,4 +39,11 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <style>
+    .don
+    {
+         min-height: calc(100vh - 161px);
+         /* 100px header + 75px footer = 175px  */
+    }
+    </style>
 <div class="don"><!--closes before footer-->

@@ -24,13 +24,23 @@
 							<div class="col-lg-12">
 								<form id="register-form" action="<?=site_url('student/validate_register');?>" method="post" role="form">
 									<div class="form-group">
-										<input type="text" name="college_id" tabindex="1" class="form-control" placeholder="College Id" value="<?=set_value('college_id');?>" required autofocus>
+										<select class="selectpicker show-tick" data-width="100%" title='Select School' name="college_id" tabindex="1" value="<?=set_value('college_id');?>" autofocus>
+											<?php
+												$school_list = $this->db->query("SELECT College_Id FROM master");
+												foreach($school_list->result() as $school)
+												{
+											?>
+											<option><?=ucfirst($school->College_Id);?></option>
+											<?php
+												}
+											?>
+  										</select>
 									</div>
 									<div class="form-group">
 										<input type="text" name="reg_no" tabindex="2" class="form-control" placeholder="Registration Id" value="<?=set_value('reg_no');?>" required>
 									</div>
 									<div class="form-group">
-										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Password" required>
+										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Choose Password" required>
 									</div>
 									<div class="form-group">
 										<input type="password" name="confpass" tabindex="4" class="form-control" placeholder="Confirm Password" required>
@@ -55,3 +65,6 @@
 			</div>
 		</div>
 	</div>
+<script>
+ $('.selectpicker').selectpicker();
+ </script>

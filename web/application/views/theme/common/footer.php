@@ -37,6 +37,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?=base_url('assets/theme/js/freelancer.js');?>"></script>
 
+    <!--Bootstrap Select Picker-->
+    <script src="<?=base_url('assets/select-picker/js/bootstrap-select.min.js');?>"></script>    
+
 </body>
 
 </html>

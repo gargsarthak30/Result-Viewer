@@ -3,7 +3,7 @@ $reg_no = $this->session->userdata('roll');
 $coll_id = $this->session->userdata('coll');
 ?>
 				<div class="container" id="result">
-				<div class="row" style="padding-bottom:205px;">
+				<div class="row">
 				<br/><br/><br/><br/><br/>
 				
 				<h4>College Id : <?=$coll_id;?></h4>

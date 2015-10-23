@@ -25,10 +25,26 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<form id="login-form" action = "<?=site_url('student/validate_signin');?>" method="post" role="form">
-									
+									<!--
 									<div class="form-group">
 										<input type="text" name="college_id" tabindex="1" class="form-control" placeholder="College Id" value="<?=set_value('college_id');?>" required autofocus>
 									</div>
+									-->
+									<!--testing-->
+									<div class="form-group">
+										<select class="selectpicker show-tick" data-width="100%" title='Select School' name="college_id" tabindex="1" value="<?=set_value('college_id');?>" autofocus>
+											<?php
+												$school_list = $this->db->query("SELECT College_Id FROM master");
+												foreach($school_list->result() as $school)
+												{
+											?>
+											<option><?=ucfirst($school->College_Id);?></option>
+											<?php
+												}
+											?>
+  										</select>
+									</div>
+									<!--testing-->
 									<div class="form-group">
 										<input type="text" name="reg_no" tabindex="2" class="form-control" placeholder="Registration No." value="<?=set_value('reg_no');?>" required>
 									</div>
@@ -55,5 +71,6 @@
 			</div>
 		</div>
 	</div>
-					
-			
+<script>
+ $('.selectpicker').selectpicker();
+ </script>

@@ -1,5 +1,4 @@
 
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
         <div class="container">
@@ -21,19 +20,19 @@
                         <a href="#page-top"></a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('faculty/upload');?>">New Upload</a>
+                        <a href="<?=site_url('admin/all');?>">All-Faculty</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('faculty/sheets');?>">Existing Sheets</a>
+                        <a href="<?=site_url('admin/add');?>">Add-Faculty</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('common/contact/faculty');?>">Contact</a>
+                        <a href="<?=site_url('admin/transfer');?>">Transfer-Admin</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('faculty/settings');?>">Settings</a>
+                        <a href="<?=site_url('admin/settings');?>">Settings</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('faculty/logout');?>">Logout</a>
+                        <a href="<?=site_url('admin/logout');?>">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -41,11 +40,11 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <style>
-    .don
-    {
-         min-height: calc(100vh - 71px);
+	<style>
+	.don
+	{
+		 min-height: calc(100vh - 71px);
          /* 100px header + 75px footer = 175px  */
-    }
-    </style>
+	}
+	</style>
 <div class="don">

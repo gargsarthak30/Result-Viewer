@@ -26,10 +26,10 @@ class Student extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('college_id', 'College Id', 'required');
+		$this->form_validation->set_rules('college_id', 'School', 'required');
 		$this->form_validation->set_rules('reg_no', 'Registeration Number', 'required');
-		$this->form_validation->set_rules('pass', 'Password', 'required|min_length[6]');
-		$this->form_validation->set_message('min_length', '* Details incorrect !!');
+		$this->form_validation->set_rules('pass', 'Password', 'required');
+		//$this->form_validation->set_message('min_length', '* Details incorrect !!');
 		
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -91,7 +91,7 @@ class Student extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('college_id', 'College Id', 'required');
+		$this->form_validation->set_rules('college_id', 'School', 'required');
 		$this->form_validation->set_rules('reg_no', 'Registeration Number', 'required');
 		$this->form_validation->set_rules('pass', 'Password', 'required|min_length[6]');
 		$this->form_validation->set_rules('confpass', 'Confirm Password', 'required|matches[pass]');
