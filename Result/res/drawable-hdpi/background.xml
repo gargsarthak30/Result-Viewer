@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <gradient
-        android:startColor="#e53935"
-        android:endColor="#e35d5b"
-        android:angle="45"/>    
-</shape>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@drawable/back"
+        android:tileMode="repeat" />

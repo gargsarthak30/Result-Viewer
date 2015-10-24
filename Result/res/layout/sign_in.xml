@@ -8,9 +8,9 @@
     
     <ImageView
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:src="@drawable/main" >
         </ImageView>
     
@@ -41,7 +41,7 @@
         android:fontFamily=""
         android:text="College&apos;s Id:"
         android:textColor="#FFFFFF" 
-        android:layout_marginTop="20sp"/>
+        android:layout_marginTop="10sp"/>
  	<Spinner
  	    android:id="@+id/spinner"
  	    android:layout_width="fill_parent"

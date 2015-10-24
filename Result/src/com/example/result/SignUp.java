@@ -31,8 +31,8 @@ import android.widget.Toast;
 public class SignUp extends Activity implements OnClickListener {
 	ConnectionDetector cd;
 	Boolean isInternetPresent;
-	String regex,input,result;
-	EditText RegistrationNumber, Password;
+	String regex, input, result;
+	EditText RegistrationNumber, Password, ConfPass;
 	Button CreateAccount;
 	private Spinner spinner;
 	private static final String[] paths = { "soe", "som", "sobt", "soict",
@@ -42,13 +42,13 @@ public class SignUp extends Activity implements OnClickListener {
 	private static String url_create_account = "http://10.0.2.2/Result-Viewer/php/signup.php";
 	private static final String TAG_SUCCESS = "success";
 
-	public void onBackPressed()
-	{
+	public void onBackPressed() {
 		Intent i = new Intent("android.intent.action.MAIN");
 		startActivity(i);
 		finish();
 
 	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -58,6 +58,7 @@ public class SignUp extends Activity implements OnClickListener {
 		// CollegeId = (EditText) findViewById(R.id.etCollegeId);
 		RegistrationNumber = (EditText) findViewById(R.id.etRegistration);
 		Password = (EditText) findViewById(R.id.etPassword);
+		ConfPass = (EditText) findViewById(R.id.etConfirm);
 		CreateAccount = (Button) findViewById(R.id.bCreate);
 
 		CreateAccount.setOnClickListener(this);
@@ -102,24 +103,24 @@ public class SignUp extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		input = RegistrationNumber.getText().toString();
 		regex = "[1-9]{2}\\/[A-Za-z]{3,4}\\/[0-9]{3}";
-		Matcher matcher = Pattern.compile( regex ).matcher(input);
-		
+		Matcher matcher = Pattern.compile(regex).matcher(input);
+
 		if (isInternetPresent == true) {
 			// TODO Auto-generated method stub
-			if (!(matcher.find( )))
-	        {
-	        RegistrationNumber.setError("Wrong Format");
-	        }
-			
-			else if (Password.getText().toString().length() < 6)
-				{
-				Password.setError("Password must be atleast 6 characters in length.");
-				}
-			else
-			{
-			new CreateNewAccount().execute();
+			if (!(matcher.find())) {
+				RegistrationNumber.setError("Wrong Format");
 			}
-			} else {
+
+			else if (Password.getText().toString().length() < 6) {
+				Password.setError("Password must be atleast 6 characters in length.");
+			} else if (ConfPass.getText().toString() != Password.getText().toString()) {
+				ConfPass.setError("Password doesn't match!.");
+			}
+
+			else {
+				new CreateNewAccount().execute();
+			}
+		} else {
 			Toast.makeText(getApplicationContext(),
 					"No Internet Connection Found!", Toast.LENGTH_LONG).show();
 
@@ -139,9 +140,9 @@ public class SignUp extends Activity implements OnClickListener {
 		@Override
 		protected String doInBackground(String... arg0) {
 			// TODO Auto-generated method stub
-			String cid  = spinner.getSelectedItem().toString();
+			String cid = spinner.getSelectedItem().toString();
 			String pass = Password.getText().toString();
-			String rno  = RegistrationNumber.getText().toString();
+			String rno = RegistrationNumber.getText().toString();
 			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("rno", rno));
