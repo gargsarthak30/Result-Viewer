@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contact Us</h2>
+                    <h3 style="margin-top:0px;">Contact Us</h3>
                     <hr class="star-primary">
                 </div>
             </div>
