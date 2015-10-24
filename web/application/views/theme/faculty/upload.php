@@ -1,5 +1,7 @@
 <?php
 $fac_username = $this->session->userdata('user_name');
+$fac_id_q = $this->db->query("SELECT Faculty_Id FROM faculty WHERE Username = '$fac_username';");
+$fac_id = $fac_id_q->row()->Faculty_Id;
 ?>
 
 <!--admin_main-->
@@ -8,7 +10,7 @@ $fac_username = $this->session->userdata('user_name');
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>New Upload</h2>
+                    <h3 style="margin-top:-20px;">New Upload</h3>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -21,22 +23,29 @@ $fac_username = $this->session->userdata('user_name');
 		<br/>
 		
 		<div class="col-md-5 input-group">
-			<span class="input-group-addon" id="sizing-addon1">Enter course_code</span>
+			<span class="input-group-addon">Enter School</span>
+			<input type="text" name="school" class="form-control" required/>
+		</div>
+
+		<br/>
+
+		<div class="col-md-5 input-group">
+			<span class="input-group-addon">Enter Department</span>
+			<input type="text" name="dept" class="form-control" required/>
+		</div>
+
+		<br/>
+
+		<div class="col-md-5 input-group">
+			<span class="input-group-addon" id="sizing-addon1">Enter Subject Code</span>
 			<input type="text" name="course_code" class="form-control" required/>
 		</div>
 		
 		<br/>
 		
 		<div class="col-md-5 input-group">
-			<span class="input-group-addon">Enter semester</span>
+			<span class="input-group-addon">Enter Semester</span>
 			<input type="text" name="semester" class="form-control" required/>
-		</div>
-		
-		<br/>
-		
-		<div class="col-md-5 input-group">
-			<span class="input-group-addon">Enter school</span>
-			<input type="text" name="school" class="form-control" required/>
 		</div>
 		
 		<br/>
@@ -56,6 +65,7 @@ if(isset($_POST["submit"]))
 	$sem=$_POST["semester"];
 	$course=$_POST["course_code"];
 	$school=$_POST["school"];
+	$department=$_POST["dept"];
 	//echo $school;
     while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
     {
@@ -89,9 +99,13 @@ if(isset($_POST["submit"]))
         }
     }
 
-        if($this->db->affected_rows()>0){
+        if($this->db->affected_rows()>0)
+        {
             echo "You database has imported successfully.";
-        }else{
+            $sheets = $this->db->query("INSERT INTO excel_details('Faculty_Id', 'College_Id', 'Semester', 'Department','Course_Code') VALUES ('$fac_id','$school','$sem','$department','$course');");
+        }
+        else
+        {
             echo "Sorry! There is some problem.";
         }
 
@@ -113,5 +127,5 @@ if(isset($_POST["publish"]))
 
 ?>
 </div>
-<br/><br/><br/><br/>
+<br/>
 </section>
