@@ -11,7 +11,7 @@
             <br/>
 
     <?php
-		$select_all = $this->db->query("SELECT Full_Name, Email FROM faculty ORDER BY Faculty_Id DESC;");
+		$select_all = $this->db->query("SELECT Faculty_Id, Full_Name, Email FROM faculty ORDER BY Faculty_Id DESC;");
     	if ($select_all->num_rows() > 0)
     	 {
     ?>
@@ -54,7 +54,13 @@
 							<?= $row->Email ?>
                         </div>
                         <div class="col-sm-1">
-                            <a href="<?= site_url('admin/remove'); ?>" class="btn btn-xs btn-primary">Remove</a>
+                            <form action ="<?=site_url('admin/remove_faculty');?>" method="POST">
+                                <?php 
+                                $this->load->helper('form');
+                                echo form_hidden('fid', $row->Faculty_Id);
+                                ?>
+                                <input type="submit" class="btn btn-xs btn-primary" value="Remove">
+                           </form>
                         </div>
                     </div>
                 </li>
@@ -72,19 +78,16 @@
     ?>
 </div>
 </section>
-<?php
-	if(empty($this->session->flashdata('conf_add')))
-	{
 
-	}
-	else
-	{
+<?php
+$flash = $this->session->flashdata('fac_remove').$this->session->flashdata('conf_add') ;
+if(!empty($flash))
+{
 ?>
-		<script>
-		alert(
-			"<?php echo $this->session->flashdata('conf_add'); ?>"
-	 	);
-		</script>
-	<?php
-	}
-	?>
+<script>
+var m = '<?=$flash;?>';
+alert(m);
+</script>
+<?php
+}
+?>

@@ -92,26 +92,6 @@ class Faculty extends CI_Controller {
 		$this->load->view('theme/common/footer');
 	}
 	
-	
-	public function excel_submit()
-	{
-		$this->load->view('theme/faculty/excel_submit');
-	}
-	
-	public function admin_register()
-	{
-		
-		$this->load->view('theme/faculty/signup_fac');
-		
-	}
-	
-	public function faculty_signup()
-	{
-		
-		$this->load->view('theme/faculty/faculty');
-		
-	}
-	
 	public function logout()
 	{
 		$this->session->sess_destroy();

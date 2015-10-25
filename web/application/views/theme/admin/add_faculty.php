@@ -22,7 +22,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="register-form" action="<?=site_url('admin/validate_add');?>" method="post" role="form">
+								<form id="register-form" action="<?=site_url('admin/validate_add_faculty');?>" method="post" role="form">
 									<div class="form-group">
 										<input type="text" name="full_name" tabindex="1" class="form-control" placeholder="Full Name" value="<?=set_value('full_name');?>" required autofocus>
 									</div>

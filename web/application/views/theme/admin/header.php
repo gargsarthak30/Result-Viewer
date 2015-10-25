@@ -20,13 +20,13 @@
                         <a href="#page-top"></a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('admin/all');?>">All-Faculty</a>
+                        <a href="<?=site_url('admin/all_faculty');?>">All-Faculty</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('admin/add');?>">Add-Faculty</a>
+                        <a href="<?=site_url('admin/add_faculty');?>">Add-Faculty</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('admin/transfer');?>">Transfer-Admin</a>
+                        <a href="<?=site_url('admin/change_admin');?>">Change-Admin</a>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('admin/settings');?>">Settings</a>

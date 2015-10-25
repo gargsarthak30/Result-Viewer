@@ -15,6 +15,8 @@
         </div>
     </header>
 
+    <?=$this->session->flashdata('admin_change');?>
+
 
 	
 
