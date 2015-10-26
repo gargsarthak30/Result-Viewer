@@ -38,18 +38,25 @@ public class Main extends Activity implements OnClickListener {
 	    public boolean onOptionsItemSelected(MenuItem item) {  
 	        switch (item.getItemId()) {  
 	            case R.id.item1:  
-	              setContentView(R.layout.about);  
-	            return true;     
-	           case R.id.item2:  
-	        	   setContentView(R.layout.help); 
-	              return true;
+	            	Intent ab = new Intent("android.intent.action.ABOUT");
+	    			startActivity(ab);
+	    			break;
+  
+			case R.id.item2:  
+				Intent he = new Intent("android.intent.action.HELP");
+				startActivity(he);
+				break;
+
 	           case R.id.item3:  
-	        	   setContentView(R.layout.result_format); 
-	              return true;
+	        	   Intent rf = new Intent("android.intent.action.RESFORMAT");
+	   			startActivity(rf);
+	   			break;
+
 	                
 	              default:  
 	                return super.onOptionsItemSelected(item);  
-	        }  
+	        }
+			return false;  
 	    }  
 	@Override
 	public void onClick(View arg0) {

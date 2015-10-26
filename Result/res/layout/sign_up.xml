@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Registration Number (with slashes)"
+        android:hint="Example: 20/ICS/047"
         android:textColor="#FFFFFF" />
 
     <TextView
