@@ -42,12 +42,6 @@ public class SignUp extends Activity implements OnClickListener {
 	private static String url_create_account = "http://10.0.2.2/Result-Viewer/php/signup.php";
 	private static final String TAG_SUCCESS = "success";
 
-	public void onBackPressed() {
-		Intent i = new Intent("android.intent.action.MAIN");
-		startActivity(i);
-		finish();
-
-	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,42 +67,45 @@ public class SignUp extends Activity implements OnClickListener {
 		isInternetPresent = cd.isConnectingToInternet();
 
 	}
-
+	 public boolean onCreateOptionsMenu(Menu menu) {  
+	        // Inflate the menu; this adds items to the action bar if it is present.  
+	        getMenuInflater().inflate(R.menu.main, menu);//Menu Resource, Menu  
+	        return true;  
+	    }  
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);// Menu Resource, Menu
-		return true;
-	}
+	 public boolean onOptionsItemSelected(MenuItem item) {  
+        switch (item.getItemId()) {  
+            case R.id.item1:  
+            	Intent ab = new Intent("android.intent.action.ABOUT");
+    			startActivity(ab);
+    			break;
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.item1:
-			setContentView(R.layout.about);
-			return true;
-		case R.id.item2:
-			setContentView(R.layout.help);
-			return true;
-		case R.id.item3:
-			setContentView(R.layout.result_format);
-			return true;
+		case R.id.item2:  
+			Intent he = new Intent("android.intent.action.HELP");
+			startActivity(he);
+			break;
 
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+           case R.id.item3:  
+        	   Intent rf = new Intent("android.intent.action.RESFORMAT");
+   			startActivity(rf);
+   			break;
 
+                
+              default:  
+                return super.onOptionsItemSelected(item);  
+        }
+		return false;  
+    }  
 	@Override
 	public void onClick(View arg0) {
 		input = RegistrationNumber.getText().toString();
-		regex = "[1-9]{2}\\/[A-Za-z]{3,4}\\/[0-9]{3}";
+		regex = "[1-9]{2}\\/[A-Z]{3,4}\\/[0-9]{3}";
 		Matcher matcher = Pattern.compile(regex).matcher(input);
 
 		if (isInternetPresent == true) {
 			// TODO Auto-generated method stub
 			if (!(matcher.find())) {
-				RegistrationNumber.setError("Wrong Format");
+				RegistrationNumber.setError("Wrong Format.Please see the specified example.");
 			}
 
 			else if (Password.getText().toString().length() < 6) {

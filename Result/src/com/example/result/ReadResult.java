@@ -78,33 +78,34 @@ public class ReadResult extends Activity {
 		new LoadResult().execute();
 
 	}
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);// Menu Resource, Menu
-		return true;
-	}
+	 public boolean onCreateOptionsMenu(Menu menu) {  
+	        // Inflate the menu; this adds items to the action bar if it is present.  
+	        getMenuInflater().inflate(R.menu.main, menu);//Menu Resource, Menu  
+	        return true;  
+	    }  
+	 public boolean onOptionsItemSelected(MenuItem item) {  
+	        switch (item.getItemId()) {  
+	            case R.id.item1:  
+	            	Intent ab = new Intent("android.intent.action.ABOUT");
+	    			startActivity(ab);
+	    			break;
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.item1:
-			setContentView(R.layout.about);
-			return true;
-		case R.id.item2:
-			setContentView(R.layout.help);
-			return true;
-		 case R.id.item3:  
-      	   setContentView(R.layout.result_format); 
-            return true;
-		 default:
-			return super.onOptionsItemSelected(item);
-		}
-		
-	}
+			case R.id.item2:  
+				Intent he = new Intent("android.intent.action.HELP");
+				startActivity(he);
+				break;
 
-	
-	
+	           case R.id.item3:  
+	        	   Intent rf = new Intent("android.intent.action.RESFORMAT");
+	   			startActivity(rf);
+	   			break;
+
+	                
+	              default:  
+	                return super.onOptionsItemSelected(item);  
+	        }
+			return false;  
+	    }  
 	class LoadResult extends AsyncTask<String, String, String> {
 		protected void onPreExecute() {
 			super.onPreExecute();
