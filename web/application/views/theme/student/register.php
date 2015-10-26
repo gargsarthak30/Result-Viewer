@@ -37,7 +37,7 @@
   										</select>
 									</div>
 									<div class="form-group">
-										<input type="text" name="reg_no" tabindex="2" class="form-control" placeholder="Registration Id" value="<?=set_value('reg_no');?>" required>
+										<input type="text" name="reg_no" tabindex="2" class="form-control" pattern="[0-9]{2}/[A-Z]{3}/[0-9]{3}" title=" 13/ICS/047 " placeholder="Registration Id" value="<?=set_value('reg_no');?>" required>
 									</div>
 									<div class="form-group">
 										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Choose Password" required>

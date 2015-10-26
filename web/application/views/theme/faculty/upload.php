@@ -23,8 +23,17 @@ $fac_id = $fac_id_q->row()->Faculty_Id;
 		<br/>
 		
 		<div class="col-md-5 input-group">
-			<span class="input-group-addon">Enter School</span>
-			<input type="text" name="school" class="form-control" required/>
+			<select class="selectpicker show-tick" data-width="100%" required title='Select School' name="school" tabindex="1" value="" autofocus>
+											<?php
+												$school_list = $this->db->query("SELECT College_Id FROM master");
+												foreach($school_list->result() as $school)
+												{
+											?>
+											<option><?=ucfirst($school->College_Id);?></option>
+											<?php
+												}
+											?>
+  			</select>
 		</div>
 
 		<br/>

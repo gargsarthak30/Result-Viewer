@@ -17,7 +17,7 @@
 						</div>
 						<hr>
 					</div>
-					<?php echo '<center>'.validation_errors().'</center>'; ?>
+					<?php echo '<span style="font-size:10px; color:red; text-align:center">'.validation_errors().'</span>'; ?>
 					<?php echo '<center>'.$this->session->flashdata('no_rec').'</center>'; ?>
 					<?php echo '<center>'.$this->session->flashdata('conf_reg').'</center>'; ?>
 					<div class="panel-body">
@@ -46,7 +46,7 @@
 									</div>
 									<!--testing-->
 									<div class="form-group">
-										<input type="text" name="reg_no" tabindex="2" class="form-control" placeholder="Registration No." value="<?=set_value('reg_no');?>" required>
+										<input type="text" name="reg_no" tabindex="2" class="form-control" pattern="[1-9]{2}/[A-Z]{3}/[0-9]{3}" title=" 13/ICS/047 " placeholder="Registration No." value="<?=set_value('reg_no');?>" required>
 									</div>
 									<div class="form-group">
 										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Password" value="<?=set_value('pass');?>" required>

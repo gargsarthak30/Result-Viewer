@@ -90,15 +90,17 @@ $fac_id = $fac_id_q->row()->Faculty_Id;
                            <?= $row->Course_Code?>
                         </div>
                         <div class="col-sm-3 cr">
-                                <form action ="<?=site_url('excel/delete');?>" method="POST">
+                                <!--form action ="<?=site_url('excel/delete');?>" method="POST">
                                 <?php 
-                                $this->load->helper('form');
-                                echo form_hidden('sid', $row->Sheet_Id);
-                                echo form_hidden('fid', $fac_id);
+                                    /*
+                                    $this->load->helper('form');
+                                    echo form_hidden('sid', $row->Sheet_Id);
+                                    echo form_hidden('fid', $fac_id);
+                                    */
                                 ?>
-                           <a href="<?= site_url('excel/view'); ?>" class="btn btn-xs btn-primary">View</a>&nbsp;&nbsp;&nbsp;
-                           <input type="submit" class="btn btn-xs btn-danger" value="Delete">
-                           </form>
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">&nbsp;&nbsp;&nbsp;
+                                </form-->
+                           <a href="<?= site_url('excel/view'); ?>" class="btn btn-xs btn-primary">View Sheet</a>
                         </div>
                             
                     </div>

@@ -204,7 +204,7 @@ class Admin extends CI_Controller {
 		else
 		{
 			$pass = password_hash($password,PASSWORD_DEFAULT);
-			$q=$this->db->query("INSERT INTO admin (Full_Name,Username,Password,Email)VALUES('$full_name','$username','$pass','$email');");
+			$q=$this->db->query("INSERT INTO admin (Full_Name,Username,Password,Email,Flag)VALUES('$full_name','$username','$pass','$email',1);");
 			if($this->db->affected_rows()==1)
 			{
 				$username_del = $this->session->userdata('user_name');

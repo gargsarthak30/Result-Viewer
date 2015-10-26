@@ -7,6 +7,7 @@ class Excel extends CI_Controller {
 		//don't know what to do here !!
 	}
 	
+	/*
 	public function delete()
 	{		  
 		$sheet_id = $this->input->post('sid');
@@ -22,6 +23,7 @@ class Excel extends CI_Controller {
 		}
 		redirect('faculty/sheets');
 	}
+	*/
 	
 }
 
