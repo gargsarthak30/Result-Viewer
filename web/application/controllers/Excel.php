@@ -6,6 +6,11 @@ class Excel extends CI_Controller {
 	{
 		//don't know what to do here !!
 	}
+
+	public function publish()
+	{
+		//don't know what to do here !!
+	}
 	
 	/*
 	public function delete()

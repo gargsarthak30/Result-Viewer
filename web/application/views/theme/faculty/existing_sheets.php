@@ -100,7 +100,8 @@ $fac_id = $fac_id_q->row()->Faculty_Id;
                                 ?>
                                 <input type="submit" class="btn btn-xs btn-danger" value="Delete">&nbsp;&nbsp;&nbsp;
                                 </form-->
-                           <a href="<?= site_url('excel/view'); ?>" class="btn btn-xs btn-primary">View Sheet</a>
+                           <a href="<?= site_url('excel/view'); ?>" style="width:60px;" class="btn btn-xs btn-primary">View</a>&nbsp;&nbsp;&nbsp;
+                           <a href="<?= site_url('excel/publish'); ?>" style="width:60px;" class="btn btn-xs btn-danger">Publish</a>
                         </div>
                             
                     </div>

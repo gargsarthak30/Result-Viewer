@@ -29,7 +29,7 @@
                         <a href="<?=site_url('admin/change_admin');?>">Change-Admin</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('admin/settings');?>">Settings</a>
+                        <a href="#">Settings</a>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('admin/logout');?>">Logout</a>

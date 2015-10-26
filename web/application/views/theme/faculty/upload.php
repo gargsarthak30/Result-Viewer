@@ -59,8 +59,7 @@ $fac_id = $fac_id_q->row()->Faculty_Id;
 		
 		<br/>
 		
-		<button class="btn btn-primary" type="submit" name="submit">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<button class="btn btn-danger" type="submit" name="publish">Publish</button>
+		<button class="btn btn-primary" type="submit" name="submit">Submit</button>
 		
 </form>
 
@@ -111,7 +110,7 @@ if(isset($_POST["submit"]))
         if($this->db->affected_rows()>0)
         {
             echo "You database has imported successfully.";
-            $sheets = $this->db->query("INSERT INTO excel_details('Faculty_Id', 'College_Id', 'Semester', 'Department','Course_Code') VALUES ('$fac_id','$school','$sem','$department','$course');");
+            $sheets = $this->db->query("INSERT INTO excel_details(Faculty_Id, College_Id, Semester, Department, Course_Code) VALUES ('$fac_id','$school','$sem','$department','$course');");
         }
         else
         {

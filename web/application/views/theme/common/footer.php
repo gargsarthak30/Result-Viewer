@@ -31,8 +31,6 @@
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="<?=base_url('assets/theme/js/classie.js');?>"></script>
-    <!--script src="<?=base_url('assets/theme/js/cbpAnimatedHeader.js');?>"></script-->
-
     
     <!-- Custom Theme JavaScript -->
     <script src="<?=base_url('assets/theme/js/freelancer.js');?>"></script>

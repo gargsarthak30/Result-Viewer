@@ -30,7 +30,7 @@
                         <a href="<?=site_url('common/contact/faculty');?>">Contact</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('faculty/settings');?>">Settings</a>
+                        <a href="#">Settings</a>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('faculty/logout');?>">Logout</a>
