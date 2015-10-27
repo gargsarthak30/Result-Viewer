@@ -4,7 +4,7 @@ $cid = $_GET["cid"];
 $rno = $_GET["rno"];
 $response = array();
 	$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
-	$result=$conn->query("Select * from $cid where Roll_No = '$rno' order by Semester DESC");
+	$result=$conn->query("Select * from $cid where (Roll_No = '$rno' && Published = '1') order by Semester DESC");
 	
 if($result->rowcount()>0)
 {
@@ -12,13 +12,13 @@ $product = array();
 $response["products"] = array();
 foreach($result as $row)
 {
-$product["Semester"] = $row["Semester"];
-$product["Total"] = $row["Total"];
-$product["Course_Code"] = $row["Course_Code"];
-$product["S-M"] = $row["S-M"];
-$product["M-T"] = $row["M-T"];
-$product["E-T"] = $row["E-T"];
-$product["Grades"] = $row["Grades"];
+$product["Semester"] = "Semester: ".$row["Semester"];
+$product["Total"] = "Total: ".$row["Total"];
+$product["Course_Code"] = "Course Code: ".$row["Course_Code"];
+$product["S-M"] = "S-M: ".$row["S-M"];
+$product["M-T"] = "M-T: ".$row["M-T"];
+$product["E-T"] = "E-T: ".$row["E-T"];
+$product["Grades"] = "Grades: ".$row["Grades"];
 $response["success"] = 1;
 array_push($response["products"], $product);
 }
