@@ -134,11 +134,18 @@ class Student extends CI_Controller {
 	
 	public function result()
 	{
-		
-		$this->load->view('theme/common/link');
-		$this->load->view('theme/student/header');
-		$this->load->view('theme/student/result');
-		$this->load->view('theme/common/footer');
+		if($this->session->userdata('logged')=='student')
+		{
+			$this->load->view('theme/common/link');
+			$this->load->view('theme/student/header');
+			$this->load->view('theme/student/result');
+			$this->load->view('theme/common/footer');
+		}
+		else
+		{
+			redirect('home');
+		}
+
 	}
 	
 	public function logout()

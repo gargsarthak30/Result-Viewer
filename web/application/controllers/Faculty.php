@@ -78,18 +78,33 @@ class Faculty extends CI_Controller {
 	
 	public function upload()
 	{
-		$this->load->view('theme/common/link');
-		$this->load->view('theme/faculty/header');
-		$this->load->view('theme/faculty/upload');
-		$this->load->view('theme/common/footer');
+		if($this->session->userdata('logged')=='faculty')
+		{
+			$this->load->view('theme/common/link');
+			$this->load->view('theme/faculty/header');
+			$this->load->view('theme/faculty/upload');
+			$this->load->view('theme/common/footer');
+		}
+		else
+		{
+			redirect('home');
+		}
 	}
 	
 	public function sheets()
 	{
-		$this->load->view('theme/common/link');
-		$this->load->view('theme/faculty/header');
-		$this->load->view('theme/faculty/existing_sheets');
-		$this->load->view('theme/common/footer');
+		if($this->session->userdata('logged')=='faculty')
+		{
+			$this->load->view('theme/common/link');
+			$this->load->view('theme/faculty/header');
+			$this->load->view('theme/faculty/existing_sheets');
+			$this->load->view('theme/common/footer');
+		}
+		else
+		{
+			redirect('home');
+		}
+
 	}
 	
 	public function logout()

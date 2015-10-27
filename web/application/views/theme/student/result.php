@@ -11,7 +11,7 @@ $coll_id = $this->session->userdata('coll');
 				<br/><br/>
 				
 				<?php
-				$q=$this->db->query("Select * from $coll_id where Roll_No = '$reg_no' ORDER BY Semester DESC");
+				$q=$this->db->query("Select * from $coll_id where Roll_No = '$reg_no' AND Published = '1' ORDER BY Semester DESC");
 					if($q->num_rows() == 0)
 					{
 						echo "<center>No Results Found !!</center>";
