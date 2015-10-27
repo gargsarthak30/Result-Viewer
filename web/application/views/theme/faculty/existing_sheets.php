@@ -68,6 +68,16 @@ $fac_id = $fac_id_q->row()->Faculty_Id;
                 {
                     $color='primary';
                 }
+                if($row->Published == 0)
+                {
+                    $shade ='danger';
+                    $disable = '';
+                }
+                else
+                {
+                    $shade ='success';
+                    $disable = 'disabled';
+                }
                 ?>
                 <li class="list-group-item list-group-item-<?=$color?>">
                     <div class="row">
@@ -101,7 +111,7 @@ $fac_id = $fac_id_q->row()->Faculty_Id;
                                 <input type="submit" class="btn btn-xs btn-danger" value="Delete">&nbsp;&nbsp;&nbsp;
                                 </form-->
                            <a href="<?= site_url('excel/view'); ?>" style="width:60px;" class="btn btn-xs btn-primary">View</a>&nbsp;&nbsp;&nbsp;
-                           <a href="<?= site_url('excel/publish'); ?>" style="width:60px;" class="btn btn-xs btn-danger">Publish</a>
+                           <a href="<?= site_url('excel/publish').'/'.$row->Sheet_Id.'/'.$row->College_Id; ?>" style="width:60px;" class="btn btn-xs btn-<?=$shade?> <?=$disable?>" >Publish</a>
                         </div>
                             
                     </div>
@@ -121,7 +131,7 @@ $fac_id = $fac_id_q->row()->Faculty_Id;
 </div>
 </section>
 <?php
-$flash = $this->session->flashdata('sheet_delete') ;
+$flash = $this->session->flashdata('sheet_delete').$this->session->flashdata('published');
 if(!empty($flash))
 {
 ?>

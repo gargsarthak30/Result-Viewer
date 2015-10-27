@@ -120,8 +120,9 @@ if(isset($_POST["submit"]))
 }
 
 ?>
-<?php
 
+<?php
+/*
 if(isset($_POST["publish"]))
 {
 	
@@ -131,8 +132,7 @@ if(isset($_POST["publish"]))
 	echo "Succesfully published.";
 }
 }
-
-
+*/
 ?>
 </div>
 <br/>

@@ -28,8 +28,12 @@
                     <li class="page-scroll">
                         <a href="<?=site_url('admin/change_admin');?>">Change-Admin</a>
                     </li>
-					<li class="page-scroll">
-                        <a href="#">Settings</a>
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?=site_url('contact/view_messages');?>">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('admin/logout');?>">Logout</a>
