@@ -111,7 +111,7 @@ public class SignUp extends Activity implements OnClickListener {
 			else if (Password.getText().toString().length() < 6) {
 				Password.setError("Password must be atleast 6 characters in length.");
 			} 
-			else if (!(ConfPass.getText().toString() == Password.getText().toString())) {
+			else if (!((ConfPass.getText().toString()).equals(Password.getText().toString()))) {
 				ConfPass.setError("Password doesn't match!.");
 			}
 
