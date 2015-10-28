@@ -2,9 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical" 
-    >
+    android:background="#0097A7"
+    android:orientation="vertical" >
 
     <Button
         android:id="@+id/bSignUp"
@@ -12,9 +11,10 @@
         android:layout_height="80dp"
         android:layout_above="@+id/bLogin"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/round_button"
         android:text="SIGN-UP"
+         android:textColor="#212121"
         android:textSize="30sp" />
 
     <Button
@@ -26,6 +26,7 @@
         android:layout_marginBottom="154dp"
         android:background="@drawable/round_button"
         android:text="LOGIN"
+        android:textColor="#212121"
         android:textSize="30sp" />
 
 </RelativeLayout>

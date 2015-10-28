@@ -1,10 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp" >
+		android:layout_height="match_parent" 
+		android:layout_marginLeft="6dp"
+		android:layout_marginRight="6dp"
+		android:layout_marginTop="4dp"
+		android:layout_marginBottom="4dp"
+		android:background="@drawable/big_card"
+     >
 
     <TextView
         android:id="@+id/sem"
@@ -13,8 +16,8 @@
         android:paddingBottom="2dip"
         android:paddingTop="6dip"
         android:text="Semester : "
-        android:textStyle="bold"
-        android:textColor="#FFFFFF" />
+        android:textColor="#212121"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/sub"
@@ -23,47 +26,47 @@
         android:gravity="left"
         android:paddingBottom="2dip"
         android:text="Subject : "
-        android:textStyle="bold" 
-        android:textColor="#FFFFFF"/>
+        android:textColor="#212121"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/sm"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Score : "
-        android:textStyle="bold" 
-        android:textColor="#FFFFFF"/>
+        android:textColor="#212121"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/mt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="MidTerm Score : "
-        android:textStyle="bold" 
-        android:textColor="#FFFFFF"/>
+        android:textColor="#212121"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/et"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="EndTerm Score : "
-        android:textStyle="bold" 
-        android:textColor="#FFFFFF"/>
+        android:textColor="#212121"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/total"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Total Score : "
-        android:textStyle="bold" 
-        android:textColor="#FFFFFF"/>
-    
-     <TextView
+        android:textColor="#212121"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/grade"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Grade : "
-        android:textStyle="bold" 
-        android:textColor="#FFFFFF"/>
+        android:textColor="#212121"
+        android:textStyle="bold" />
 
 </LinearLayout>

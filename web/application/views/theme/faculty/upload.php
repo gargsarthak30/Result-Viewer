@@ -102,7 +102,7 @@ if(isset($_POST["submit"]))
 		$total="Total";
 		$grade="Grades";
 		
-        $sql = $this->db->query("INSERT INTO $school VALUES ('$s','$r','$m','$mw','$mw1','$mw2','$mw3','$sem','$course')");
+        $sql = $this->db->query("INSERT INTO $school VALUES ('$s','$r','$m','$mw','$mw1','$mw2','$mw3','$sem','$course','1','0')");
 		
         }
     }

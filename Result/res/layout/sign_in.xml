@@ -2,19 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical" 
-    android:gravity = "center">
-    
+    android:background="#0097A7"
+    android:gravity="center"
+    android:orientation="vertical" >
+
     <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="80dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:src="@drawable/main" >
-        </ImageView>
-    
-<!--  
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:src="@drawable/main" >
+    </ImageView>
+
+    <!--
     <TextView
         android:id="@+id/tvCollegeId"
         android:layout_gravity="center"
@@ -32,48 +32,51 @@
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:hint="College Id">       
-    </EditText>-->
+    </EditText>
+    -->
+
     <TextView
         android:id="@+id/tvCollegeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="10sp"
         android:fontFamily=""
         android:text="College&apos;s Id:"
-        android:textColor="#FFFFFF" 
-        android:layout_marginTop="10sp"/>
- 	<Spinner
- 	    android:id="@+id/spinner"
- 	    android:layout_width="fill_parent"
- 	    android:layout_height="wrap_content"
- 	    android:layout_gravity="center" 
- 	   />
+        android:textColor="#212121" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#212121" />
 
     <TextView
         android:id="@+id/tvRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Your Registration Number : "
-        android:textColor="#FFFFFF"
         android:layout_gravity="center"
+        android:text="Enter Your Registration Number : "
+        android:textColor="#212121"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etRegistration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" 
+        android:ems="10"
         android:gravity="center"
-         android:textColor="#FFFFFF"
-        android:hint = "Example: 20/ICS/047"/>
+        android:hint="Example: 20/ICS/047"
+        android:textColor="#212121"  />
 
     <TextView
         android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Password : "
         android:layout_gravity="center"
-        android:textColor="#FFFFFF"
+        android:text="Enter Password : "
+        android:textColor="#212121"
         android:textStyle="bold" />
 
     <EditText
@@ -82,16 +85,16 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:inputType="textPassword" 
-        android:hint = "Password"/>
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="#212121"  />
 
     <Button
-        android:layout_marginTop="15sp"
         android:id="@+id/bLogin"
         android:layout_width="91dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="15sp"
         android:background="@drawable/round_button"
         android:text="  Login  " />
 
