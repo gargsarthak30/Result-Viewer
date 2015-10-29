@@ -90,6 +90,22 @@ class Admin extends CI_Controller {
 			redirect('home');
 		}
 	}
+	public function search()
+	{
+		$this->load->library('form_validation');
+		$this->load->view('theme/common/link');
+		$this->load->view('theme/admin/header');
+		$this->load->view('theme/admin/search');
+		$this->load->view('theme/common/footer');
+	}
+	public function search_result()
+	{
+		$this->load->library('form_validation');
+		$this->load->view('theme/common/link');
+		$this->load->view('theme/admin/header');
+		$this->load->view('theme/admin/search_result');
+		$this->load->view('theme/common/footer');
+	}
 
 	public function validate_add_faculty()
 	{

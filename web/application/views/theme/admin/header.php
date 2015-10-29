@@ -25,6 +25,9 @@
 					<li class="page-scroll">
                         <a href="<?=site_url('admin/add_faculty');?>">Add-Faculty</a>
                     </li>
+					<li class="page-scroll">
+                        <a href="<?=site_url('admin/search');?>">Search</a>
+                    </li>
                     <li class="page-scroll">
                         <a href="<?=site_url('admin/change_admin');?>">Change-Admin</a>
                     </li>
