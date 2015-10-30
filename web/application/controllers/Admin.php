@@ -92,19 +92,34 @@ class Admin extends CI_Controller {
 	}
 	public function search()
 	{
-		$this->load->library('form_validation');
-		$this->load->view('theme/common/link');
-		$this->load->view('theme/admin/header');
-		$this->load->view('theme/admin/search');
-		$this->load->view('theme/common/footer');
+		if($this->session->userdata('logged')=='admin')
+		{
+			$this->load->library('form_validation');
+			$this->load->view('theme/common/link');
+			$this->load->view('theme/admin/header');
+			$this->load->view('theme/admin/search');
+			$this->load->view('theme/common/footer');
+		}
+		else
+		{
+			redirect('home');
+		}
 	}
 	public function search_result()
 	{
-		$this->load->library('form_validation');
-		$this->load->view('theme/common/link');
-		$this->load->view('theme/admin/header');
-		$this->load->view('theme/admin/search_result');
-		$this->load->view('theme/common/footer');
+		if($this->session->userdata('logged')=='admin')
+		{
+			$this->load->library('form_validation');
+			$this->load->view('theme/common/link');
+			$this->load->view('theme/admin/header');
+			$this->load->view('theme/admin/search_result');
+			$this->load->view('theme/common/footer');
+		}
+		
+		else
+		{
+			redirect('home');
+		}
 	}
 
 	public function validate_add_faculty()
