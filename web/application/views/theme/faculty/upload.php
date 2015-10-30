@@ -75,6 +75,11 @@ if(isset($_POST["submit"]))
 	$school=$_POST["school"];
 	$department=$_POST["dept"];
 	//echo $school;
+	$school = strtolower($school);
+	$this->db->trans_start();
+		$sheets = $this->db->query("INSERT INTO excel_details(Faculty_Id, College_Id, Semester, Department, Course_Code) VALUES ('$fac_id','$school','$sem','$department','$course');");
+    	$sheet_id = $this->db->insert_id();
+    $this->db->trans_complete();
     while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
     {
         $c = $c + 1;
@@ -102,7 +107,7 @@ if(isset($_POST["submit"]))
 		$total="Total";
 		$grade="Grades";
 		
-        $sql = $this->db->query("INSERT INTO $school VALUES ('$s','$r','$m','$mw','$mw1','$mw2','$mw3','$sem','$course','1','0')");
+        $sql = $this->db->query("INSERT INTO  $school(Roll_No, S_M, M_T, E_T, Total, Grades, Semester, Course_Code, Sheet_Id) VALUES ('$r','$m','$mw','$mw1','$mw2','$mw3','$sem','$course','$sheet_id');");
 		
         }
     }
@@ -110,7 +115,7 @@ if(isset($_POST["submit"]))
         if($this->db->affected_rows()>0)
         {
             echo "You database has imported successfully.";
-            $sheets = $this->db->query("INSERT INTO excel_details(Faculty_Id, College_Id, Semester, Department, Course_Code) VALUES ('$fac_id','$school','$sem','$department','$course');");
+            
         }
         else
         {
