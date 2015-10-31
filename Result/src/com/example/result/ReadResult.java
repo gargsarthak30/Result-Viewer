@@ -169,8 +169,8 @@ public class ReadResult extends Activity {
 			pDialog.dismiss();
 			runOnUiThread(new Runnable() {
 				public void run() {
-					displaycid.setText("College Id : " + cid);
-					displayrno.setText("Registration Number : " + rno);
+					displaycid.setText("College Id : " + cid.toUpperCase());
+					displayrno.setText("Registration Number : " + rno + "\n");
 					ListAdapter adapter = new SimpleAdapter(ReadResult.this,
 							ResultFetch, R.layout.list_item, new String[] {
 									TAG_SEMESTER, TAG_COURSE, TAG_SM, TAG_MT, TAG_ET, TAG_TOTAL,TAG_GRADES},

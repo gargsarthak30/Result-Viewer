@@ -15,9 +15,9 @@ foreach($result as $row)
 $product["Semester"] = "Semester:        ".$row["Semester"];
 $product["Total"] = "Total:           ".$row["Total"];
 $product["Course_Code"] = "Course Code:  ".$row["Course_Code"];
-$product["S-M"] = "S-M:             ".$row["S-M"];
-$product["M-T"] = "M-T:             ".$row["M-T"];
-$product["E-T"] = "E-T:              ".$row["E-T"];
+$product["S-M"] = "S-M:             ".$row["S_M"];
+$product["M-T"] = "M-T:             ".$row["M_T"];
+$product["E-T"] = "E-T:              ".$row["E_T"];
 $product["Grades"] = "Grades:       ".$row["Grades"];
 $response["success"] = 1;
 array_push($response["products"], $product);
