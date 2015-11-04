@@ -1,13 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-		android:layout_height="match_parent" 
-		android:layout_marginLeft="6dp"
-		android:layout_marginRight="6dp"
-		android:layout_marginTop="4dp"
-		android:layout_marginBottom="4dp"
-		android:background="@drawable/big_card"
-     >
+    android:layout_height="match_parent"
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:layout_marginTop="4dp"
+    android:background="@drawable/big_card"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/sem"
@@ -29,37 +28,47 @@
         android:textColor="#212121"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/sm"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score : "
-        android:textColor="#212121"
-        android:textStyle="bold" />
+        android:orientation="horizontal" >
 
-    <TextView
-        android:id="@+id/mt"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="MidTerm Score : "
-        android:textColor="#212121"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/sm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:text="Internals: "
+            android:textColor="#212121"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/et"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="EndTerm Score : "
-        android:textColor="#212121"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/mt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:text="MidTerm: "
+            android:textColor="#212121"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/total"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Total Score : "
-        android:textColor="#212121"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:text="EndTerm: "
+            android:textColor="#212121"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:text="Total: "
+            android:textColor="#212121"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/grade"

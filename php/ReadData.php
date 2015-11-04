@@ -1,5 +1,4 @@
 <?php
-
 $cid = $_GET["cid"];
 $rno = $_GET["rno"];
 $response = array();
@@ -18,7 +17,7 @@ $product["Course_Code"] = "Course Code:  ".$row["Course_Code"];
 $product["S-M"] = "S-M:             ".$row["S_M"];
 $product["M-T"] = "M-T:             ".$row["M_T"];
 $product["E-T"] = "E-T:              ".$row["E_T"];
-$product["Grades"] = "Grades:       ".$row["Grades"];
+$product["Grades"] = "Grade:        ".$row["Grades"];
 $response["success"] = 1;
 array_push($response["products"], $product);
 }
