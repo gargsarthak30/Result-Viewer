@@ -21,19 +21,19 @@
                         <a href="#page-top"></a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('student/result');?>">Results</a>
-                    </li>
-					<li class="page-scroll">
-                        <a href="<?=site_url('common/app/student');?>">Android App</a>
+                        <a href="<?=site_url('student/details');?>">Student</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('common/contact/student');?>">Contact</a>
+                        <a href="<?=site_url('faculty/signin');?>">Faculty</a>
                     </li>
-					<li class="page-scroll">
-                        <a href="#">Settings</a>
+                    <li class="page-scroll">
+                        <a href="<?=site_url('admin/signin');?>">Admin</a>
                     </li>
-					<li class="page-scroll">
-                        <a href="<?=site_url('student/logout');?>">Logout</a>
+                    <li class="page-scroll">
+                        <a href="<?=site_url('common/app/homepage');?>">Android App</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="<?=site_url('common/contact/homepage');?>">Contact</a>
                     </li>
                 </ul>
             </div>

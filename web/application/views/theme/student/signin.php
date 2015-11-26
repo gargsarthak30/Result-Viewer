@@ -11,7 +11,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<center>
-								<p class="active">Student Login</p>
+								<p class="active">Student Details</p>
 								</center>
 							</div>
 						</div>
@@ -24,13 +24,7 @@
 						
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action = "<?=site_url('student/validate_signin');?>" method="post" role="form">
-									<!--
-									<div class="form-group">
-										<input type="text" name="college_id" tabindex="1" class="form-control" placeholder="College Id" value="<?=set_value('college_id');?>" required autofocus>
-									</div>
-									-->
-									<!--testing-->
+								<form id="login-form" action = "<?=site_url('student/validate_details');?>" method="post" role="form">
 									<div class="form-group">
 										<select class="selectpicker show-tick" data-width="100%" title='Select School' name="college_id" tabindex="1" value="<?=set_value('college_id');?>" autofocus>
 											<?php
@@ -44,21 +38,16 @@
 											?>
   										</select>
 									</div>
-									<!--testing-->
 									<div class="form-group">
 										<input type="text" name="reg_no" tabindex="2" class="form-control" pattern="[1-9]{2}/[A-Z]{3}/[0-9]{3}" title=" 13/ICS/047 " placeholder="Registration No." value="<?=set_value('reg_no');?>" required>
-									</div>
-									<div class="form-group">
-										<input type="password" name="pass" tabindex="3" class="form-control" placeholder="Password" value="<?=set_value('pass');?>" required>
-										<br/>
 									</div>									
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="See Result">
 												<br/><br/>
 												<center>
-												New Student ? <a href="<?=site_url('student/register');?>" tabindex="5">Register Here</a>
+												Facing Problem ? <a href="<?=site_url('common/contact/homepage');?>" tabindex="5"> &nbsp;Contact Here</a>
 												</center>
 											</div>
 										</div>
