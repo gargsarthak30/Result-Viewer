@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
+CREATE TABLE IF NOT EXISTS `rs_admin` (
   `Admin_Id` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`Admin_Id`, `Username`, `Password`, `Full_Name`, `Designation`, `Email`, `Start_Date`, `End_Date`, `Faculty_Created`, `Faculty_Removed`, `Flag`) VALUES
+INSERT INTO `rs_admin` (`Admin_Id`, `Username`, `Password`, `Full_Name`, `Designation`, `Email`, `Start_Date`, `End_Date`, `Faculty_Created`, `Faculty_Removed`, `Flag`) VALUES
 (5, 'initadmin', '$2y$10$wR8yznt6KYRR.EUMYdToVuZXkLFZC5lpPWVt.LxUpT5u8vUcg5Ut2', 'Arun Solanki', '', 'arun.solanki@gmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 1);
 
 -- --------------------------------------------------------
@@ -54,7 +54,7 @@ INSERT INTO `admin` (`Admin_Id`, `Username`, `Password`, `Full_Name`, `Designati
 -- Table structure for table `excel_details`
 --
 
-CREATE TABLE IF NOT EXISTS `excel_details` (
+CREATE TABLE IF NOT EXISTS `rs_excel_details` (
   `Sheet_Id` int(11) NOT NULL AUTO_INCREMENT,
   `Faculty_Id` int(11) NOT NULL,
   `College_Id` varchar(10) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `excel_details` (
 -- Dumping data for table `excel_details`
 --
 
-INSERT INTO `excel_details` (`Sheet_Id`, `Faculty_Id`, `College_Id`, `Semester`, `Department`, `Course_Code`, `Published`) VALUES
+INSERT INTO `rs_excel_details` (`Sheet_Id`, `Faculty_Id`, `College_Id`, `Semester`, `Department`, `Course_Code`, `Published`) VALUES
 (79, 6, 'soict', '', '', '', 1),
 (80, 6, 'soict', '', '', '', 1),
 (81, 5, '$school', '$sem', '$department', '$course', 0),
@@ -83,7 +83,7 @@ INSERT INTO `excel_details` (`Sheet_Id`, `Faculty_Id`, `College_Id`, `Semester`,
 -- Table structure for table `faculty`
 --
 
-CREATE TABLE IF NOT EXISTS `faculty` (
+CREATE TABLE IF NOT EXISTS `rs_faculty` (
   `Faculty_Id` int(5) NOT NULL AUTO_INCREMENT,
   `Full_Name` varchar(50) NOT NULL,
   `Username` varchar(50) NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `faculty` (
 -- Dumping data for table `faculty`
 --
 
-INSERT INTO `faculty` (`Faculty_Id`, `Full_Name`, `Username`, `Password`, `Email`) VALUES
+INSERT INTO `rs_faculty` (`Faculty_Id`, `Full_Name`, `Username`, `Password`, `Email`) VALUES
 (6, 'Arun Solanki', 'arun', '$2y$10$2tzulKRfTUi5qVc7dGsDn.z/y6Q3WwMNK7FIWaZnRrg4GoS.D7YvS', 'arun.solanki@gmail.com'),
 (7, 'Amit K. Awasthi', 'amit', '$2y$10$2tzulKRfTUi5qVc7dGsDn.z/y6Q3WwMNK7FIWaZnRrg4GoS.D7YvS', 'amit.awasthik@gmail.com');
 
@@ -106,7 +106,7 @@ INSERT INTO `faculty` (`Faculty_Id`, `Full_Name`, `Username`, `Password`, `Email
 -- Table structure for table `master`
 --
 
-CREATE TABLE IF NOT EXISTS `master` (
+CREATE TABLE IF NOT EXISTS `rs_master` (
   `College_Id` varchar(20) NOT NULL,
   `College_Name` varchar(50) NOT NULL,
   PRIMARY KEY (`College_Id`)
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `master` (
 -- Dumping data for table `master`
 --
 
-INSERT INTO `master` (`College_Id`, `College_Name`) VALUES
+INSERT INTO `rs_master` (`College_Id`, `College_Name`) VALUES
 ('sobsc', 'SCHOOL OF BUDDHIST STUDIES AND CIVILIZATION'),
 ('sobt', 'SCHOOL OF BIOTECHNOLOGY'),
 ('soe', 'SCHOOL OF ENGINEERING'),
@@ -132,7 +132,7 @@ INSERT INTO `master` (`College_Id`, `College_Name`) VALUES
 -- Table structure for table `messages`
 --
 
-CREATE TABLE IF NOT EXISTS `messages` (
+CREATE TABLE IF NOT EXISTS `rs_messages` (
   `Message_Id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`Message_Id`, `Name`, `Email`, `Message`) VALUES
+INSERT INTO `rs_messages` (`Message_Id`, `Name`, `Email`, `Message`) VALUES
 (1, 'q', 'q', 'q'),
 (2, 'w', 'w', 'w');
 
@@ -154,7 +154,7 @@ INSERT INTO `messages` (`Message_Id`, `Name`, `Email`, `Message`) VALUES
 -- Table structure for table `school`
 --
 
-CREATE TABLE IF NOT EXISTS `school` (
+CREATE TABLE IF NOT EXISTS `rs_school` (
   `S_No` int(5) NOT NULL,
   `Roll_No` varchar(12) NOT NULL,
   `S_M` int(5) NOT NULL,
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `school` (
 -- Dumping data for table `school`
 --
 
-INSERT INTO `school` (`S_No`, `Roll_No`, `S_M`, `M_T`, `E_T`, `Total`, `Grades`, `Semester`, `Course_Code`, `Sheet_Id`, `Published`, `school`) VALUES
+INSERT INTO `rs_school` (`S_No`, `Roll_No`, `S_M`, `M_T`, `E_T`, `Total`, `Grades`, `Semester`, `Course_Code`, `Sheet_Id`, `Published`, `school`) VALUES
 (1, '13/ICS/047', 20, 20, 40, 80, 'Ex', '3', 'CS-203', 80, 1, 'soict'),
 (2, '13/ICS/047', 20, 25, 45, 90, '', '2', 'MA-102', 79, 1, 'soict');
 
@@ -184,7 +184,7 @@ INSERT INTO `school` (`S_No`, `Roll_No`, `S_M`, `M_T`, `E_T`, `Total`, `Grades`,
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE IF NOT EXISTS `rs_users` (
   `User_Id` int(5) NOT NULL AUTO_INCREMENT,
   `College_Id` varchar(20) NOT NULL,
   `Roll_No` varchar(20) NOT NULL,
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`User_Id`, `College_Id`, `Roll_No`, `Password`) VALUES
+INSERT INTO `rs_users` (`User_Id`, `College_Id`, `Roll_No`, `Password`) VALUES
 (69, 'soict', '13ics047', '$2y$10$/wYD1GrI4/FqM4oDsZTwQugaam5mCRQd2u.hKP7z9IFCmzUOy7zBa'),
 (72, 'soict', '13ics022', '$2y$10$ggHqI/IT4a8/frO8wGnWyufA7KX/tSKfAaKi.k5KMI0ti8z51H2lW'),
 (75, 'soict', '13ics015', '$2y$10$rRdBy/6EdciQzCjRXwBiKOUtj9AULZdUmZ1EQI.OvBsRz05Ob0.xO'),
@@ -217,7 +217,7 @@ INSERT INTO `users` (`User_Id`, `College_Id`, `Roll_No`, `Password`) VALUES
 --
 -- Constraints for table `users`
 --
-ALTER TABLE `users`
+ALTER TABLE `rs_users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`College_Id`) REFERENCES `master` (`College_Id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
