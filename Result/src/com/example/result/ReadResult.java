@@ -29,9 +29,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class ReadResult extends Activity {
+	
 	private ProgressDialog pDialog;
 	String rno;
-	String cid;
+	// String cid;
 	JSONParser jParser = new JSONParser();
 	String Semester;
 	String Total;
@@ -40,10 +41,10 @@ public class ReadResult extends Activity {
 	String Mt;
 	String Et;
 	String grade;
-	TextView displaycid;
+	// TextView displaycid;
 	TextView displayrno;
 	ArrayList<HashMap<String, String>> ResultFetch;
-	private static String url_readResult = "http://10.0.2.2/Result-Viewer/php/ReadData.php";
+	private static String url_readResult = "http://www.gbuonline.in/opengbu/result/ReadData.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_TOTAL = "Total";
@@ -56,56 +57,59 @@ public class ReadResult extends Activity {
 	private static final String TAG_GRADES = "Grades";
 
 	ListView list;
-	public void onBackPressed()
-	{
+
+	public void onBackPressed() {
 		Intent i = new Intent("android.intent.action.SIGNIN");
 		startActivity(i);
 		finish();
-  
+
 	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.read_result);
 		Bundle gotData = getIntent().getExtras();
-		cid = gotData.getString("collgId");
+		// cid = gotData.getString("collgId");
 		rno = gotData.getString("rollNo");
-		displaycid = (TextView) findViewById(R.id.tvcllgid);
+		// displaycid = (TextView) findViewById(R.id.tvcllgid);
 		displayrno = (TextView) findViewById(R.id.tvrollno);
 		list = (ListView) findViewById(android.R.id.list);
 		ResultFetch = new ArrayList<HashMap<String, String>>();
 		new LoadResult().execute();
 
 	}
-	 public boolean onCreateOptionsMenu(Menu menu) {  
-	        // Inflate the menu; this adds items to the action bar if it is present.  
-	        getMenuInflater().inflate(R.menu.main, menu);//Menu Resource, Menu  
-	        return true;  
-	    }  
-	 public boolean onOptionsItemSelected(MenuItem item) {  
-	        switch (item.getItemId()) {  
-	            case R.id.item1:  
-	            	Intent ab = new Intent("android.intent.action.ABOUT");
-	    			startActivity(ab);
-	    			break;
 
-			case R.id.item2:  
-				Intent he = new Intent("android.intent.action.HELP");
-				startActivity(he);
-				break;
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);// Menu Resource, Menu
+		return true;
+	}
 
-	           case R.id.item3:  
-	        	   Intent rf = new Intent("android.intent.action.RESFORMAT");
-	   			startActivity(rf);
-	   			break;
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item1:
+			Intent ab = new Intent("android.intent.action.ABOUT");
+			startActivity(ab);
+			break;
 
-	                
-	              default:  
-	                return super.onOptionsItemSelected(item);  
-	        }
-			return false;  
-	    }  
+		case R.id.item2:
+			Intent he = new Intent("android.intent.action.HELP");
+			startActivity(he);
+			break;
+
+		case R.id.item3:
+			Intent rf = new Intent("android.intent.action.RESFORMAT");
+			startActivity(rf);
+			break;
+
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+		return false;
+	}
+
 	class LoadResult extends AsyncTask<String, String, String> {
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -122,7 +126,7 @@ public class ReadResult extends Activity {
 
 			List<NameValuePair> paramss = new ArrayList<NameValuePair>();
 			paramss.add(new BasicNameValuePair("rno", rno));
-			paramss.add(new BasicNameValuePair("cid", cid));
+			// paramss.add(new BasicNameValuePair("cid", cid));
 
 			JSONObject json = jParser.makeHttpRequest(url_readResult, "GET",
 					paramss);
@@ -169,12 +173,14 @@ public class ReadResult extends Activity {
 			pDialog.dismiss();
 			runOnUiThread(new Runnable() {
 				public void run() {
-					displaycid.setText("College Id : " + cid.toUpperCase());
+					// displaycid.setText("College Id : " + cid.toUpperCase());
 					displayrno.setText("Registration Number : " + rno + "\n");
 					ListAdapter adapter = new SimpleAdapter(ReadResult.this,
 							ResultFetch, R.layout.list_item, new String[] {
-									TAG_SEMESTER, TAG_COURSE, TAG_SM, TAG_MT, TAG_ET, TAG_TOTAL,TAG_GRADES},
-							new int[] { R.id.sem, R.id.sub, R.id.sm, R.id.mt, R.id.et,R.id.total, R.id.grade});
+									TAG_SEMESTER, TAG_COURSE, TAG_SM, TAG_MT,
+									TAG_ET, TAG_TOTAL, TAG_GRADES }, new int[] {
+									R.id.sem, R.id.sub, R.id.sm, R.id.mt,
+									R.id.et, R.id.total, R.id.grade });
 					list.setAdapter(adapter);
 
 					// ArrayAdapter<String> arrayAdapter = new

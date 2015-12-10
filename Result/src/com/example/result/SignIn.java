@@ -32,15 +32,17 @@ import android.widget.Toast;
 public class SignIn extends Activity implements OnClickListener {
 	ConnectionDetector cd;
 	Boolean isInternetPresent;
-	String regex,input,result;
-	EditText RegistrationNumber, Password;
+	String regex, input, result;
+	EditText RegistrationNumber;
+	// Password;
 	Button Login;
 	private Spinner spinner;
-	private static final String[] paths = { "soe", "som", "sobt", "soict",
-			"soljg", "sobsc", "sohss", "sovsas" };
+	// private static final String[] paths = { "soe", "som", "sobt", "soict",
+	// "soljg", "sobsc", "sohss", "sovsas" };
 	private ProgressDialog pDialog;
 	JSONParser jParser = new JSONParser();
-	private static String url_login = "http://10.0.2.2/Result-Viewer/php/signin.php";
+	//private static String url_login = "@string/url_login";
+	private static String url_login = "http://www.gbuonline.in/opengbu/result/signin.php";
 	private static final String TAG_SUCCESS = "success";
 
 	@Override
@@ -50,11 +52,11 @@ public class SignIn extends Activity implements OnClickListener {
 		setContentView(R.layout.sign_in);
 		InitialiseVariables();
 		Login.setOnClickListener(this);
-		spinner = (Spinner) findViewById(R.id.spinner);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(SignIn.this,
-				R.layout.spinner_item, paths);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinner.setAdapter(adapter);
+		// spinner = (Spinner) findViewById(R.id.spinner);
+		// ArrayAdapter<String> adapter = new ArrayAdapter<String>(SignIn.this,
+		// R.layout.spinner_item, paths);
+		// adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// spinner.setAdapter(adapter);
 		cd = new ConnectionDetector(getApplicationContext());
 		isInternetPresent = cd.isConnectingToInternet();
 	}
@@ -63,53 +65,56 @@ public class SignIn extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		// CollegeId = (EditText) findViewById(R.id.etCollegeId);
 		RegistrationNumber = (EditText) findViewById(R.id.etRegistration);
-		Password = (EditText) findViewById(R.id.etPassword);
+		// Password = (EditText) findViewById(R.id.etPassword);
 		Login = (Button) findViewById(R.id.bLogin);
 	}
-	 public boolean onCreateOptionsMenu(Menu menu) {  
-	        // Inflate the menu; this adds items to the action bar if it is present.  
-	        getMenuInflater().inflate(R.menu.main, menu);//Menu Resource, Menu  
-	        return true;  
-	    }  
-	@Override
-	 public boolean onOptionsItemSelected(MenuItem item) {  
-        switch (item.getItemId()) {  
-            case R.id.item1:  
-            	Intent ab = new Intent("android.intent.action.ABOUT");
-    			startActivity(ab);
-    			break;
 
-		case R.id.item2:  
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);// Menu Resource, Menu
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.item1:
+			Intent ab = new Intent("android.intent.action.ABOUT");
+			startActivity(ab);
+			break;
+
+		case R.id.item2:
 			Intent he = new Intent("android.intent.action.HELP");
 			startActivity(he);
 			break;
 
-           case R.id.item3:  
-        	   Intent rf = new Intent("android.intent.action.RESFORMAT");
-   			startActivity(rf);
-   			break;
+		case R.id.item3:
+			Intent rf = new Intent("android.intent.action.RESFORMAT");
+			startActivity(rf);
+			break;
 
-                
-              default:  
-                return super.onOptionsItemSelected(item);  
-        }
-		return false;  
-    }  
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+		return false;
+	}
+
 	@Override
 	public void onClick(View arg0) {
 		input = RegistrationNumber.getText().toString();
 		regex = "[1-9]{2}\\/[A-Z]{3,4}\\/[0-9]{3}";
-		Matcher matcher = Pattern.compile( regex ).matcher(input);
+		Matcher matcher = Pattern.compile(regex).matcher(input);
 		// TODO Auto-generated method stub
 		if (isInternetPresent == true) {
-			if (!(matcher.find( )))
-	        {
-	        RegistrationNumber.setError("Wrong Format.Please see the specified example.");
-	        }
-			
-			else if (Password.getText().toString().length() < 6) {
-				Password.setError("Password cannot be less than 6 characters.");
-			} else {
+			if (!(matcher.find())) {
+				RegistrationNumber
+						.setError("Wrong Format.Please see the specified example.");
+			}
+
+			// else if (Password.getText().toString().length() < 6) {
+			// Password.setError("Password cannot be less than 6 characters.");
+			// }
+			else {
 				new LoadAllProducts().execute();
 			}
 
@@ -132,15 +137,15 @@ public class SignIn extends Activity implements OnClickListener {
 		}
 
 		protected String doInBackground(String... args) {
-			String cid = spinner.getSelectedItem().toString();
-			String pass = Password.getText().toString();
+			// String cid = spinner.getSelectedItem().toString();
+			// String pass = Password.getText().toString();
 			String rno = RegistrationNumber.getText().toString();
 
 			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("rno", rno));
-			params.add(new BasicNameValuePair("cid", cid));
-			params.add(new BasicNameValuePair("pass", pass));
+			// params.add(new BasicNameValuePair("cid", cid));
+			// params.add(new BasicNameValuePair("pass", pass));
 			JSONObject json = jParser.makeHttpRequest(url_login, "GET", params);
 			try {
 				// Checking for SUCCESS TAG
@@ -149,7 +154,7 @@ public class SignIn extends Activity implements OnClickListener {
 				if (success == 1) {
 					Bundle data = new Bundle();
 					data.putString("rollNo", rno);
-					data.putString("collgId", cid);
+					// data.putString("collgId", cid);
 					Intent k = new Intent("android.intent.action.READRESULT");
 					k.putExtras(data);
 					startActivity(k);

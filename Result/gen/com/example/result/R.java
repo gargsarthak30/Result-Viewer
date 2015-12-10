@@ -34,32 +34,31 @@ public final class R {
         public static final int about_email=0x7f080003;
         public static final int about_github=0x7f080004;
         public static final int about_version_info=0x7f080001;
-        public static final int bCreate=0x7f08001b;
-        public static final int bLogin=0x7f08000f;
-        public static final int bSignUp=0x7f08000e;
+        public static final int bCreate=0x7f08001a;
+        public static final int bLogin=0x7f08000e;
         public static final int et=0x7f08000b;
-        public static final int etConfirm=0x7f08001a;
-        public static final int etPassword=0x7f080018;
-        public static final int etRegistration=0x7f080016;
+        public static final int etConfirm=0x7f080019;
+        public static final int etPassword=0x7f080017;
+        public static final int etRegistration=0x7f080013;
         public static final int grade=0x7f08000d;
         public static final int help1=0x7f080005;
         public static final int help2=0x7f080006;
-        public static final int info=0x7f080012;
-        public static final int item1=0x7f08001c;
-        public static final int item2=0x7f08001d;
-        public static final int item3=0x7f08001e;
+        public static final int info=0x7f080011;
+        public static final int item1=0x7f08001b;
+        public static final int item2=0x7f08001c;
+        public static final int item3=0x7f08001d;
         public static final int mt=0x7f08000a;
         public static final int sem=0x7f080007;
         public static final int sm=0x7f080009;
-        public static final int spinner=0x7f080014;
+        public static final int spinner=0x7f080015;
         public static final int sub=0x7f080008;
         public static final int total=0x7f08000c;
-        public static final int tvCollegeId=0x7f080013;
-        public static final int tvConfirm=0x7f080019;
-        public static final int tvPassword=0x7f080017;
-        public static final int tvRegistration=0x7f080015;
-        public static final int tvcllgid=0x7f080010;
-        public static final int tvrollno=0x7f080011;
+        public static final int tvCollegeId=0x7f080014;
+        public static final int tvConfirm=0x7f080018;
+        public static final int tvPassword=0x7f080016;
+        public static final int tvRegistration=0x7f080012;
+        public static final int tvcllgid=0x7f08000f;
+        public static final int tvrollno=0x7f080010;
     }
     public static final class layout {
         public static final int about=0x7f030000;
@@ -79,6 +78,10 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050002;
+        public static final int url_login=0x7f050005;
+        public static final int url_login_local=0x7f050003;
+        public static final int url_readdata=0x7f050006;
+        public static final int url_readdata_local=0x7f050004;
     }
     public static final class style {
         /** 

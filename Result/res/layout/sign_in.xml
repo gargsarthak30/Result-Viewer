@@ -2,17 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0097A7"
+    android:background="#3b5998"
     android:gravity="center"
     android:orientation="vertical" >
 
     <ImageView
+        android:contentDescription="Result"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
-        android:layout_gravity="center_horizontal"
         android:layout_margin="5dp"
-        android:src="@drawable/main" >
-    </ImageView>
+        android:src="@drawable/main" />
 
     <!--
     <TextView
@@ -20,7 +19,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="College&apos;s Id :"
+        android:text="College Id :"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
@@ -35,7 +34,7 @@
     </EditText>
     -->
 
-    <TextView
+    <!--  <TextView
         android:id="@+id/tvCollegeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,8 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="#212121" />
-
+-->
     <TextView
+        android:layout_marginTop="80dp"
         android:id="@+id/tvRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,14 +62,15 @@
         android:textStyle="bold" />
 
     <EditText
+        android:layout_marginTop="30dp"
         android:id="@+id/etRegistration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
         android:hint="Example: 20/ICS/047"
-        android:textColor="#212121"  />
-
+        android:textColor="#FFFFFF"  />
+<!--  
     <TextView
         android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
@@ -87,14 +88,15 @@
         android:gravity="center"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColor="#212121"  />
-
+        android:textColor="#FFFFFF"  />
+-->
     <Button
+        android:layout_marginTop="50dp"
         android:id="@+id/bLogin"
         android:layout_width="91dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15sp"
+        
         android:background="@drawable/round_button"
         android:text="  Login  " />
 

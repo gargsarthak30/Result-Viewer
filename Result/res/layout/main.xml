@@ -2,28 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0097A7"
-    android:orientation="vertical" >
+    android:background="#3b5998"
+	android:gravity="center"
+    android:orientation="vertical" 
+   >
 
     <Button
-        android:id="@+id/bSignUp"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_above="@+id/bLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/round_button"
-        android:text="SIGN-UP"
-         android:textColor="#212121"
-        android:textSize="30sp" />
-
-    <Button
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/bLogin"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_alignLeft="@+id/bSignUp"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="154dp"
         android:background="@drawable/round_button"
         android:text="LOGIN"
         android:textColor="#212121"

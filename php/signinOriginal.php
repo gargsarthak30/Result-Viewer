@@ -1,13 +1,13 @@
 <?php
 $response = array();
-if(isset($_GET['rno'])&& $_GET['rno']!="")
+if(isset($_GET['cid']) && isset($_GET['rno']) && isset($_GET['pass']) && $_GET['cid']!="" && $_GET['rno']!="" && $_GET['pass']!="")
 	{
-		//$cid = $_GET["cid"];
+		$cid = $_GET["cid"];
 		$rno = $_GET["rno"];
-		//$pass = $_GET["pass"];
+		$pass = $_GET["pass"];
 
 		$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
-		$q=$conn->query("Select * from users where Roll_No = '$rno'");
+		$q=$conn->query("Select * from users where (Roll_No = '$rno' && College_Id = '$cid')");
 		
 		foreach($q as $row)
 		{
