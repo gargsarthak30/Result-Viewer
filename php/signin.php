@@ -8,21 +8,17 @@ if(isset($_GET['rno'])&& $_GET['rno']!="")
 
 		$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
 		$q=$conn->query("Select * from users where Roll_No = '$rno'");
-		
-		foreach($q as $row)
+		$count = $q->rowCount();
+		if($count<1)
 		{
-			if(password_verify($pass, $row['Password']))
-			{
-				$response["success"] = 1;
-				echo json_encode($response);
-			}
-			else
-			{
 				$response["success"] = 0;
 				echo json_encode($response);
-			}
+		}
+		else{		$response["success"] = 1;
+					echo json_encode($response);
 		}
 	}
+	
 else
 	{
 		$response["success"] = 0;
