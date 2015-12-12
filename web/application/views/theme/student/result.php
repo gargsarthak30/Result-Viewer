@@ -1,7 +1,4 @@
-<?php
-$reg_no = $this->session->userdata('roll');
-$coll_id = $this->session->userdata('coll');
-?>
+
 				<div class="container" id="result">
 				<div class="row">
 				<br/><br/><br/><br/><br/>
@@ -19,9 +16,9 @@ $coll_id = $this->session->userdata('coll');
 					else
 					{
 						$results=$q->result();
-							$y="S-M";
-							$y1="M-T";
-							$y2="E-T";
+							$y="S_M";
+							$y1="M_T";
+							$y2="E_T";
 							$y3= "Total";
 							$y4= "Grades";
 				?>

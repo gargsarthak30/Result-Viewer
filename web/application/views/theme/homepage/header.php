@@ -19,7 +19,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('student/signin');?>">Student</a>
+                        <a href="<?=site_url('student/details');?>">Student</a>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('faculty/signin');?>">Faculty</a>
