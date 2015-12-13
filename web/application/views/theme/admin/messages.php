@@ -11,7 +11,7 @@
             <br/>
 
     <?php
-		$msg_q = $this->db->query("SELECT * FROM messages");
+		$msg_q = $this->db->query("SELECT * FROM rs_messages");
     	if ($msg_q->num_rows() > 0)
     	 {
     ?>

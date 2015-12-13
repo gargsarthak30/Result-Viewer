@@ -28,20 +28,6 @@
 								<form id="login-form" action = "<?=site_url('admin/search_result');?>" method="post" role="form">
 									
 									<div class="form-group">
-										<select class="selectpicker show-tick" data-width="100%" title='Select School' name="college_id" tabindex="1" value="<?=set_value('college_id');?>" autofocus>
-											<?php
-												$school_list = $this->db->query("SELECT College_Id FROM master");
-												foreach($school_list->result() as $school)
-												{
-											?>
-											<option><?=ucfirst($school->College_Id);?></option>
-											<?php
-												}
-											?>
-  										</select>
-									</div>
-									<!--testing-->
-									<div class="form-group">
 										<input type="text" name="roll" tabindex="2" class="form-control" pattern="[1-9]{2}/[A-Z]{3}/[0-9]{3}" title=" 13/ICS/047 " placeholder="Registration No.">
 									</div>
 																		

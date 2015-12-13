@@ -11,7 +11,7 @@
             <br/>
 
     <?php
-		$select_all = $this->db->query("SELECT Faculty_Id, Full_Name, Email FROM faculty ORDER BY Faculty_Id DESC;");
+		$select_all = $this->db->query("SELECT Faculty_Id, Full_Name, Email FROM rs_faculty ORDER BY Faculty_Id DESC;");
     	if ($select_all->num_rows() > 0)
     	 {
     ?>

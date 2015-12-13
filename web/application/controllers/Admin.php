@@ -44,7 +44,7 @@ class Admin extends CI_Controller {
 	{
 		$user=$_POST["username"];
 		$pass=$_POST["password"];
-		$q=$this->db->query("select * from admin where Username='$user' AND Flag = 1");
+		$q=$this->db->query("select * from rs_admin where Username='$user' AND Flag = 1");
 		if( $q->num_rows() == 0 )
 		{
 			$this->session->set_flashdata('no_rec', '* Details incorrect !!');
@@ -159,7 +159,7 @@ class Admin extends CI_Controller {
 			$username=$_POST["username"];
 			$password=$_POST["password"];
 		
-			$query=$this->db->query("select * from faculty where Username='$username'");
+			$query=$this->db->query("select * from rs_faculty where Username='$username'");
 			$res=$query->result();
 			if($this->db->affected_rows()>0)
 			{
@@ -169,7 +169,7 @@ class Admin extends CI_Controller {
 			else
 			{
 				$pass = password_hash($password,PASSWORD_DEFAULT);
-				$q=$this->db->query("INSERT INTO faculty (Full_Name,Username,Password,Email)VALUES('$full_name','$username','$pass','$email');");
+				$q=$this->db->query("INSERT INTO rs_faculty (Full_Name,Username,Password,Email)VALUES('$full_name','$username','$pass','$email');");
 				if($this->db->affected_rows()==1)
 				{
 					$this->session->set_flashdata('conf_add', 'The FACULTY is successfully ADDED !!');
@@ -204,7 +204,7 @@ class Admin extends CI_Controller {
 		if($this->session->userdata('logged')=='admin')
 		{
 			$faculty_id = $this->input->post('fid');
-			$this->db->query("DELETE FROM faculty WHERE Faculty_Id = '$faculty_id';");
+			$this->db->query("DELETE FROM rs_faculty WHERE Faculty_Id = '$faculty_id';");
 			if($this->db->affected_rows()==1)
 			{
 				$this->session->set_flashdata('fac_remove', 'The FACULTY has been REMOVED !!');
@@ -274,7 +274,7 @@ class Admin extends CI_Controller {
 			$username=$_POST["username"];
 			$password=$_POST["password"];
 			
-			$query=$this->db->query("select * from admin where Username='$username'");
+			$query=$this->db->query("select * from rs_admin where Username='$username'");
 			$res=$query->result();
 			if($this->db->affected_rows()>0)
 			{
@@ -284,11 +284,11 @@ class Admin extends CI_Controller {
 			else
 			{
 				$pass = password_hash($password,PASSWORD_DEFAULT);
-				$q=$this->db->query("INSERT INTO admin (Full_Name,Username,Password,Email,Flag)VALUES('$full_name','$username','$pass','$email',1);");
+				$q=$this->db->query("INSERT INTO rs_admin (Full_Name,Username,Password,Email,Flag)VALUES('$full_name','$username','$pass','$email',1);");
 				if($this->db->affected_rows()==1)
 				{
 					$username_del = $this->session->userdata('user_name');
-					$this->db->query("DELETE FROM admin WHERE Username = '$username_del';");
+					$this->db->query("DELETE FROM rs_admin WHERE Username = '$username_del';");
 					if($this->db->affected_rows()==1)
 					{
 						$this->session->sess_destroy();				

@@ -8,7 +8,7 @@ class Contact extends CI_Controller {
 		$email = $this->input->post('email');
 		$message = $this->input->post('message');
 		
-		$contact_q = $this->db->query("INSERT INTO messages (Name, Email, Message) VALUES ('$name', '$email', '$message');");
+		$contact_q = $this->db->query("INSERT INTO rs_messages (Name, Email, Message) VALUES ('$name', '$email', '$message');");
 		if($this->db->affected_rows()==1)
 		{
 			$this->session->set_flashdata('contact_message','Your message has been deliverd !!');

@@ -24,34 +24,25 @@
 						
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action = "<?=site_url('student/validate_details');?>" method="post" role="form">
-									<div class="form-group">
-										<select class="selectpicker show-tick" data-width="100%" title='Select School' name="college_id" tabindex="1" value="<?=set_value('college_id');?>" autofocus>
-											<?php
-												$school_list = $this->db->query("SELECT College_Id FROM master");
-												foreach($school_list->result() as $school)
-												{
-											?>
-											<option><?=ucfirst($school->College_Id);?></option>
-											<?php
-												}
-											?>
-  										</select>
-									</div>
+							<br/>
+								<form id="login-form" action = "<?=site_url('student/result');?>" method="post" role="form">
+									
 									<div class="form-group">
 										<input type="text" name="reg_no" tabindex="2" class="form-control" pattern="[1-9]{2}/[A-Z]{3}/[0-9]{3}" title=" 13/ICS/047 " placeholder="Registration No." value="<?=set_value('reg_no');?>" required>
-									</div>									
+									</div>	
+									<br/>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
 												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="See Result">
-												<br/><br/>
+												<br/><br/><br/>
 												<center>
 												Facing Problem ? <a href="<?=site_url('common/contact/homepage');?>" tabindex="5"> &nbsp;Contact Here</a>
 												</center>
 											</div>
 										</div>
 									</div>
+
 								</form>
 							</div>
 						</div>

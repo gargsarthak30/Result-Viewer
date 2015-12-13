@@ -1,7 +1,6 @@
 
 				
 <?php
-$college_id=$_POST["college_id"];
 $roll=$_POST["roll"];
 
 
@@ -10,13 +9,11 @@ $roll=$_POST["roll"];
 				<div class="row">
 				<br/><br/><br/><br/><br/>
 				
-				
-				<h4>College Id : <?=$college_id;?></h4>
 				<h4>Registration No. : <?=$roll;?></h4>
 				<br/><br/>
 				
 				<?php
-				$q=$this->db->query("Select * from $college_id where Roll_No = '$roll' AND Published = '1' ORDER BY Semester DESC");
+				$q=$this->db->query("Select * from rs_school where Roll_No = '$roll' AND Published = '1' ORDER BY Semester DESC");
 					if($q->num_rows() == 0)
 					{
 						echo "<center>No Results Found !!</center>";
@@ -24,9 +21,9 @@ $roll=$_POST["roll"];
 					else
 					{
 						$results=$q->result();
-							$y="S-M";
-							$y1="M-T";
-							$y2="E-T";
+							$y="S_M";
+							$y1="M_T";
+							$y2="E_T";
 							$y3= "Total";
 							$y4= "Grades";
 				?>

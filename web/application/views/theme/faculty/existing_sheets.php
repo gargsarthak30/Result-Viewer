@@ -1,6 +1,6 @@
 <?php
 $fac_username = $this->session->userdata('user_name');
-$fac_id_q = $this->db->query("SELECT Faculty_Id FROM faculty WHERE Username = '$fac_username';");
+$fac_id_q = $this->db->query("SELECT Faculty_Id FROM rs_faculty WHERE Username = '$fac_username';");
 $fac_id = $fac_id_q->row()->Faculty_Id;
 ?>
 
@@ -23,7 +23,7 @@ $fac_id = $fac_id_q->row()->Faculty_Id;
             <br/>
 
     <?php
-        $select_all = $this->db->query("SELECT * FROM excel_details WHERE Faculty_Id = '$fac_id' ORDER BY Sheet_Id DESC;");
+        $select_all = $this->db->query("SELECT * FROM rs_excel_details WHERE Faculty_Id = '$fac_id' ORDER BY Sheet_Id DESC;");
         if ($select_all->num_rows() > 0)
          {
     ?>

@@ -3,12 +3,11 @@
 				<div class="row">
 				<br/><br/><br/><br/><br/>
 				
-				<h4>College Id : <?=$coll_id;?></h4>
 				<h4>Registration No. : <?=$reg_no;?></h4>
 				<br/><br/>
 				
 				<?php
-				$q=$this->db->query("Select * from $coll_id where Roll_No = '$reg_no' AND Published = '1' ORDER BY Semester DESC");
+				$q=$this->db->query("Select * from rs_school where Roll_No = '$reg_no' AND Published = '1' ORDER BY Semester DESC");
 					if($q->num_rows() == 0)
 					{
 						echo "<center>No Results Found !!</center>";

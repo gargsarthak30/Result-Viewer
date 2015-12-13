@@ -1,6 +1,6 @@
 <?php
 $fac_username = $this->session->userdata('user_name');
-$fac_id_q = $this->db->query("SELECT Faculty_Id FROM faculty WHERE Username = '$fac_username';");
+$fac_id_q = $this->db->query("SELECT Faculty_Id FROM rs_faculty WHERE Username = '$fac_username';");
 $fac_id = $fac_id_q->row()->Faculty_Id;
 ?>
 
@@ -25,7 +25,7 @@ $fac_id = $fac_id_q->row()->Faculty_Id;
 		<div class="col-md-5 input-group">
 			<select class="selectpicker show-tick" data-width="100%" required title='Select School' name="school" tabindex="1" value="" autofocus>
 											<?php
-												$school_list = $this->db->query("SELECT College_Id FROM master");
+												$school_list = $this->db->query("SELECT College_Id FROM rs_master");
 												foreach($school_list->result() as $school)
 												{
 											?>
@@ -77,7 +77,7 @@ if(isset($_POST["submit"]))
 	//echo $school;
 	$school = strtolower($school);
 	$this->db->trans_start();
-		$sheets = $this->db->query("INSERT INTO excel_details(Faculty_Id, College_Id, Semester, Department, Course_Code) VALUES ('$fac_id','$school','$sem','$department','$course');");
+		$sheets = $this->db->query("INSERT INTO rs_excel_details(Faculty_Id, College_Id, Semester, Department, Course_Code) VALUES ('$fac_id','$school','$sem','$department','$course');");
     	$sheet_id = $this->db->insert_id();
     $this->db->trans_complete();
     while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
@@ -107,7 +107,7 @@ if(isset($_POST["submit"]))
 		$total="Total";
 		$grade="Grades";
 		
-        $sql = $this->db->query("INSERT INTO  $school(Roll_No, S_M, M_T, E_T, Total, Grades, Semester, Course_Code, Sheet_Id) VALUES ('$r','$m','$mw','$mw1','$mw2','$mw3','$sem','$course','$sheet_id');");
+        $sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, Semester, Course_Code, Sheet_Id) VALUES ('$r','$m','$mw','$mw1','$mw2','$mw3','$sem','$course','$sheet_id');");
 		
         }
     }
