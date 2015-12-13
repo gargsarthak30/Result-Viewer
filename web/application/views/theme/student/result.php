@@ -1,65 +1,55 @@
-
-				<div class="container" id="result">
-				<div class="row">
-				<br/><br/><br/><br/><br/>
+<div class="container" id="result">
+	<div class="row">
+		<br/><br/><br/><br/><br/>		
+		<h4>Registration No. : <?=$reg_no;?></h4>
+		<br/><br/>
 				
-				<h4>Registration No. : <?=$reg_no;?></h4>
-				<br/><br/>
-				
-				<?php
-				$q=$this->db->query("Select * from rs_school where Roll_No = '$reg_no' AND Published = '1' ORDER BY Semester DESC");
-					if($q->num_rows() == 0)
-					{
-						echo "<center>No Results Found !!</center>";
-					}
-					else
-					{
-						$results=$q->result();
-							$y="S_M";
-							$y1="M_T";
-							$y2="E_T";
-							$y3= "Total";
-							$y4= "Grades";
-				?>
-				
-				<table class="table">
-						<thead>
-						  <tr>
-							
-							<th>Semester</th>
-							<th>Course code</th>
-							<th>S-M</th>
-							<th>M-T</th>
-							<th>E-T</th>
-							<th>Total</th>
-							<th>Grades</th>
-						  </tr>
-						</thead>
-						<tbody>
+		<?php
+			if (empty($stu_res))
+			{
+				echo "<center>No Results Found !!</center>";
+			}
+			else
+			{
+		?>		
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Semester</th>
+					<th>Course code</th>
+					<th>S-M</th>
+					<th>M-T</th>
+					<th>E-T</th>
+					<th>Total</th>
+					<th>Grades</th>
+				</tr>
+			</thead>
+			<tbody>
 						
-					<?php
-							foreach($results as $rows)
-							{	
-					?>
-						  <tr>
-							
-							<td><?php echo $rows->Semester;  ?></td>
-							<td><?php echo $rows->Course_Code;  ?></td>
-							<td><?php echo $rows->$y; ?></td>
-							<td><?php echo $rows->$y1; ?></td>
-							<td><?php echo $rows->$y2; ?></td>
-							<td><?php echo $rows->$y3; ?></td>
-							<td><?php echo $rows->$y4; ?></td>
-							
-						  </tr>
-						</tbody>
+			<?php
+					foreach($stu_res as $rows)
+					{	
+			?>
+					
+				<tr>
+					<td><?php echo $rows->Semester;  ?></td>
+					<td><?php echo $rows->Course_Code;  ?></td>
+					<td><?php echo $rows->S_M; ?></td>
+					<td><?php echo $rows->M_T; ?></td>
+					<td><?php echo $rows->E_T; ?></td>
+					<td><?php echo $rows->Total; ?></td>
+					<td><?php echo $rows->Grades; ?></td>			
+				</tr>
 						
-					<?php
-							} 
-						}
-					?>
-				</table>
-				</div>
-				</div>
+			<?php
+					} 
+				}
+			?>
+			
+			</tbody>
+		</table>
+	</div>
+</div>
 				
 				

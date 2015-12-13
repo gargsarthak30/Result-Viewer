@@ -1,144 +1,61 @@
-<?php
-$fac_username = $this->session->userdata('user_name');
-$fac_id_q = $this->db->query("SELECT Faculty_Id FROM rs_faculty WHERE Username = '$fac_username';");
-$fac_id = $fac_id_q->row()->Faculty_Id;
-?>
-
-<!--admin_main-->
-    <section id="new">
+<section id="new">
 	<br/>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h3 style="margin-top:-20px;">New Upload</h3>
-                    <hr class="star-primary">
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 style="margin-top:-20px;">New Upload</h3>
+                <hr class="star-primary">
             </div>
-			<br/><br/>
-			<center>
-<form name="import" action="#"  method="POST" enctype="multipart/form-data">
- 
-		<input type="file" name="file" required/>
-		
-		<br/>
-		
-		<div class="col-md-5 input-group">
-			<select class="selectpicker show-tick" data-width="100%" required title='Select School' name="school" tabindex="1" value="" autofocus>
-											<?php
-												$school_list = $this->db->query("SELECT College_Id FROM rs_master");
-												foreach($school_list->result() as $school)
-												{
-											?>
-											<option><?=ucfirst($school->College_Id);?></option>
-											<?php
-												}
-											?>
-  			</select>
-		</div>
-
-		<br/>
-
-		<div class="col-md-5 input-group">
-			<span class="input-group-addon">Enter Department</span>
-			<input type="text" name="dept" class="form-control" required/>
-		</div>
-
-		<br/>
-
-		<div class="col-md-5 input-group">
-			<span class="input-group-addon" id="sizing-addon1">Enter Subject Code</span>
-			<input type="text" name="course_code" class="form-control" required/>
-		</div>
-		
-		<br/>
-		
-		<div class="col-md-5 input-group">
-			<span class="input-group-addon">Enter Semester</span>
-			<input type="text" name="semester" class="form-control" required/>
-		</div>
-		
-		<br/>
-		
-		<button class="btn btn-primary" type="submit" name="submit">Submit</button>
-		
-</form>
-
-<?php
-
-if(isset($_POST["submit"]))
-{
-    $file = $_FILES['file']['tmp_name'];
-    $handle = fopen($file, "r");
-    $c = 0;
-	$sem=$_POST["semester"];
-	$course=$_POST["course_code"];
-	$school=$_POST["school"];
-	$department=$_POST["dept"];
-	//echo $school;
-	$school = strtolower($school);
-	$this->db->trans_start();
-		$sheets = $this->db->query("INSERT INTO rs_excel_details(Faculty_Id, College_Id, Semester, Department, Course_Code) VALUES ('$fac_id','$school','$sem','$department','$course');");
-    	$sheet_id = $this->db->insert_id();
-    $this->db->trans_complete();
-    while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
-    {
-        $c = $c + 1;
-        if ($c > 12)
-		{     
-		
-		$s = $filesop[0];
-        $r = $filesop[1];
-		$m = $filesop[2];
-		$mw =$filesop[3];
-		$mw1 =$filesop[4];
-		$mw2 =$filesop[5];
-		$mw3 =$filesop[6];
-		//$mw4 =$filesop[7];
-		
-		
-		//echo $s.$r.$m.$mw.$mw1.$mw2.$mw3.$mw4;
-		//echo "semester is".$sem;
-		
-		$sno="S_No";
-		$roll="Roll_No";
-		$sm="S-M";
-		$mt="M-T";
-		$et="E-T";
-		$total="Total";
-		$grade="Grades";
-		
-        $sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, Semester, Course_Code, Sheet_Id) VALUES ('$r','$m','$mw','$mw1','$mw2','$mw3','$sem','$course','$sheet_id');");
-		
-        }
-    }
-
-        if($this->db->affected_rows()>0)
-        {
-            echo "You database has imported successfully.";
-            
-        }
-        else
-        {
-            echo "Sorry! There is some problem.";
-        }
-
-}
-
-?>
-
-<?php
-/*
-if(isset($_POST["publish"]))
-{
-	
-	$sql1=$this->db->query("update data set publish=1");
-	if($this->db->affected_rows()>0)
-{
-	echo "Succesfully published.";
-}
-}
-*/
-?>
-</div>
-<br/>
+        </div>
+		<br/><br/>
+		<center>
+		<form name="import" action="<?=site_url('faculty/upload_db');?>"  method="POST" enctype="multipart/form-data">
+ 			<input type="file" name="file" required/>
+				<br/>
+				<div class="col-md-5 input-group">
+					<select class="selectpicker show-tick" data-width="100%" required title='Select School' name="school" tabindex="1" value="" autofocus>
+						<?php
+							
+							foreach($sch_list as $school)
+							{
+						?>
+						<option><?=ucfirst($school->College_Id);?></option>
+						<?php
+							}
+						?>
+  					</select>
+				</div>
+				<br/>
+				<div class="col-md-5 input-group">
+					<span class="input-group-addon">Enter Department</span>
+					<input type="text" name="dept" class="form-control" required/>
+				</div>
+				<br/>
+				<div class="col-md-5 input-group">
+					<span class="input-group-addon" id="sizing-addon1">Enter Subject Code</span>
+					<input type="text" name="course_code" class="form-control" required/>
+				</div>
+				<br/>
+				<div class="col-md-5 input-group">
+					<span class="input-group-addon">Enter Semester</span>
+					<input type="text" name="semester" class="form-control" required/>
+				</div>
+				<br/>
+				<button class="btn btn-primary" type="submit" name="submit">Submit</button>
+		</form>
+	</div>
+	<br/>
 </section>
+
+<?php
+    $flash = $this->session->flashdata('uploaded');
+    if(!empty($flash))
+    {
+?>
+        <script>
+            var m = '<?=$flash;?>';
+            alert(m);
+        </script>
+<?php
+    }
+?>

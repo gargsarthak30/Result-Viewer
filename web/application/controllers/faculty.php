@@ -1,12 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Faculty extends CI_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('result_model');
+	}
 	
 	public function signin()
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{
-			redirect('faculty/upload');
+			redirect('faculty/upload_form');
 		}
 		else
 		{
@@ -42,47 +48,31 @@ class Faculty extends CI_Controller {
 	
 	public function verify_signin()
 	{
-		$user=$_POST["username"];
-		$pass=$_POST["password"];
-		$q=$this->db->query("select * from rs_faculty where Username='$user'");
-		if( $q->num_rows() == 0 )
+		$q = $this->result_model->faculty_verify();
+		if( $q == 0 )
 		{
-			$this->session->set_flashdata('no_rec', '* Details incorrect !!');
+			$this->session->set_flashdata('no_rec', '* Details incorrect !!');	
 			redirect('faculty/signin');
 		}
-		else if( $q->num_rows() > 1 )
+		else if( $q == 1 )
 		{
-			echo "Error : Multiple students found !!";
+			echo "Error : Multiple faculty found !!";
 		}
-		else
+		else if($q == 2)
 		{
-			$row=$q->row();
-			if(password_verify($pass, $row->Password))
-			{
-					$fac_data = array(
-                   'user_name'  => $user,
-				   'logged' => 'faculty'
-					);
-
-					$this->session->set_userdata($fac_data);
-					redirect('faculty/upload');
-			}
-			else
-			{
-					$this->session->set_flashdata('no_rec', '* Details incorrect !!');
-					redirect('faculty/signin');
-			}
+				redirect('faculty/upload_form');
 		}
 	}
 
 	
-	public function upload()
+	public function upload_form()
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{
+			$data['sch_list'] = $this->result_model->school_list();
 			$this->load->view('theme/common/link');
 			$this->load->view('theme/faculty/header');
-			$this->load->view('theme/faculty/upload');
+			$this->load->view('theme/faculty/upload',$data);
 			$this->load->view('theme/common/footer');
 		}
 		else
@@ -90,14 +80,39 @@ class Faculty extends CI_Controller {
 			redirect('home');
 		}
 	}
+
+	public function upload_db()
+	{
+		if($this->session->userdata('logged')=='faculty')
+		{
+			$fac_id = $this->result_model->faculty_id();
+			$data['upload_status'] = $this->result_model->excel_upload($fac_id);
+			if($upload_status==1)
+			{
+				$this->session->set_flashdata('uploaded', '* Your excel sheet has been successfully uploaded !!');
+				redirect('faculty/sheets');
+			}
+			else
+			{
+				$this->session->set_flashdata('uploaded', '* Some problem occured. Please upload again !!');
+				redirect('faculty/upload_form');
+			}
+		}
+		else
+		{
+			redirect('home');
+		}	
+	}
 	
 	public function sheets()
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{
+			$fac_id = $this->result_model->faculty_id();
+			$data['fac_sht'] = $this->result_model->faculty_sheets($fac_id);
 			$this->load->view('theme/common/link');
 			$this->load->view('theme/faculty/header');
-			$this->load->view('theme/faculty/existing_sheets');
+			$this->load->view('theme/faculty/existing_sheets',$data);
 			$this->load->view('theme/common/footer');
 		}
 		else

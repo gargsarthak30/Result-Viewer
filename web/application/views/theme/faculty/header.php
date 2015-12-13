@@ -21,7 +21,7 @@
                         <a href="#page-top"></a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('faculty/upload');?>">New Upload</a>
+                        <a href="<?=site_url('faculty/upload_form');?>">New Upload</a>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('faculty/sheets');?>">Existing Sheets</a>
