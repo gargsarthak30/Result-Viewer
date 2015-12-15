@@ -2,6 +2,12 @@
 
 class Excel extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('excel_model');
+	}
+
 	public function view()
 	{
 		if($this->session->userdata('logged')=='faculty')
@@ -14,13 +20,12 @@ class Excel extends CI_Controller {
 		}
 	}
 
-	public function publish($sheet_id,$school)
+	public function publish($sheet_id)
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{
-			$publish_q = $this->db->query("UPDATE rs_school SET Published = '1' WHERE Sheet_Id = '$sheet_id';");
-			$publish_q = $this->db->query("UPDATE rs_excel_details SET Published = '1' WHERE Sheet_Id = '$sheet_id';");
-			if($this->db->affected_rows()==1)
+			$pub = $this->excel_model->visible($sheet_id);
+			if($pub==1)
 			{
 				$this->session->set_flashdata('published', 'The sheet has been successfully published.'.'\n'.'Now students can see their results.');
 			}

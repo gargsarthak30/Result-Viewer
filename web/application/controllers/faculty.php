@@ -5,7 +5,7 @@ class Faculty extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('result_model');
+		$this->load->model('faculty_model');
 	}
 	
 	public function signin()
@@ -16,7 +16,7 @@ class Faculty extends CI_Controller {
 		}
 		else
 		{
-			if($this->session->userdata('logged')=='student' || $this->session->userdata('logged')=='admin')
+			if($this->session->userdata('logged')=='admin')
 			{
 				$this->session->sess_destroy();
 			}
@@ -48,7 +48,7 @@ class Faculty extends CI_Controller {
 	
 	public function verify_signin()
 	{
-		$q = $this->result_model->faculty_verify();
+		$q = $this->faculty_model->faculty_verify();
 		if( $q == 0 )
 		{
 			$this->session->set_flashdata('no_rec', '* Details incorrect !!');	
@@ -69,7 +69,7 @@ class Faculty extends CI_Controller {
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{
-			$data['sch_list'] = $this->result_model->school_list();
+			$data['sch_list'] = $this->faculty_model->school_list();
 			$this->load->view('theme/common/link');
 			$this->load->view('theme/faculty/header');
 			$this->load->view('theme/faculty/upload',$data);
@@ -85,8 +85,8 @@ class Faculty extends CI_Controller {
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{
-			$fac_id = $this->result_model->faculty_id();
-			$data['upload_status'] = $this->result_model->excel_upload($fac_id);
+			$fac_id = $this->faculty_model->faculty_id();
+			$data['upload_status'] = $this->faculty_model->excel_upload($fac_id);
 			if($upload_status==1)
 			{
 				$this->session->set_flashdata('uploaded', '* Your excel sheet has been successfully uploaded !!');
@@ -108,8 +108,8 @@ class Faculty extends CI_Controller {
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{
-			$fac_id = $this->result_model->faculty_id();
-			$data['fac_sht'] = $this->result_model->faculty_sheets($fac_id);
+			$fac_id = $this->faculty_model->faculty_id();
+			$data['fac_sht'] = $this->faculty_model->faculty_sheets($fac_id);
 			$this->load->view('theme/common/link');
 			$this->load->view('theme/faculty/header');
 			$this->load->view('theme/faculty/existing_sheets',$data);

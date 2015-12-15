@@ -19,7 +19,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('student/details');?>">Student</a>
+                        <a href="<?=site_url('student/details/homepage');?>">Student</a>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('faculty/signin');?>">Faculty</a>
@@ -42,7 +42,7 @@
     <style>
     .don
     {
-         min-height: calc(100vh - 161px);
+         min-height: calc(100vh - 71px);
          /* 100px header + 75px footer = 175px  */
     }
     </style>

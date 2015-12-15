@@ -11,8 +11,7 @@
             <br/>
 
     <?php
-		$msg_q = $this->db->query("SELECT * FROM rs_messages");
-    	if ($msg_q->num_rows() > 0)
+    	if ($msg->num_rows() > 0)
     	 {
     ?>
         <ul class="nav nav-list col-sm-12" id = "record_list"> 
@@ -36,7 +35,7 @@
             </b>
             <?php
 			$count=0;
-            foreach ($msg_q->result() as $row)
+            foreach ($msg->result() as $row)
              {
 				$count++;
 				if($count%2==0)

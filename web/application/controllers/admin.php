@@ -1,6 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('admin_model');
+	}
 	
 	public function signin()
 	{
@@ -10,7 +16,7 @@ class Admin extends CI_Controller {
 		}
 		else
 		{
-			if($this->session->userdata('logged')=='student' || $this->session->userdata('logged')=='faculty')
+			if($this->session->userdata('logged')=='faculty')
 			{
 				$this->session->sess_destroy();
 			}
@@ -42,36 +48,19 @@ class Admin extends CI_Controller {
 	
 	public function verify_signin()
 	{
-		$user=$_POST["username"];
-		$pass=$_POST["password"];
-		$q=$this->db->query("select * from rs_admin where Username='$user' AND Flag = 1");
-		if( $q->num_rows() == 0 )
+		$q = $this->admin_model->admin_verify();
+		if( $q == 0 )
 		{
-			$this->session->set_flashdata('no_rec', '* Details incorrect !!');
+			$this->session->set_flashdata('no_rec', '* Details incorrect !!');	
 			redirect('admin/signin');
 		}
-		else if( $q->num_rows() > 1 )
+		else if( $q == 1 )
 		{
-			echo "Error : Multiple students found !!";
+			echo "Error : Multiple admins found !!";
 		}
-		else
+		else if($q == 2)
 		{
-			$row=$q->row();
-			if(password_verify($pass, $row->Password))
-			{
-					$admin_data = array(
-                   'user_name'  => $user,
-				   'logged' => 'admin'
-					);
-
-					$this->session->set_userdata($admin_data);
-					redirect('admin/all_faculty');
-			}
-			else
-			{
-					$this->session->set_flashdata('no_rec', '* Details incorrect !!');
-					redirect('admin/signin');
-			}
+				redirect('admin/all_faculty');
 		}
 	}
 
@@ -154,28 +143,15 @@ class Admin extends CI_Controller {
 	{
 		if($this->session->userdata('logged')=='admin')
 		{
-			$full_name=$_POST["full_name"];
-			$email=$_POST["email"];
-			$username=$_POST["username"];
-			$password=$_POST["password"];
-		
-			$query=$this->db->query("select * from rs_faculty where Username='$username'");
-			$res=$query->result();
-			if($this->db->affected_rows()>0)
+			$q = $this->admin_model->add_faculty();
+			if($q==0)
 			{
-				$this->session->set_flashdata('alrdy_add', '* This username is already in use.<br/>Please choose another username !!');
 				redirect('admin/add_faculty');
 			}
-			else
+			else if($q==1)
 			{
-				$pass = password_hash($password,PASSWORD_DEFAULT);
-				$q=$this->db->query("INSERT INTO rs_faculty (Full_Name,Username,Password,Email)VALUES('$full_name','$username','$pass','$email');");
-				if($this->db->affected_rows()==1)
-				{
-					$this->session->set_flashdata('conf_add', 'The FACULTY is successfully ADDED !!');
-					redirect('admin/all_faculty');
+				redirect('admin/all_faculty');
 
-				}
 			}
 		}
 		else
@@ -188,9 +164,10 @@ class Admin extends CI_Controller {
 	{
 		if($this->session->userdata('logged')=='admin')
 		{
+			$data['all_fac'] = $this->admin_model->all_fac();
 			$this->load->view('theme/common/link');
 			$this->load->view('theme/admin/header');
-			$this->load->view('theme/admin/all_faculty');
+			$this->load->view('theme/admin/all_faculty',$data);
 			$this->load->view('theme/common/footer');
 		}
 		else
@@ -203,16 +180,7 @@ class Admin extends CI_Controller {
 	{
 		if($this->session->userdata('logged')=='admin')
 		{
-			$faculty_id = $this->input->post('fid');
-			$this->db->query("DELETE FROM rs_faculty WHERE Faculty_Id = '$faculty_id';");
-			if($this->db->affected_rows()==1)
-			{
-				$this->session->set_flashdata('fac_remove', 'The FACULTY has been REMOVED !!');
-			}
-			else
-			{
-				$this->session->set_flashdata('fac_remove', 'There was some error !! <br/>Please try again.');
-			}
+			$this->admin_model->del_fac();
 			redirect('admin/all_faculty');
 		}
 		else
@@ -269,33 +237,14 @@ class Admin extends CI_Controller {
 	{
 		if($this->session->userdata('logged')=='admin')
 		{
-			$full_name=$_POST["full_name"];
-			$email=$_POST["email"];
-			$username=$_POST["username"];
-			$password=$_POST["password"];
-			
-			$query=$this->db->query("select * from rs_admin where Username='$username'");
-			$res=$query->result();
-			if($this->db->affected_rows()>0)
-			{
-				$this->session->set_flashdata('alrdy_add', '* This username is already in use.<br/>Please choose another username !!');
+			$x = $this->admin_model->change_admin();
+			if($x==0)
+			{	
 				redirect('admin/change_admin');
 			}
-			else
+			else if($x==1)
 			{
-				$pass = password_hash($password,PASSWORD_DEFAULT);
-				$q=$this->db->query("INSERT INTO rs_admin (Full_Name,Username,Password,Email,Flag)VALUES('$full_name','$username','$pass','$email',1);");
-				if($this->db->affected_rows()==1)
-				{
-					$username_del = $this->session->userdata('user_name');
-					$this->db->query("DELETE FROM rs_admin WHERE Username = '$username_del';");
-					if($this->db->affected_rows()==1)
-					{
-						$this->session->sess_destroy();				
-						$this->session->set_flashdata('admin_change', 'The ADMIN is successfully CHANGED !!');
-						redirect('home');
-					}
-				}
+				redirect('home');
 			}
 		}
 		else

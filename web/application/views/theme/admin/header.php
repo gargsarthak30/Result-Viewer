@@ -26,15 +26,13 @@
                         <a href="<?=site_url('admin/add_faculty');?>">Add-Faculty</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('admin/search');?>">Search</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="<?=site_url('admin/change_admin');?>">Change-Admin</a>
+                        <a href="<?=site_url('student/details/admin');?>">Search-Student</a>
                     </li>
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?=site_url('contact/view_messages');?>">Messages</a></li>
+                            <li><a href="<?=site_url('admin/change_admin');?>">Change Admin</a></li>
                             <li><a href="#">Settings</a></li>
                         </ul>
                     </li>

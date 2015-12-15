@@ -11,8 +11,7 @@
             <br/>
 
     <?php
-		$select_all = $this->db->query("SELECT Faculty_Id, Full_Name, Email FROM rs_faculty ORDER BY Faculty_Id DESC;");
-    	if ($select_all->num_rows() > 0)
+    	if ($all_fac->num_rows() > 0)
     	 {
     ?>
         <ul class="nav nav-list col-sm-12" id = "record_list"> 
@@ -33,7 +32,7 @@
             </b>
             <?php
 			$count=0;
-            foreach ($select_all->result() as $row)
+            foreach ($all_fac->result() as $row)
              {
 				$count++;
 				if($count%2==0)
