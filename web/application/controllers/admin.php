@@ -60,7 +60,9 @@ class Admin extends CI_Controller {
 		}
 		else if($q == 2)
 		{
-				redirect('admin/all_faculty');
+			$action = "Logged-In";
+			$this->logs_model->insert($action);
+			redirect('admin/all_faculty');
 		}
 	}
 
@@ -252,9 +254,27 @@ class Admin extends CI_Controller {
 			redirect('home');
 		}
 	}
+
+	public function view_logs()
+	{
+		if($this->session->userdata('logged')=='admin')
+		{
+			$data['logs'] = $this->logs_model->read_logs();
+			$this->load->view('theme/common/link');
+			$this->load->view('theme/admin/header');
+			$this->load->view('theme/admin/logs',$data);
+			$this->load->view('theme/common/footer');	
+		}
+		else
+		{
+			redirect('home');
+		}
+	}
 	
 	public function logout()
 	{
+		$action = "Logged-Out";
+		$this->logs_model->insert($action);
 		$this->session->sess_destroy();
 		redirect('home');
 	}

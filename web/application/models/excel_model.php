@@ -32,6 +32,8 @@ class Excel_model extends CI_Model {
 			$this->db->query("UPDATE rs_excel_details SET Published = '1' WHERE Sheet_Id = '$sheet_id';");
 			if($this->db->affected_rows()==1)
 			{
+				$action = "Published excel Sheet-Id - ".$sheet_id;
+				$this->logs_model->insert($action);
 				return 0;
 			}
 			else

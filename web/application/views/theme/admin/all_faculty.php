@@ -18,10 +18,13 @@
             <b>
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             Name
                         </div>
-						<div class="col-sm-6">
+                        <div class="col-sm-3">
+                            Username
+                        </div>
+						<div class="col-sm-4">
                             Email
                         </div>
                         <div class="col-sm-2">
@@ -46,13 +49,16 @@
 				?>
                 <li class="list-group-item list-group-item-<?=$color?>">
                     <div class="row">
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<?= $row->Full_Name ?>
                         </div>
-						<div class="col-sm-6">
+                        <div class="col-sm-3">
+                            <?= $row->Username ?>
+                        </div>
+						<div class="col-sm-4">
 							<?= $row->Email ?>
                         </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <form action ="<?=site_url('admin/remove_faculty');?>" method="POST">
                                 <?php 
                                 $this->load->helper('form');

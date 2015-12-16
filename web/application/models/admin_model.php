@@ -41,7 +41,7 @@ class Admin_model extends CI_Model {
 
 	public function all_fac()
 	{
-		$select_all = $this->db->query("SELECT Faculty_Id, Full_Name, Email FROM rs_faculty ORDER BY Faculty_Id DESC;");
+		$select_all = $this->db->query("SELECT Faculty_Id, Full_Name, Username, Email FROM rs_faculty ORDER BY Faculty_Id DESC;");
 		return $select_all;
 	}
 
@@ -65,6 +65,8 @@ class Admin_model extends CI_Model {
 			$q=$this->db->query("INSERT INTO rs_faculty (Full_Name,Username,Password,Email)VALUES('$full_name','$username','$pass','$email');");
 			if($this->db->affected_rows()==1)
 			{
+				$action = "Added Faculty - ".$full_name;
+				$this->logs_model->insert($action);
 				$this->session->set_flashdata('conf_add', 'The FACULTY is successfully ADDED !!');
 				return 1;
 
@@ -75,9 +77,12 @@ class Admin_model extends CI_Model {
 	public function del_fac()
 	{	
 		$faculty_id = $this->input->post('fid');
+		$fac_name = $this->db->query("SELECT Full_Name FROM rs_faculty WHERE Faculty_Id = '$faculty_id';")->row()->Full_Name;
 		$this->db->query("DELETE FROM rs_faculty WHERE Faculty_Id = '$faculty_id';");
 		if($this->db->affected_rows()==1)
 		{
+			$action = "Removed Faculty - ".$fac_name;
+			$this->logs_model->insert($action);
 			$this->session->set_flashdata('fac_remove', 'The FACULTY has been REMOVED !!');
 		}
 		else
@@ -110,6 +115,8 @@ class Admin_model extends CI_Model {
 				$this->db->query("DELETE FROM rs_admin WHERE Username = '$username_del';");
 				if($this->db->affected_rows()==1)
 				{
+					$action = "<b>Removed himself as Admin.</b><br>Automatically Logged-Out.<br/><b>The new Admin is ".$full_name."</b>";
+					$this->logs_model->insert($action);
 					$this->session->sess_destroy();				
 					$this->session->set_flashdata('admin_change', 'The ADMIN is successfully CHANGED !!');
 					return 1;

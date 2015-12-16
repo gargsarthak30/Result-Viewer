@@ -15,6 +15,8 @@ class Contact_model extends CI_Model {
 		$contact_q = $this->db->query("INSERT INTO rs_messages (Name, Email, Message) VALUES ('$name', '$email', '$message');");
 		if($this->db->affected_rows()==1)
 		{
+			$action = "Contacted Admin";
+			$this->logs_model->insert($action);
 			return 1;
 		}
 		else

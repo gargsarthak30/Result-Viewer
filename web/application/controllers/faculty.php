@@ -124,6 +124,8 @@ class Faculty extends CI_Controller {
 	
 	public function logout()
 	{
+		$action = "Logged-Out";
+		$this->logs_model->insert($action);
 		$this->session->sess_destroy();
 		redirect('home');
 	}

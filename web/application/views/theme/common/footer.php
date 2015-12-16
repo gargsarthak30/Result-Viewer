@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; 2015-2016 &nbsp;&nbsp;Gautam Buddha University
+                        Copyright &copy; 2015-2016 &nbsp;OpenGBU, Inc
                     </div>
                 </div>
             </div>

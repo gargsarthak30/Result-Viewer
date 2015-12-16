@@ -49,6 +49,8 @@ class Faculty_model extends CI_Model {
 					);
 
 					$this->session->set_userdata($fac_data);
+					$action = "Logged-In";
+					$this->logs_model->insert($action);
 					return 2;
 			}
 			else
@@ -103,6 +105,8 @@ class Faculty_model extends CI_Model {
 		}
 		if($this->db->affected_rows()>0)
 		{
+			$action = "Uploaded excel Sheet-Id - ".$sheet_id;
+			$this->logs_model->insert($action);
 			$upload_status = 1;       
 		}
 		else
