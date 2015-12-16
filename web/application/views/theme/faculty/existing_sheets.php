@@ -98,7 +98,7 @@
                            <?= $row->Course_Code?>
                         </div>
                         <div class="col-sm-3 cr">
-                           <a href="<?= site_url('excel/view'); ?>" style="width:60px;" class="btn btn-xs btn-primary">View</a>&nbsp;&nbsp;&nbsp;
+                           <a href="<?= site_url('excel/view').'/'.$row->Sheet_Id?>" style="width:60px;" class="btn btn-xs btn-primary">View</a>&nbsp;&nbsp;&nbsp;
                            <a href="<?= site_url('excel/publish').'/'.$row->Sheet_Id?>" style="width:60px;" class="btn btn-xs btn-<?=$shade?> <?=$disable?>" >Publish</a>
                         </div>
                             
@@ -116,7 +116,7 @@
 </section>
 
 <?php
-    $flash = $this->session->flashdata('sheet_delete').$this->session->flashdata('published').$this->session->flashdata('uploaded');
+    $flash = $this->session->flashdata('punish').$this->session->flashdata('published').$this->session->flashdata('uploaded');
     if(!empty($flash))
     {
 ?>
