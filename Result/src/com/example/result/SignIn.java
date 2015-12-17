@@ -102,7 +102,7 @@ public class SignIn extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View arg0) {
 		input = RegistrationNumber.getText().toString();
-		regex = "[1-9]{2}\\/[A-Z]{3,4}\\/[0-9]{3}";
+		regex = "[1-9]{2}\\/[A-Za-z]{3,4}\\/[0-9]{3}";
 		Matcher matcher = Pattern.compile(regex).matcher(input);
 		// TODO Auto-generated method stub
 		if (isInternetPresent == true) {

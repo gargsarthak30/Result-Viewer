@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
-        android:text="This app displays result subject wise in the following manner : "
+        android:text="This app displays the following fields : "
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -34,7 +34,7 @@
             -MIDTERM SCORE\n
             -ENDTERM SCORE\n
             -TOTAL SCORE\n
-            -GRADES"
+            -GRADE"
         android:textColor="#FFFFFF" />
 
 </LinearLayout>

@@ -63,6 +63,36 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".About"
+            android:label="About the app"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.ABOUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Help"
+            android:label="Help"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.HELP" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ResFormat"
+            android:label="Here&apos;s your Result"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.RESFORMAT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

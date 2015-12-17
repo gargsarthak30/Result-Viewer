@@ -61,23 +61,22 @@
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:textColor="#FFFFFF"
-            android:text="Github Link : https://github.com/gargsarthak30/Result-Viewer" />
+            android:autoLink="web"
+            android:text="Github Link: \nhttps://github.com/gargsarthak30/Result-Viewer" />
         
-        <!-- link unclickable: click is handled programmatically -->
-       
         <TextView
             android:gravity="center"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="#FFFFFF"
-            android:text="Android App By : Sarthak Garg"/>
+            android:text="Android App: Sarthak Garg"/>
         <TextView
             android:gravity="center"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Web Service By: Rajat Saxena|Bhawesh Chandola"/>
+            android:text="Web Service: Rajat Saxena | Bhawesh Chandola"/>
         <TextView
             android:gravity="center"
             android:layout_marginTop="20dp"

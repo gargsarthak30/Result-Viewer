@@ -22,7 +22,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="If you are having any problem while logging in or signing up, send your details (college ID + registration Number + password) at: "
+            android:text="If you are having any problem while logging in or signing up, \n send your details (registration Number) at: "
             android:textSize="12sp" 
             android:textColor="#FFFFFF"/>
 			
