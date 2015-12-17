@@ -164,7 +164,7 @@ public class SignIn extends Activity implements OnClickListener {
 						@Override
 						public void run() {
 							Toast.makeText(getApplicationContext(),
-									"Some error occured, Please try again",
+									"No Result Found! Please contact your teacher.",
 									Toast.LENGTH_LONG).show();
 						}
 					});

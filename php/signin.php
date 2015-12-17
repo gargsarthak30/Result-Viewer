@@ -7,7 +7,7 @@ if(isset($_GET['rno'])&& $_GET['rno']!="")
 		//$pass = $_GET["pass"];
 
 		$conn=new PDO('mysql:host=localhost;dbname=result','root' ,'');
-		$q=$conn->query("Select * from users where Roll_No = '$rno'");
+		$q=$conn->query("Select * from rs_school where Roll_No = '$rno'");
 		$count = $q->rowCount();
 		if($count<1)
 		{
