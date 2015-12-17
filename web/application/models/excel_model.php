@@ -13,7 +13,7 @@ class Excel_model extends CI_Model {
 		$now = $this->faculty_model->faculty_id();
 		if($original == $now)
 		{
-			$query = $this->db->query("SELECT * FROM rs_school WHERE Sheet_Id = '$sheet_id';");
+			$query = $this->db->query("SELECT * FROM rs_school WHERE Sheet_Id = '$sheet_id' order by Roll_No;");
 			return $query->result();
 		}
 		else
@@ -49,7 +49,7 @@ class Excel_model extends CI_Model {
 
 	public function status_sheet($sheet_id)
 	{
-		$status_q = $this->db->query("SELECT College_Id,Semester,Department,Course_Code,Published FROM rs_excel_details WHERE Sheet_Id = '$sheet_id';");
+		$status_q = $this->db->query("SELECT School,Semester,Department,Course_Code,Published FROM rs_excel_details WHERE Sheet_Id = '$sheet_id';");
 		return $status_q->row();
 	}
 }

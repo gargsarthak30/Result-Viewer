@@ -19,7 +19,7 @@
 							foreach($sch_list as $school)
 							{
 						?>
-						<option><?=ucfirst($school->College_Id);?></option>
+						<option><?=ucfirst($school->School);?></option>
 						<?php
 							}
 						?>

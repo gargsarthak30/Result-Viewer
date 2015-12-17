@@ -21,7 +21,7 @@ class Faculty_model extends CI_Model {
 	
 	public function school_list()
 	{
-		$q4 = $this->db->query("SELECT College_Id FROM rs_master");
+		$q4 = $this->db->query("SELECT School FROM rs_master");
 		return $q4->result();
 	}
 	
@@ -74,7 +74,7 @@ class Faculty_model extends CI_Model {
 			$department=$_POST["dept"];
 			$school = strtolower($school);
 			$this->db->trans_start();
-				$sheets = $this->db->query("INSERT INTO rs_excel_details(Faculty_Id, College_Id, Semester, Department, Course_Code) VALUES ('$fac_id','$school','$sem','$department','$course');");
+				$sheets = $this->db->query("INSERT INTO rs_excel_details(Faculty_Id, School, Semester, Department, Course_Code) VALUES ('$fac_id','$school','$sem','$department','$course');");
 				$sheet_id = $this->db->insert_id();
 			$this->db->trans_complete();
 			while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
@@ -89,17 +89,17 @@ class Faculty_model extends CI_Model {
 					$mw1 =$filesop[4];
 					$mw2 =$filesop[5];
 					$mw3 =$filesop[6];
-					
-					$sno="S_No";
-					$roll="Roll_No";
-					$sm="S-M";
-					$mt="M-T";
-					$et="E-T";
-					$total="Total";
-					$grade="Grades";
+					$s1 = $filesop[7];
+					$r1 = $filesop[8];
+					$m1 = $filesop[9];
+					$mw1 =$filesop[10];
+					$mw11 =$filesop[11];
+					$mw21 =$filesop[12];
+					$mw31 =$filesop[13];
 		
-					$sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, Semester, Course_Code, Sheet_Id) VALUES ('$r','$m','$mw','$mw1','$mw2','$mw3','$sem','$course','$sheet_id');");
 		
+					$sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES ('$r','$m','$mw','$mw1','$mw2','$mw3','$school','$department','$sem','$course','$sheet_id');");
+					$sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES ('$r1','$m1','$mw1','$mw11','$mw21','$mw31','$school','$department','$sem','$course','$sheet_id');");		
 				}
 			}
 		}
