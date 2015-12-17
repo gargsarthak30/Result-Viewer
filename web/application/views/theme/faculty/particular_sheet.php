@@ -5,7 +5,7 @@
 		<h5>Sheet Id : <?=$sheet_id?></h5>
 		<h5><b>Course_Code : </b><?=$status->Course_Code?></h5>
 		<h5><b>Semester : </b><?=$status->Semester?></h5>
-		<h5><b>School : </b><?=$status->College_Id?></h5>
+		<h5><b>School : </b><?=$status->School?></h5>
 		<h5><b>Department : </b><?=$status->Department?></h5>
 		<h5>
 			<b>Published : </b>

@@ -86,13 +86,13 @@ class Faculty extends CI_Controller {
 		if($this->session->userdata('logged')=='faculty')
 		{
 			$fac_id = $this->faculty_model->faculty_id();
-			$data['upload_status'] = $this->faculty_model->excel_upload($fac_id);
+			$upload_status = $this->faculty_model->excel_upload($fac_id);
 			if($upload_status==1)
 			{
 				$this->session->set_flashdata('uploaded', '* Your excel sheet has been successfully uploaded !!');
 				redirect('faculty/sheets');
 			}
-			else
+			else if($upload_status==0)
 			{
 				$this->session->set_flashdata('uploaded', '* Some problem occured. Please upload again !!');
 				redirect('faculty/upload_form');

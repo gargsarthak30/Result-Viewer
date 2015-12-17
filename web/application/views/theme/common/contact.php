@@ -12,11 +12,11 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form action = "<?=site_url('contact/message').'/'.$this->uri->segment(3);?>" method = "POST" name="sentMessage" id="contactForm" novalidate>
+                    <form action = "<?=site_url('contact/message').'/'.$this->uri->segment(3);?>" method = "POST" name="sentMessage" id="contactForm">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Name</label>
-                                <input type="text" name = "name" class="form-control" style="height:47px;" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                <input type="text" name = "name" class="form-control" style="height:47px;" placeholder="Name" id="name" data-validation-required-message="Please enter your name." required>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>

@@ -86,7 +86,7 @@
                             <?= $row->Sheet_Id?>
                         </div>
                         <div class="col-sm-2 cr">
-                           <?= $row->College_Id?>
+                           <?= $row->School?>
                         </div>
                         <div class="col-sm-2 cr">
                            <?= $row->Department?>

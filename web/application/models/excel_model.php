@@ -13,7 +13,7 @@ class Excel_model extends CI_Model {
 		$now = $this->faculty_model->faculty_id();
 		if($original == $now)
 		{
-			$query = $this->db->query("SELECT * FROM rs_school WHERE Sheet_Id = '$sheet_id' order by Roll_No;");
+			$query = $this->db->query("SELECT * FROM rs_school WHERE (Sheet_Id = '$sheet_id' AND (Roll_No != '' AND Roll_No !='Date:' AND Roll_No !='Signature:')) ORDER BY Roll_No;");
 			return $query->result();
 		}
 		else
