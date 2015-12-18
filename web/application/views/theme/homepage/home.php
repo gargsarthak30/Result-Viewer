@@ -15,8 +15,18 @@
         </div>
     </header>
 
-    <?=$this->session->flashdata('admin_change');?>
-
+<?php
+$flash = $this->session->flashdata('admin_change');
+if(!empty($flash))
+{
+?>
+<script>
+var m = '<?=$flash;?>';
+alert(m);
+</script>
+<?php
+}
+?>
 
 	
 

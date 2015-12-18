@@ -18,11 +18,8 @@
             <b>
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-sm-1">
-                            Date
-                        </div>
-						<div class="col-sm-1">
-                            Time
+                        <div class="col-sm-2">
+                            Date &nbsp;&&nbsp; Time
                         </div>
                         <div class="col-sm-2">
                            Username
@@ -58,10 +55,9 @@
 				?>
                 <li class="list-group-item list-group-item-<?=$color?>">
                     <div class="row">
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <?=$row->date?>
-                        </div>
-                        <div class="col-sm-1">
+                            <br/>
                             <?=$row->time?>
                         </div>
                         <div class="col-sm-2">
