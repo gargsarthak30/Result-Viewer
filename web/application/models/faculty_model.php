@@ -82,24 +82,22 @@ class Faculty_model extends CI_Model {
 				$c = $c + 1;
 				if ($c > 12)
 				{     
-					$s = $filesop[0];
-					$r = $filesop[1];
-					$m = $filesop[2];
-					$mw =$filesop[3];
-					$mw1 =$filesop[4];
-					$mw2 =$filesop[5];
-					$mw3 =$filesop[6];
-					$s1 = $filesop[7];
-					$r1 = $filesop[8];
-					$m1 = $filesop[9];
-					$mw1 =$filesop[10];
-					$mw11 =$filesop[11];
-					$mw21 =$filesop[12];
-					$mw31 =$filesop[13];
+					$rn1 = $filesop[1];
+					$sm1 = $filesop[2];
+					$mt1 =$filesop[3];
+					$et1 =$filesop[4];
+					$total1 =$filesop[5];
+					$g1 =$filesop[6];
+
+					$rn2 = $filesop[8];
+					$sm2 = $filesop[9];
+					$mt2 =$filesop[10];
+					$et2 =$filesop[11];
+					$total2 =$filesop[12];
+					$g2 =$filesop[13];
 		
-		
-					$sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES ('$r','$m','$mw','$mw1','$mw2','$mw3','$school','$department','$sem','$course','$sheet_id');");
-					$sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES ('$r1','$m1','$mw1','$mw11','$mw21','$mw31','$school','$department','$sem','$course','$sheet_id');");		
+					$sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES ('$rn1','$sm1','$mt1','$et1','$total1','$g1','$school','$department','$sem','$course','$sheet_id');");
+					$sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES ('$rn2','$sm2','$mt2','$et2','$total2','$g2','$school','$department','$sem','$course','$sheet_id');");		
 				}
 			}
 		}
