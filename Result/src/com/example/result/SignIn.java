@@ -57,8 +57,7 @@ public class SignIn extends Activity implements OnClickListener {
 		// R.layout.spinner_item, paths);
 		// adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// spinner.setAdapter(adapter);
-		cd = new ConnectionDetector(getApplicationContext());
-		isInternetPresent = cd.isConnectingToInternet();
+		
 	}
 
 	private void InitialiseVariables() {
@@ -104,6 +103,8 @@ public class SignIn extends Activity implements OnClickListener {
 		input = RegistrationNumber.getText().toString();
 		regex = "[1-9]{2}\\/[A-Za-z]{3,4}\\/[0-9]{3}";
 		Matcher matcher = Pattern.compile(regex).matcher(input);
+		cd = new ConnectionDetector(getApplicationContext());
+		isInternetPresent = cd.isConnectingToInternet();
 		// TODO Auto-generated method stub
 		if (isInternetPresent == true) {
 			if (!(matcher.find())) {
