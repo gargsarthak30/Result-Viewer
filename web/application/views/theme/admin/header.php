@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=site_url('home');?>">Result Viewer</a>
+                <a class="navbar-brand">GBU - Result Viewer</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,7 +26,7 @@
                         <a href="<?=site_url('admin/add_faculty');?>">Add-Faculty</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('student/details/admin');?>">Search-Student</a>
+                        <a href="<?=site_url('student/details');?>">Search-Student</a>
                     </li>
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>

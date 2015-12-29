@@ -23,7 +23,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<br/>
-							<form id="login-form" action = "<?=site_url('student/result'.'/'.$who);?>" method="post" role="form">
+							<form id="login-form" action = "<?=site_url('student/result');?>" method="post" role="form">
 								<div class="form-group">
 									<input type="text" name="reg_no" tabindex="2" class="form-control" pattern="[1-9]{2}/[A-Za-z]{3}/[0-9]{3}" title=" 13/ICS/047 " placeholder="Registration No." value="<?=set_value('reg_no');?>" required autofocus>
 								</div>	

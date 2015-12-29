@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=site_url('home');?>">Gautam Buddha University</a>
+                <a class="navbar-brand" href="<?=site_url('home');?>">GBU - Result Viewer</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,7 +19,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('student/details/homepage');?>">Student</a>
+                        <a href="<?=site_url('student/details');?>">Student</a>
                     </li>
 					<li class="page-scroll">
                         <a href="<?=site_url('faculty/signin');?>">Faculty</a>
@@ -28,10 +28,10 @@
                         <a href="<?=site_url('admin/signin');?>">Admin</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="<?=site_url('common/app/homepage');?>">Android App</a>
+                        <a href="<?=site_url('common/app');?>">Android App</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?=site_url('common/contact/homepage');?>">Contact</a>
+                        <a href="<?=site_url('common/contact');?>">Contact</a>
                     </li>
                 </ul>
             </div>
