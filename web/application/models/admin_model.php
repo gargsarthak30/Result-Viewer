@@ -47,10 +47,10 @@ class Admin_model extends CI_Model {
 
 	public function add_faculty()
 	{
-		$full_name=$_POST["full_name"];
-		$email=$_POST["email"];
-		$username=$_POST["username"];
-		$password=$_POST["password"];
+		$full_name = html_escape($_POST["full_name"]);
+		$email = html_escape($_POST["email"]);
+		$username = html_escape($_POST["username"]);
+		$password = html_escape($_POST["password"]);
 		
 		$query=$this->db->query("select * from rs_faculty where Username='$username'");
 		$res=$query->result();
@@ -62,7 +62,7 @@ class Admin_model extends CI_Model {
 		else
 		{
 			$pass = password_hash($password,PASSWORD_DEFAULT);
-			$q=$this->db->query("INSERT INTO rs_faculty (Full_Name,Username,Password,Email)VALUES('$full_name','$username','$pass','$email');");
+			$q=$this->db->query("INSERT INTO rs_faculty (Full_Name,Username,Password,Email)VALUES(".$this->db->escape($full_name).",".$this->db->escape($username).",".$this->db->escape($pass).",".$this->db->escape($email).");");
 			if($this->db->affected_rows()==1)
 			{
 				$action = "Added Faculty - ".$full_name;
@@ -93,10 +93,10 @@ class Admin_model extends CI_Model {
 
 	public function change_admin()
 	{
-		$full_name=$_POST["full_name"];
-		$email=$_POST["email"];
-		$username=$_POST["username"];
-		$password=$_POST["password"];
+		$full_name = html_escape($_POST["full_name"]);
+		$email = html_escape($_POST["email"]);
+		$username = html_escape($_POST["username"]);
+		$password = html_escape($_POST["password"]);
 			
 		$query=$this->db->query("select * from rs_admin where Username='$username'");
 		$res=$query->result();
@@ -108,7 +108,7 @@ class Admin_model extends CI_Model {
 		else
 		{
 			$pass = password_hash($password,PASSWORD_DEFAULT);
-			$q=$this->db->query("INSERT INTO rs_admin (Full_Name,Username,Password,Email,Flag)VALUES('$full_name','$username','$pass','$email',1);");
+			$q=$this->db->query("INSERT INTO rs_admin (Full_Name,Username,Password,Email,Flag)VALUES(".$this->db->escape($full_name).",".$this->db->escape($username).",".$this->db->escape($pass).",".$this->db->escape($email).",1);");
 			if($this->db->affected_rows()==1)
 			{
 				$username_del = $this->session->userdata('user_name');

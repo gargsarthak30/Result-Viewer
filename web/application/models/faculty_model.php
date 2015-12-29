@@ -68,13 +68,13 @@ class Faculty_model extends CI_Model {
 			$file = $_FILES['file']['tmp_name'];
 			$handle = fopen($file, "r");
 			$c = 0;
-			$sem=$_POST["semester"];
-			$course=$_POST["course_code"];
-			$school=$_POST["school"];
-			$department=$_POST["dept"];
+			$sem = html_escape($_POST["semester"]);
+			$course = html_escape($_POST["course_code"]);
+			$school = $_POST["school"];
+			$department = html_escape($_POST["dept"]);
 			$school = strtolower($school);
 			$this->db->trans_start();
-				$sheets = $this->db->query("INSERT INTO rs_excel_details(Faculty_Id, School, Semester, Department, Course_Code) VALUES ('$fac_id','$school','$sem','$department','$course');");
+				$sheets = $this->db->query("INSERT INTO rs_excel_details(Faculty_Id, School, Semester, Department, Course_Code) VALUES ('$fac_id','$school',".$this->db->escape($sem).",".$this->db->escape($department).",".$this->db->escape($course).");");
 				$sheet_id = $this->db->insert_id();
 			$this->db->trans_complete();
 			while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
@@ -82,22 +82,22 @@ class Faculty_model extends CI_Model {
 				$c = $c + 1;
 				if ($c > 12)
 				{     
-					$rn1 = $filesop[1];
-					$sm1 = $filesop[2];
-					$mt1 =$filesop[3];
-					$et1 =$filesop[4];
-					$total1 =$filesop[5];
-					$g1 =$filesop[6];
+					$rn1 = html_escape($filesop[1]);
+					$sm1 = html_escape($filesop[2]);
+					$mt1 = html_escape($filesop[3]);
+					$et1 = html_escape($filesop[4]);
+					$total1 = html_escape($filesop[5]);
+					$g1 = html_escape($filesop[6]);
 
-					$rn2 = $filesop[8];
-					$sm2 = $filesop[9];
-					$mt2 =$filesop[10];
-					$et2 =$filesop[11];
-					$total2 =$filesop[12];
-					$g2 =$filesop[13];
+					$rn2 = html_escape($filesop[8]);
+					$sm2 = html_escape($filesop[9]);
+					$mt2 = html_escape($filesop[10]);
+					$et2 = html_escape($filesop[11]);
+					$total2 = html_escape($filesop[12]);
+					$g2 = html_escape($filesop[13]);
 		
-					$sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES ('$rn1','$sm1','$mt1','$et1','$total1','$g1','$school','$department','$sem','$course','$sheet_id');");
-					$sql = $this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES ('$rn2','$sm2','$mt2','$et2','$total2','$g2','$school','$department','$sem','$course','$sheet_id');");		
+					$this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES (".$this->db->escape($rn1).",".$this->db->escape($sm1).",".$this->db->escape($mt1).",".$this->db->escape($et1).",".$this->db->escape($total1).",".$this->db->escape($g1).",'$school',".$this->db->escape($department).",".$this->db->escape($sem).",".$this->db->escape($course).",'$sheet_id');");
+					$this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES (".$this->db->escape($rn2).",".$this->db->escape($sm2).",".$this->db->escape($mt2).",".$this->db->escape($et2).",".$this->db->escape($total2).",".$this->db->escape($g2).",'$school',".$this->db->escape($department).",".$this->db->escape($sem).",".$this->db->escape($course).",'$sheet_id');");		
 				}
 			}
 		}

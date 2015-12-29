@@ -85,16 +85,25 @@ class Faculty extends CI_Controller {
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{
-			$fac_id = $this->faculty_model->faculty_id();
-			$upload_status = $this->faculty_model->excel_upload($fac_id);
-			if($upload_status==1)
+			$FileType = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
+			if($FileType == 'csv')
 			{
-				$this->session->set_flashdata('uploaded', '* Your excel sheet has been successfully uploaded !!');
-				redirect('faculty/sheets');
+				$fac_id = $this->faculty_model->faculty_id();
+				$upload_status = $this->faculty_model->excel_upload($fac_id);
+				if($upload_status==1)
+				{
+					$this->session->set_flashdata('uploaded', '* Your excel sheet has been successfully uploaded !!');
+					redirect('faculty/sheets');
+				}
+				else if($upload_status==0)
+				{
+					$this->session->set_flashdata('uploaded', '* Some problem occured. Please upload again !!');
+					redirect('faculty/upload_form');
+				}
 			}
-			else if($upload_status==0)
+			else
 			{
-				$this->session->set_flashdata('uploaded', '* Some problem occured. Please upload again !!');
+				$this->session->set_flashdata('uploaded', '*Error !! Please upload only .csv files !!');
 				redirect('faculty/upload_form');
 			}
 		}

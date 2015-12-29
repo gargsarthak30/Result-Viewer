@@ -8,11 +8,11 @@ class Contact_model extends CI_Model {
 	
 	public function save()
 	{
-		$name = $this->input->post('name');
-		$email = $this->input->post('email');
-		$message = $this->input->post('message');
+		$name = html_escape($this->input->post('name'));
+		$email = html_escape($this->input->post('email'));
+		$message = html_escape($this->input->post('message'));
 		
-		$contact_q = $this->db->query("INSERT INTO rs_messages (Name, Email, Message) VALUES ('$name', '$email', '$message');");
+		$contact_q = $this->db->query("INSERT INTO rs_messages (Name, Email, Message) VALUES (".$this->db->escape($name).", ".$this->db->escape($email).", ".$this->db->escape($message).");");
 		if($this->db->affected_rows()==1)
 		{
 			$action = "Contacted Admin";
