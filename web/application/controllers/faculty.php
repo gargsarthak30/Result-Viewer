@@ -14,12 +14,12 @@ class Faculty extends CI_Controller {
 		{
 			redirect('faculty/upload_form');
 		}
+		else if($this->session->userdata('logged')=='admin')
+		{
+			redirect('admin/all_faculty');
+		}
 		else
 		{
-			if($this->session->userdata('logged')=='admin')
-			{
-				$this->session->sess_destroy();
-			}
 			$this->load->library('form_validation');
 			$this->load->view('theme/common/link');
 			$this->load->view('theme/homepage/header');
@@ -46,7 +46,7 @@ class Faculty extends CI_Controller {
 		}
 	}
 	
-	public function verify_signin()
+	private function verify_signin()
 	{
 		$q = $this->faculty_model->faculty_verify();
 		if( $q == 0 )

@@ -14,12 +14,12 @@ class Admin extends CI_Controller {
 		{
 			redirect('admin/all_faculty');
 		}
+		else if($this->session->userdata('logged')=='faculty')
+		{
+			redirect('faculty/upload_form');
+		}
 		else
 		{
-			if($this->session->userdata('logged')=='faculty')
-			{
-				$this->session->sess_destroy();
-			}
 			$this->load->library('form_validation');
 			$this->load->view('theme/common/link');
 			$this->load->view('theme/homepage/header');
@@ -46,7 +46,7 @@ class Admin extends CI_Controller {
 		}
 	}
 	
-	public function verify_signin()
+	private function verify_signin()
 	{
 		$q = $this->admin_model->admin_verify();
 		if( $q == 0 )
@@ -110,7 +110,7 @@ class Admin extends CI_Controller {
 
 	}
 
-	public function verify_add_faculty()
+	private function verify_add_faculty()
 	{
 		if($this->session->userdata('logged')=='admin')
 		{
@@ -204,7 +204,7 @@ class Admin extends CI_Controller {
 
 	}
 
-	public function verify_change_admin()
+	private function verify_change_admin()
 	{
 		if($this->session->userdata('logged')=='admin')
 		{

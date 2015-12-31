@@ -87,7 +87,7 @@ class Admin_model extends CI_Model {
 		}
 		else
 		{
-			$this->session->set_flashdata('fac_remove', 'There was some error !! <br/>Please try again.');
+			$this->session->set_flashdata('fac_remove', 'There was some error !!'.'\n'.'Please try again.');
 		}
 	}
 

@@ -21,7 +21,8 @@
 			?>
 		</h5>
 		<br/><br/>
-				
+	</div>
+
 		<?php
 			if (empty($sheet))
 			{
@@ -31,40 +32,77 @@
 			{
 		?>		
 		
-		<table class="table">
-			<thead>
-				<tr border="1">
-					<th>Roll No.</th>
-					<th>S-M</th>
-					<th>M-T</th>
-					<th>E-T</th>
-					<th>Total</th>
-					<th>Grade</th>
-				</tr>
-			</thead>
-			<tbody>
+		<ul class="nav nav-list col-sm-12" id = "record_list"> 
+            <b>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2 cr">
+                            Roll No.
+                        </div>
+                        <div class="col-md-2 cr">
+                            S-M
+                        </div>
+                        <div class="col-sm-2 cr">
+                           M-T
+                        </div>
+                        <div class="col-sm-2 cr">
+                           E-T
+                        </div>
+                        <div class="col-sm-2 cr">
+                           Total
+                        </div>
+                        <div class="col-sm-2 cr">
+                           Grade
+                        </div>
+                    </div>
+                </li>
+            </b>
+            <?php
+            $count=0;
+            foreach ($sheet as $rows)
+             {
+                $count++;
+                if($count%2==0)
+                {
+                    $color='default';
+                }
+                else
+                {
+                    $color='primary';
+                }
+                ?>
+                <li class="list-group-item list-group-item-<?=$color?>">
+                    <div class="row">
+                        <div class="col-md-2 cr">
+                            <?php echo $rows->Roll_No;; ?>
+                        </div>
+                        <div class="col-sm-2 cr">
+                           <?php echo $rows->S_M; ?>
+                        </div>
+                        <div class="col-sm-2 cr">
+                           <?php echo $rows->M_T; ?>
+                        </div>
+                        <div class="col-sm-2 cr">
+                           <?php echo $rows->E_T; ?>
+                        </div>
+                        <div class="col-sm-2 cr">
+                           <?php echo $rows->Total; ?>
+                        </div>
+                        <div class="col-sm-2 cr">
+                           <?php echo $rows->Grades; ?>
+                        </div>
+                    </div>
+                </li>
+
+                <?php
+                    }
+                ?>
+        </ul>			
 						
-			<?php
-					foreach($sheet as $rows)
-					{	
-			?>
-					
-				<tr>
-					<td><?php echo $rows->Roll_No;  ?></td>
-					<td><?php echo $rows->S_M; ?></td>
-					<td><?php echo $rows->M_T; ?></td>
-					<td><?php echo $rows->E_T; ?></td>
-					<td><?php echo $rows->Total; ?></td>
-					<td><?php echo $rows->Grades; ?></td>			
-				</tr>
-						
-			<?php
-					} 
-				}
-			?>
-			
-			</tbody>
-		</table>
-	</div>
+		<?php
+			} 
+		?>
 </div>
+<br>
+<br>
 				
