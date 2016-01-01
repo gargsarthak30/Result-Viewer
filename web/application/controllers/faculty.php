@@ -69,6 +69,8 @@ class Faculty extends CI_Controller {
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{
+			$this->load->library('form_validation');
+			$this->load->helper('html');
 			$data['sch_list'] = $this->faculty_model->school_list();
 			$this->load->view('theme/common/link');
 			$this->load->view('theme/faculty/header');
@@ -81,7 +83,27 @@ class Faculty extends CI_Controller {
 		}
 	}
 
-	public function upload_db()
+	public function validate_upload()
+	{	
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('school', 'School', 'required');
+		$this->form_validation->set_rules('type_course', 'Course Type', 'required');
+		$this->form_validation->set_rules('dept', 'Department', 'required');
+		$this->form_validation->set_rules('course_code', 'Course Code', 'required');
+		$this->form_validation->set_rules('semester', 'Semester', 'required');
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->upload_form();
+		}
+		else
+		{
+			$this->upload_db();
+		}
+	}
+
+	private function upload_db()
 	{
 		if($this->session->userdata('logged')=='faculty')
 		{

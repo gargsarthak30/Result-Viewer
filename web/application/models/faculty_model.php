@@ -70,34 +70,64 @@ class Faculty_model extends CI_Model {
 			$c = 0;
 			$sem = html_escape($_POST["semester"]);
 			$course = html_escape($_POST["course_code"]);
-			$school = $_POST["school"];
 			$department = html_escape($_POST["dept"]);
+			$type_course = $_POST["type_course"];
+			$school = $_POST["school"];
 			$school = strtolower($school);
 			$this->db->trans_start();
 				$sheets = $this->db->query("INSERT INTO rs_excel_details(Faculty_Id, School, Semester, Department, Course_Code) VALUES ('$fac_id','$school',".$this->db->escape($sem).",".$this->db->escape($department).",".$this->db->escape($course).");");
 				$sheet_id = $this->db->insert_id();
 			$this->db->trans_complete();
-			while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
+			if($type_course == 'th')
 			{
-				$c = $c + 1;
-				if ($c > 12)
-				{     
-					$rn1 = html_escape($filesop[1]);
-					$sm1 = html_escape($filesop[2]);
-					$mt1 = html_escape($filesop[3]);
-					$et1 = html_escape($filesop[4]);
-					$total1 = html_escape($filesop[5]);
-					$g1 = html_escape($filesop[6]);
+				while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
+				{
+					$c = $c + 1;
+					if ($c > 12)
+					{     
+						$rn1 = html_escape($filesop[1]);
+						$sm1 = html_escape($filesop[2]);
+						$mt1 = html_escape($filesop[3]);
+						$et1 = html_escape($filesop[4]);
+						$total1 = html_escape($filesop[5]);
+						$g1 = html_escape($filesop[6]);
 
-					$rn2 = html_escape($filesop[8]);
-					$sm2 = html_escape($filesop[9]);
-					$mt2 = html_escape($filesop[10]);
-					$et2 = html_escape($filesop[11]);
-					$total2 = html_escape($filesop[12]);
-					$g2 = html_escape($filesop[13]);
-		
-					$this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES (".$this->db->escape($rn1).",".$this->db->escape($sm1).",".$this->db->escape($mt1).",".$this->db->escape($et1).",".$this->db->escape($total1).",".$this->db->escape($g1).",'$school',".$this->db->escape($department).",".$this->db->escape($sem).",".$this->db->escape($course).",'$sheet_id');");
-					$this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES (".$this->db->escape($rn2).",".$this->db->escape($sm2).",".$this->db->escape($mt2).",".$this->db->escape($et2).",".$this->db->escape($total2).",".$this->db->escape($g2).",'$school',".$this->db->escape($department).",".$this->db->escape($sem).",".$this->db->escape($course).",'$sheet_id');");		
+						$rn2 = html_escape($filesop[8]);
+						$sm2 = html_escape($filesop[9]);
+						$mt2 = html_escape($filesop[10]);
+						$et2 = html_escape($filesop[11]);
+						$total2 = html_escape($filesop[12]);
+						$g2 = html_escape($filesop[13]);
+			
+						$this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES (".$this->db->escape($rn1).",".$this->db->escape($sm1).",".$this->db->escape($mt1).",".$this->db->escape($et1).",".$this->db->escape($total1).",".$this->db->escape($g1).",'$school',".$this->db->escape($department).",".$this->db->escape($sem).",".$this->db->escape($course).",'$sheet_id');");
+						$this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES (".$this->db->escape($rn2).",".$this->db->escape($sm2).",".$this->db->escape($mt2).",".$this->db->escape($et2).",".$this->db->escape($total2).",".$this->db->escape($g2).",'$school',".$this->db->escape($department).",".$this->db->escape($sem).",".$this->db->escape($course).",'$sheet_id');");		
+					}
+				}
+			}
+			else if($type_course == 'lb')
+			{
+				while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
+				{
+					$c = $c + 1;
+					if ($c > 12)		
+					{
+						$rn1 = html_escape($filesop[1]);
+						$sm1 = html_escape($filesop[2]);
+						$mt1 = '---';
+						$et1 = html_escape($filesop[3]);
+						$total1 = html_escape($filesop[4]);
+						$g1 = html_escape($filesop[5]);
+
+						$rn2 = html_escape($filesop[7]);
+						$sm2 = html_escape($filesop[8]);
+						$mt2 = '---';
+						$et2 = html_escape($filesop[9]);
+						$total2 = html_escape($filesop[10]);
+						$g2 = html_escape($filesop[11]);
+
+						$this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES (".$this->db->escape($rn1).",".$this->db->escape($sm1).",".$this->db->escape($mt1).",".$this->db->escape($et1).",".$this->db->escape($total1).",".$this->db->escape($g1).",'$school',".$this->db->escape($department).",".$this->db->escape($sem).",".$this->db->escape($course).",'$sheet_id');");
+						$this->db->query("INSERT INTO  rs_school(Roll_No, S_M, M_T, E_T, Total, Grades, School, Department, Semester, Course_Code, Sheet_Id) VALUES (".$this->db->escape($rn2).",".$this->db->escape($sm2).",".$this->db->escape($mt2).",".$this->db->escape($et2).",".$this->db->escape($total2).",".$this->db->escape($g2).",'$school',".$this->db->escape($department).",".$this->db->escape($sem).",".$this->db->escape($course).",'$sheet_id');");	
+					}
 				}
 			}
 		}
