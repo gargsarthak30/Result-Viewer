@@ -19,8 +19,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <a id = "foot_about" data-toggle="modal" data-target="#about">Copyright &copy; 2015-<?php echo date("Y")?> &nbsp;OpenGBU, Inc
+                        Copyright &copy; 2015-<?php echo date("Y")?> &nbsp;Gautam Buddha University<br>
+						<a id = "foot_about" data-toggle="modal" data-target="#about">Developers</a>
                     </div>
+					
                 </div>
             </div>
         </div>
@@ -60,7 +62,7 @@
         <h4 class="modal-title" id="myModalLabel">About - Result Viewer</h4>
       </div>
       <div class="modal-body" style="text-align: center">
-                    <b>Mentored By:</b><br/>Sir Arun Solanki &nbsp; | &nbsp; Sir Amit K. Awasthi<br/><br/>
+                    <!--<b>Mentored By:</b><br/>Sir Arun Solanki &nbsp; | &nbsp; Sir Amit K. Awasthi<br/><br/>-->
                     <b>Android App By:</b><br/>Sarthak Garg<br/><br/>
                     <b>Web Service By:</b><br/>Bhawesh Chandola &nbsp; | &nbsp; Rajat Saxena<br/><br/>
       </div>

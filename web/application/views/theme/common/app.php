@@ -39,7 +39,7 @@ if (nz==360)
                     <br/><br/>
 					</center>
 					<div class="col-sm-12 text-center">
-						<a href="<?=base_url('assets/rvapk/Result.apk')?>" class="btn btn-lg btn-outline">
+						<a href="https://play.google.com/store/apps/details?id=com.ex.result&hl=en" class="btn btn-lg btn-outline">
 							<i class="fa fa-download"></i> Download App
 						</a>
 					</div>
