@@ -34,7 +34,7 @@
                             <li><a href="<?=site_url('contact/view_messages');?>">Messages</a></li>
                             <li><a href="<?=site_url('admin/view_logs');?>">Logs</a></li>
                             <li><a href="<?=site_url('admin/change_admin');?>">Change Admin</a></li>
-                            <li><a href="#">Settings</a></li>
+                            <li><a href="<?=site_url('admin/change_password');?>">Settings</a></li>
                         </ul>
                     </li>
 					<li class="page-scroll">

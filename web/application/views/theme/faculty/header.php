@@ -33,7 +33,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?=site_url('common/contact');?>">Contact</a></li>
-                            <li><a href="#">Settings</a></li>
+                            <li><a href="<?=site_url('faculty/change_password');?>">Settings</a></li>
                         </ul>
                     </li>
 					<li class="page-scroll">

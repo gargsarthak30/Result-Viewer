@@ -152,6 +152,61 @@ class Faculty extends CI_Controller {
 		}
 
 	}
+
+	public function change_password()
+	{
+		if($this->session->userdata('logged')=='faculty')
+		{
+			$this->load->library('form_validation');
+			$this->load->view('theme/common/link');
+			$this->load->view('theme/faculty/header');
+			$this->load->view('theme/faculty/settings');
+			$this->load->view('theme/common/footer');
+		}
+		else
+		{
+			redirect('home');
+		}		
+	}
+
+	public function validate_change_pass()
+	{
+		$this->load->library('form_validation');
+	
+		$this->form_validation->set_rules('curr_pass', 'Current Password', 'required');
+		$this->form_validation->set_rules('new_pass', 'New Password', 'required|min_length[6]');
+		$this->form_validation->set_rules('conf_pass', 'Confirm Password', 'required|min_length[6]|matches[new_pass]');
+	
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->change_password();
+		}
+		else
+		{
+			$this->do_change_pass();
+		}
+	}
+
+	public function do_change_pass()
+	{
+		$fac_id = $this->faculty_model->faculty_id();
+		$status = $this->faculty_model->change_pass($fac_id);
+		if($status==1)
+		{
+			$this->session->set_flashdata('pass', '* Your password has been successfully changed !!');
+			redirect('faculty/change_password');
+		}
+		else if($status==0)
+		{
+			$this->session->set_flashdata('pass', '* Some problem occured. Please change again !!');
+			redirect('faculty/change_password');
+		}
+		else if($status==-1)
+		{
+			$this->session->set_flashdata('wrong_curr_pass', '* Current Password is Wrong !!');
+			redirect('faculty/change_password');
+		}
+	}
 	
 	public function logout()
 	{

@@ -125,5 +125,35 @@ class Admin_model extends CI_Model {
 		}
 	}
 
+	public function change_pass($fac_id)
+	{
+		$curr = $_POST["curr_pass"];
+		$new = html_escape($_POST["new_pass"]);
+
+		$un = $this->session->userdata('user_name');
+		$orig = $this->db->query("SELECT Password FROM rs_admin WHERE Username = '$un'");
+
+		if(password_verify($curr, $orig->row()->Password))
+		{
+			$pass = password_hash($new,PASSWORD_DEFAULT);
+			$this->db->query("UPDATE rs_admin SET Password =".$this->db->escape($pass)." WHERE Username = '$un'");			
+			
+			if($this->db->affected_rows()>0)
+			{
+				$action = "Changed Password";
+				$this->logs_model->insert($action);
+				$status = 1;       
+			}
+			else
+			{
+				$status = 0;
+			}
+		}
+		else
+		{
+			$status = -1;
+		}
+		return $status;	
+	}
 
 }

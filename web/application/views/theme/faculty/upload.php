@@ -16,10 +16,10 @@
                 <hr class="star-primary">
             </div>
         </div>
+        <center>
 		<br/>
 		<?php echo validation_errors(); ?>
 		<br/>
-		<center>
 		
 		<form name="import" action="<?=site_url	('faculty/validate_upload');?>"  method="POST" enctype="multipart/form-data">
  			<input type="file" name="file" required/>
