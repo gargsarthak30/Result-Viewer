@@ -47,7 +47,7 @@ public class ReadResult extends Activity {
 	// TextView displaycid;
 	TextView displayrno;
 	ArrayList<HashMap<String, String>> ResultFetch;
-	private static String url_readResult = "http://www.gbuonline.in/opengbu/result/ReadData.php";
+	private static String url_readResult = "http://www.resultviewer.esy.es/Rv/app/php/ReadData.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_TOTAL = "Total";

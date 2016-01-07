@@ -44,7 +44,7 @@ public class SignIn extends Activity implements OnClickListener {
 	private ProgressDialog pDialog;
 	JSONParser jParser = new JSONParser();
 	//private static String url_login = "@string/url_login";
-	private static String url_login = "http://www.gbuonline.in/opengbu/result/signin.php";
+	private static String url_login = "http://www.resultviewer.esy.es/Rv/app/php/signin.php";
 	private static final String TAG_SUCCESS = "success";
 
 	@Override
