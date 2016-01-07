@@ -147,11 +147,24 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	public function remove_faculty()
+	public function remove_faculty($fid)
 	{
 		if($this->session->userdata('logged')=='admin')
 		{
-			$this->admin_model->del_fac();
+			$this->admin_model->del_fac($fid);
+			redirect('admin/all_faculty');
+		}
+		else
+		{
+			redirect('home');
+		}
+	}
+
+	public function approve_faculty($fid)
+	{
+		if($this->session->userdata('logged')=='admin')
+		{
+			$this->admin_model->approve_fac($fid);
 			redirect('admin/all_faculty');
 		}
 		else

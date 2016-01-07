@@ -60,10 +60,56 @@ class Faculty extends CI_Controller {
 		}
 		else if($q == 2)
 		{
-				redirect('faculty/upload_form');
+			redirect('faculty/upload_form');
+		}
+		else if($q == 3)
+		{
+			$this->session->set_flashdata('no_rec', '* You account has not been approved by admin yet !!');	
+			redirect('faculty/signin');
 		}
 	}
 
+	public function register()
+	{
+		$this->load->library('form_validation');
+		$this->load->view('theme/common/link');
+		$this->load->view('theme/faculty/header');
+		$this->load->view('theme/faculty/register');
+		$this->load->view('theme/common/footer');
+	}
+	
+	public function validate_register()
+	{
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('full_name', 'Full Name', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('username', 'Username', 'required|min_length[4]');
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
+		$this->form_validation->set_rules('confpass', 'Confirm Password', 'required|matches[password]');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->register();
+		}
+		else
+		{
+			$this->do_register();
+		}
+	}
+
+	private function do_register()
+	{
+		$q = $this->faculty_model->register();
+		if($q==0)
+		{
+			redirect('faculty/register');
+		}
+		else if($q==1)
+		{
+			redirect('faculty/signin');
+		}
+	}
 	
 	public function upload_form()
 	{

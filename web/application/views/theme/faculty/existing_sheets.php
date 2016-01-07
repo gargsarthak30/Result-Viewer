@@ -100,8 +100,7 @@
                         <div class="col-sm-3 cr">
                            <a href="<?= site_url('excel/view').'/'.$row->Sheet_Id?>" style="width:60px;" class="btn btn-xs btn-primary">View</a>&nbsp;&nbsp;&nbsp;
                            <a href="<?= site_url('excel/publish').'/'.$row->Sheet_Id?>" style="width:60px;" class="btn btn-xs btn-<?=$shade?> <?=$disable?>" >Publish</a>
-                        </div>
-                            
+                        </div>   
                     </div>
                 </li>
 

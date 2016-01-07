@@ -33,6 +33,10 @@
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
 												<input type="submit" name="login-submit" id="login-submit" tabindex="12" class="form-control btn btn-login" value="Log In">
+												</br></br>
+												<center>
+												New Faculty ? <a href="<?=site_url('faculty/register');?>">Register Here</a>
+												</center>
 											</div>
 										</div>
 									</div>									
@@ -44,3 +48,15 @@
 			</div>
 		</div>
 	</div>
+<?php
+    $flash = $this->session->flashdata('conf_add');
+    if(!empty($flash))
+    {
+?>
+        <script>
+            var m = '<?=$flash;?>';
+            alert(m);
+        </script>
+<?php
+    }
+?>

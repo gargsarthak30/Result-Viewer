@@ -27,7 +27,7 @@
 						<div class="col-sm-4">
                             Email
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-2 text-center">
                            Action
                         </div>
                     </div>
@@ -46,6 +46,16 @@
 				{
 					$color='primary';
 				}
+                if($row->Approved == 0)
+                {
+                    $shade ='danger';
+                    $disable = '';
+                }
+                else
+                {
+                    $shade ='success';
+                    $disable = 'disabled';
+                }
 				?>
                 <li class="list-group-item list-group-item-<?=$color?>">
                     <div class="row">
@@ -59,13 +69,8 @@
 							<?= $row->Email ?>
                         </div>
                         <div class="col-sm-2">
-                            <form action ="<?=site_url('admin/remove_faculty');?>" method="POST">
-                                <?php 
-                                $this->load->helper('form');
-                                echo form_hidden('fid', $row->Faculty_Id);
-                                ?>
-                                <input type="submit" class="btn btn-xs btn-primary" value="Remove">
-                           </form>
+                            <a href="<?= site_url('admin/remove_faculty').'/'.$row->Faculty_Id?>" style="width:60px;" class="btn btn-xs btn-primary">Remove</a>&nbsp;&nbsp;&nbsp;
+                            <a href="<?= site_url('admin/approve_faculty').'/'.$row->Faculty_Id?>" style="width:60px;" class="btn btn-xs btn-<?=$shade?> <?=$disable?>" >Approve</a>
                         </div>
                     </div>
                 </li>
@@ -85,7 +90,7 @@
 </section>
 
 <?php
-$flash = $this->session->flashdata('fac_remove').$this->session->flashdata('conf_add') ;
+$flash = $this->session->flashdata('fac_remove').$this->session->flashdata('fac_approve').$this->session->flashdata('conf_add') ;
 if(!empty($flash))
 {
 ?>

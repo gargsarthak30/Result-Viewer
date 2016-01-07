@@ -29,7 +29,7 @@ class Faculty_model extends CI_Model {
 	{
 		$user = $this->input->post('username');
 		$pass = $this->input->post('password');
-		$q5=$this->db->query("select * from rs_faculty where Username='$user'");
+		$q5=$this->db->query("select Approved,Password from rs_faculty where Username='$user'");
 		if( $q5->num_rows() == 0 )
 		{
 			return 0;
@@ -41,8 +41,10 @@ class Faculty_model extends CI_Model {
 		else
 		{
 			$row=$q5->row();
-			if(password_verify($pass, $row->Password))
+			if($row->Approved == 1)
 			{
+				if(password_verify($pass, $row->Password))
+				{
 					$fac_data = array(
                    'user_name'  => $user,
 				   'logged' => 'faculty'
@@ -52,13 +54,45 @@ class Faculty_model extends CI_Model {
 					$action = "Logged-In";
 					$this->logs_model->insert($action);
 					return 2;
+				}
+				else
+				{
+					return 0;
+				}	
 			}
 			else
 			{
-					return 0;
+				return 3;
+			}
+			
+		}
+	}
+
+	public function register()
+	{
+		$full_name = html_escape($_POST["full_name"]);
+		$email = html_escape($_POST["email"]);
+		$username = html_escape($_POST["username"]);
+		$password = html_escape($_POST["password"]);
+		
+		$query=$this->db->query("select * from rs_faculty where Username='$username'");
+		$res=$query->result();
+		if($this->db->affected_rows()>0)
+		{
+			$this->session->set_flashdata('alrdy_add', '* This username is already in use.<br/>Please choose another username !!');
+			return 0;
+		}
+		else
+		{
+			$pass = password_hash($password,PASSWORD_DEFAULT);
+			$q=$this->db->query("INSERT INTO rs_faculty (Full_Name,Username,Password,Email)VALUES(".$this->db->escape($full_name).",".$this->db->escape($username).",".$this->db->escape($pass).",".$this->db->escape($email).");");
+			if($this->db->affected_rows()==1)
+			{
+				$this->session->set_flashdata('conf_add', 'You are successfully registered !! The admin will contact you for account verification.');
+				return 1;
+
 			}
 		}
-		return $q5->row();
 	}
 	
 	public function excel_upload($fac_id)

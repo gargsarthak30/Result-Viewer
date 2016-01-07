@@ -41,7 +41,7 @@ class Admin_model extends CI_Model {
 
 	public function all_fac()
 	{
-		$select_all = $this->db->query("SELECT Faculty_Id, Full_Name, Username, Email FROM rs_faculty ORDER BY Faculty_Id DESC;");
+		$select_all = $this->db->query("SELECT Faculty_Id, Full_Name, Username, Email, Approved FROM rs_faculty ORDER BY Faculty_Id DESC;");
 		return $select_all;
 	}
 
@@ -74,11 +74,10 @@ class Admin_model extends CI_Model {
 		}
 	}
 
-	public function del_fac()
+	public function del_fac($fid)
 	{	
-		$faculty_id = $this->input->post('fid');
-		$fac_name = $this->db->query("SELECT Full_Name FROM rs_faculty WHERE Faculty_Id = '$faculty_id';")->row()->Full_Name;
-		$this->db->query("DELETE FROM rs_faculty WHERE Faculty_Id = '$faculty_id';");
+		$fac_name = $this->db->query("SELECT Full_Name FROM rs_faculty WHERE Faculty_Id = '$fid';")->row()->Full_Name;
+		$this->db->query("DELETE FROM rs_faculty WHERE Faculty_Id = '$fid';");
 		if($this->db->affected_rows()==1)
 		{
 			$action = "Removed Faculty - ".$fac_name;
@@ -88,6 +87,22 @@ class Admin_model extends CI_Model {
 		else
 		{
 			$this->session->set_flashdata('fac_remove', 'There was some error !!'.'\n'.'Please try again.');
+		}
+	}
+
+	public function approve_fac($fid)
+	{	
+		$this->db->query("UPDATE rs_faculty SET Approved = '1' WHERE Faculty_Id = '$fid';");
+		if($this->db->affected_rows()==1)
+		{
+			$fac_name = $this->db->query("SELECT Full_Name FROM rs_faculty WHERE Faculty_Id = '$fid';")->row()->Full_Name;
+			$action = "Approved Faculty - ".$fac_name;
+			$this->logs_model->insert($action);
+			$this->session->set_flashdata('fac_approve', 'The FACULTY has been Approved !!');
+		}
+		else
+		{
+			$this->session->set_flashdata('fac_approve', 'There was some error !!'.'\n'.'Please try again.');
 		}
 	}
 
@@ -125,7 +140,7 @@ class Admin_model extends CI_Model {
 		}
 	}
 
-	public function change_pass($fac_id)
+	public function change_pass()
 	{
 		$curr = $_POST["curr_pass"];
 		$new = html_escape($_POST["new_pass"]);
