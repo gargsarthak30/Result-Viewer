@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; 2015-<?php echo date("Y")?> &nbsp;Gautam Buddha University<br>
+                        Copyright &copy; 2015-<?php echo date("Y")?> &nbsp;Gautam Buddha University &nbsp; | &nbsp; 
 						<a id = "foot_about" data-toggle="modal" data-target="#about">Developers</a>
                     </div>
 					

@@ -253,7 +253,7 @@ class Faculty extends CI_Controller {
 			redirect('faculty/change_password');
 		}
 	}
-	
+
 	public function logout()
 	{
 		$action = "Logged-Out";
