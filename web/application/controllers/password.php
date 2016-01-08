@@ -8,14 +8,14 @@ class Password extends CI_Controller {
 		$this->load->model('password_model');
 	}
 
-	var $un = NULL;
+	public $un = NULL;
 
 	public function index()
 	{
 		$this->forget_form();
 	}
 
-	public function forget_form()
+	private function forget_form()
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('username', 'Username', 'required|callback_username_check');
@@ -34,7 +34,7 @@ class Password extends CI_Controller {
 		
 	}
 
-	public function username_check()
+	private function username_check()
 	{
 		$username = $this->input->post('username');
 		$this->un = $username; 
@@ -53,14 +53,14 @@ class Password extends CI_Controller {
 	private function send_mail($email, $pass_link)
 	{
 		$this->load->library('email');
-
+		$this->email->set_mailtype("html");
 		$data['username'] = $this->un;
 		$data['pass_link'] = $pass_link;
 		$this->email->from('support@resultviewer.esy.es', 'GBU-Result');
 		$this->email->to($email);
 
 		$this->email->subject('Password Reset');
-		$this->email->message($this->load->view('theme/common/mail_content',$data));
+		$this->email->message($this->load->view('theme/common/mail_content',$data,true));
 
 		if($this->email->send())
      	{
@@ -76,21 +76,27 @@ class Password extends CI_Controller {
 
 	public function reset($username, $pass_link)
 	{
+		if($pass_link=='rv')
+		{
+			redirect('faculty/signin');
+			exit;
+		}
 		$q = $this->password_model->verify_pass_link($username, $pass_link);
 		if($q==0)
 		{
-			$this->session->set_flashdata('verify_link', 'Your password reset link is expired. Please fill the Feorget Password form once again.');
+			$this->session->set_flashdata('verify_link', 'Your password reset link is expired. Please fill the Forget Password form once again.');
 			redirect('password');	
 		}
 		else if($q==1)
 		{
-			$this->reset_form();
+			$this->reset_form($username);
 		}
 
 	}
 
-	public function reset_form()
+	public function reset_form($username)
 	{
+		$data['username'] = $username;
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('new_pass', 'New Password', 'required');
 		$this->form_validation->set_rules('conf_pass', 'Confirm Password', 'required|matches[new_pass]');
@@ -99,18 +105,19 @@ class Password extends CI_Controller {
 		{
 			$this->load->view('theme/common/link');
 			$this->load->view('theme/homepage/header');
-			$this->load->view('theme/common/reset_password');
+			$this->load->view('theme/common/reset_password',$data);
 			$this->load->view('theme/common/footer');
 		}
 		else
 		{
-			$this->do_reset();
+			$this->do_reset($username);
 		}
+		
 	}
 
-	public function do_reset()
+	private function do_reset($username)
 	{
-		$status = $this->password_model->reset_pass($this->un);
+		$status = $this->password_model->reset_pass($username);
 		if($status==1)
 		{
 			$this->session->set_flashdata('pass_reset', '* Your password has been successfully reset !!');

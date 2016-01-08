@@ -21,7 +21,8 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="<?=site_url('password/do_reset');?>" method="post" role="form" style="display: block;">
+							<center><b>Username :</b> <?=$username?></center><br>
+								<form id="login-form" action="<?=site_url('password/reset_form').'/'.$username;?>" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="password" name="new_pass" id="pass" tabindex="1" class="form-control" placeholder="New Password" value="" required autofocus>
 									</div>
@@ -31,7 +32,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="2" class="form-control btn btn-login" value="Reset Password">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="3" class="form-control btn btn-login" value="Reset Password">
 											</div>
 										</div>
 									</div>									
