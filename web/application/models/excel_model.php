@@ -47,6 +47,31 @@ class Excel_model extends CI_Model {
 		}
 	}
 
+	public function delete($sheet_id)
+	{
+		$original = $this->db->query("SELECT Faculty_Id FROM rs_excel_details WHERE Sheet_Id = '$sheet_id';")->row()->Faculty_Id;
+		$now = $this->faculty_model->faculty_id();
+		if($original == $now)
+		{
+			$this->db->query("DELETE FROM rs_school WHERE Sheet_Id = '$sheet_id';");
+			$this->db->query("DELETE FROM rs_excel_details WHERE Sheet_Id = '$sheet_id';");
+			if($this->db->affected_rows()==1)
+			{
+				$action = "Deleted excel Sheet-Id - ".$sheet_id;
+				$this->logs_model->insert($action);
+				return 0;
+			}
+			else
+			{
+				return 1;
+			}
+		}
+		else
+		{
+			return 2;
+		}
+	}
+
 	public function status_sheet($sheet_id)
 	{
 		$status_q = $this->db->query("SELECT School,Semester,Department,Course_Code,Published FROM rs_excel_details WHERE Sheet_Id = '$sheet_id';");

@@ -62,7 +62,7 @@ class Admin_model extends CI_Model {
 		else
 		{
 			$pass = password_hash($password,PASSWORD_DEFAULT);
-			$q=$this->db->query("INSERT INTO rs_faculty (Full_Name,Username,Password,Email)VALUES(".$this->db->escape($full_name).",".$this->db->escape($username).",".$this->db->escape($pass).",".$this->db->escape($email).");");
+			$q=$this->db->query("INSERT INTO rs_faculty (Full_Name,Username,Password,Email,Pass_Link)VALUES(".$this->db->escape($full_name).",".$this->db->escape($username).",".$this->db->escape($pass).",".$this->db->escape($email).", 'rv');");
 			if($this->db->affected_rows()==1)
 			{
 				$action = "Added Faculty - ".$full_name;

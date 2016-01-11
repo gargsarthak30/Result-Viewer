@@ -41,13 +41,38 @@ class Excel extends CI_Controller {
 			$pub = $this->excel_model->visible($sheet_id);
 			if($pub==0)
 			{
-				$this->session->set_flashdata('published', 'The sheet has been successfully published.'.'\n'.'Now students can see their results.');
+				$this->session->set_flashdata('published', 'The sheet has been successfully published.'.'\n'.'Now students can see their results.\nNow you cannot delete this sheet.');
 			}
 			else if($pub==1)
 			{
 				$this->session->set_flashdata('published', 'Some error occurred !'.'\n'.'Please try again.');	
 			}
 			else if($pub==2)
+			{
+				$this->session->set_flashdata('published', 'Thats not your sheet !!'.'\n'.'Do not try again.');	
+			}
+			redirect('faculty/sheets');
+		}
+		else
+		{
+			redirect('home');
+		}
+	}
+
+	public function delete($sheet_id)
+	{
+		if($this->session->userdata('logged')=='faculty')
+		{
+			$del = $this->excel_model->delete($sheet_id);
+			if($del==0)
+			{
+				$this->session->set_flashdata('published', 'The sheet has been successfully deleted.'.'\n');
+			}
+			else if($del==1)
+			{
+				$this->session->set_flashdata('published', 'Some error occurred !'.'\n'.'Please try again.');	
+			}
+			else if($del==2)
 			{
 				$this->session->set_flashdata('published', 'Thats not your sheet !!'.'\n'.'Do not try again.');	
 			}
