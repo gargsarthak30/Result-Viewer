@@ -34,4 +34,13 @@ class Common extends CI_Controller {
 		}
 	}
 
+	public function open_source()
+	{
+		$check = empty($this->session->userdata('logged'))?'homepage':$this->session->userdata('logged');
+		$this->load->view('theme/common/link');
+		$this->load->view('theme/'.$check.'/header');
+		$this->load->view('theme/common/open_source');
+		$this->load->view('theme/common/footer');
+	}
+
 }

@@ -19,10 +19,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; 2015-<?php echo date("Y")?> &nbsp;Gautam Buddha University &nbsp; | &nbsp; 
-						<a id = "foot_about" data-toggle="modal" data-target="#about">Developers</a>
+                        <a id = "foot_about" href="http://www.gbu.ac.in">
+                            Gautam Buddha University
+                        </a>
+                         &nbsp; | &nbsp; 
+						<a id = "foot_about" data-toggle="modal" data-target="#about">Team</a>
+                         &nbsp; | &nbsp; 
+                        <a id = "foot_about" href="<?=site_url('common/open_source');?>">
+                            Open-Source Credits
+                        </a> 
                     </div>
-					
                 </div>
             </div>
         </div>
@@ -59,7 +65,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">About - Result Viewer</h4>
+        <h4 class="modal-title" id="myModalLabel">Team - Result Viewer</h4>
       </div>
       <div class="modal-body" style="text-align: center">
                     <!--<b>Mentored By:</b><br/>Sir Arun Solanki &nbsp; | &nbsp; Sir Amit K. Awasthi<br/><br/>-->
