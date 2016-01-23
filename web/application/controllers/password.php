@@ -4,7 +4,7 @@
 /*
 	Note : This file is "logically" copied from the following source :-
 
-	Repository : www.github.com/opengbu/gbuonline/users/application/controllers/Reset_password.php 
+	Repository : http://www.github.com/opengbu/gbuonline/blob/master/users/application/controllers/Reset_password.php 
 	Programmer : Varun Garg
 	Project : www.gbuonline.in
 */
