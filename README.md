@@ -1,7 +1,7 @@
 # Result-Viewer
 It is a tool to publish Gautam Buddha University results online.
 
-Web Client:  
+# Web Client:  
 
 1. Student  
   a. View results using roll-numbers  
@@ -26,6 +26,6 @@ Web Client:
   i. Login  
   j. Reset Password (Using E-Mail)  
 
-Android Client:  
+# Android Client:     
 1. Students can view their results using roll-numbers.  
 
