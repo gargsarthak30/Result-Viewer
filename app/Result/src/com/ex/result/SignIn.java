@@ -44,7 +44,7 @@ public class SignIn extends Activity implements OnClickListener {
 	private ProgressDialog pDialog;
 	JSONParser jParser = new JSONParser();
 	//private static String url_login = "@string/url_login";
-	private static String url_login = "http://www.resultviewer.esy.es/Rv/app/php/signin.php";
+	private static String url_login = "http://www.resultviewer.esy.es/app/php/signin.php";
 	private static final String TAG_SUCCESS = "success";
 
 	@Override
@@ -103,7 +103,7 @@ public class SignIn extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View arg0) {
 		input = RegistrationNumber.getText().toString();
-		regex = "[1-9]{2}\\/[A-Za-z]{3,4}\\/[0-9]{3}";
+		regex = "[0-9]{2}\\/[A-Za-z]{3,4}\\/[0-9]{3}";
 		Matcher matcher = Pattern.compile(regex).matcher(input);
 		cd = new ConnectionDetector(getApplicationContext());
 		isInternetPresent = cd.isConnectingToInternet();
